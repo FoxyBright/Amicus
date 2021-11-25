@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Amicus Drive</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <string name="title_search"></string>
+    <string name="title_add"></string>
+    <string name="title_my_travel"></string>
+    <string name="title_chat"></string>
+    <string name="title_profile"></string>
+
     <string name="Hellowing">Добро пожаловать в Amicus Drive</string>
 </resources>
