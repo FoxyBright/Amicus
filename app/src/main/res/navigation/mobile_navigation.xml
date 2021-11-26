@@ -7,29 +7,24 @@
 
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.example.amicus.ui.notifications.NotificationsFragment"
-        android:label="@string/title_chat"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.example.amicus.ui.chat.ChatFragment"
+        android:label="@string/title_chat" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.amicus.ui.home.HomeFragment"
-        android:label="@string/title_profile"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.amicus.ui.profile.ProfileFragment"
+        android:label="@string/title_profile" />
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.amicus.ui.home.HomeFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.amicus.ui.search.SearchFragment"
+        android:label="@string/title_search" />
 
     <fragment
         android:id="@+id/navigation_my_travel"
-        android:name="com.example.amicus.ui.dashboard.DashboardFragment"
-        android:label="@string/title_my_travel"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.example.amicus.ui.my_travel.My_travelFragment"
+        android:label="@string/title_my_travel" />
 
     <fragment
         android:id="@+id/navigation_add"
-        android:name="com.example.amicus.ui.notifications.NotificationsFragment"
-        android:label="@string/title_add"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.example.amicus.ui.add.AddFragment"
+        android:label="@string/title_add" />
 </navigation>
