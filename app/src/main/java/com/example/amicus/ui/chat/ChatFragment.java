@@ -14,19 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.amicus.R;
 import com.example.amicus.databinding.FragmentChatBinding;
-import com.example.amicus.databinding.FragmentDashboardBinding;
-import com.example.amicus.databinding.FragmentSearchBinding;
-import com.example.amicus.ui.dashboard.DashboardViewModel;
+
 
 public class ChatFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private ChatViewModel dashboardViewModel;
     private FragmentChatBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+                new ViewModelProvider(this).get(ChatViewModel.class);
 
         binding = FragmentChatBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

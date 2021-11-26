@@ -13,20 +13,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.amicus.R;
-import com.example.amicus.databinding.FragmentDashboardBinding;
+
 import com.example.amicus.databinding.FragmentMyTravelBinding;
-import com.example.amicus.databinding.FragmentSearchBinding;
-import com.example.amicus.ui.dashboard.DashboardViewModel;
+
 
 public class My_travelFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private My_travelViewModel dashboardViewModel;
     private FragmentMyTravelBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+                new ViewModelProvider(this).get(My_travelViewModel.class);
 
         binding = FragmentMyTravelBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
