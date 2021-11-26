@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_search"
-        android:icon="@drawable/search"
+        android:icon="@drawable/search_selector"
         android:title="@string/title_search" />
 
     <item
         android:id="@+id/navigation_add"
-        android:icon="@drawable/add"
+        android:icon="@drawable/add_selector"
         android:title="@string/title_add" />
 
     <item
         android:id="@+id/navigation_my_travel"
-        android:icon="@drawable/my_travel"
-
+        android:icon="@drawable/my_travel_selector"
         android:title="@string/title_my_travel" />
 
     <item
         android:id="@+id/navigation_chat"
-        android:icon="@drawable/chat"
+        android:icon="@drawable/chat_selector"
         android:title="@string/title_chat" />
 
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/profile_selector"
         android:title="@string/title_profile"/>
 
 </menu>
