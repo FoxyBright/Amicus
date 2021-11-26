@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/add.xml" value="0.2326388888888889" />
         <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/add_selector.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/chat_selector.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/common_selector.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/my_trave.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/my_travel_selector.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/profile_selector.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/student/AndroidStudioProjects/Amicus/app/src/main/res/drawable/search_selector.xml" value="0.2552083333333333" />
