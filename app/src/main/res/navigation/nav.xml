@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.amicus.ui.search.SearchFragment"
+        android:label="Bottom Navigation"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.amicus.ui.add.AddFragment"
+        android:label="Gallery "
+        tools:layout="@layout/fragment_add" />
+
+    <fragment
+        android:id="@+id/MyTravelFragment"
+        android:name="com.example.amicus.ui.my_travel.My_travelFragment"
+        android:label="Favourite"
+        tools:layout="@layout/fragment_my_travel" />
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.example.amicus.ui.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.amicus.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+</navigation>
