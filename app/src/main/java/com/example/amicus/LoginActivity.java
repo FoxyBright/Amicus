@@ -2,11 +2,13 @@ package com.example.amicus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.EditText;
 
-public class LoginActivity extends AppCompatActivity {
+import com.google.android.material.textfield.TextInputEditText;
 
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

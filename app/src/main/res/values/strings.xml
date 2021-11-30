@@ -1,20 +1,24 @@
 <resources>
-    <string name="app_name">Amicus Drive</string>
 
+<!--    System strings-->
+    <string name="app_name">Amicus Drive</string>
     <string name="title_search"> </string>
     <string name="title_add"> </string>
     <string name="title_my_travel"> </string>
     <string name="title_chat"> </string>
     <string name="title_profile"> </string>
+    <string name="Hello">Добро пожаловать в Amicus Drive</string>
 
-    <string name="Hellowing">Добро пожаловать в Amicus Drive</string>
-    <string name="title_activity_add">add</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+<!--    Strings to activity_login-->
+    <string name="Enter">ВХОД</string>
+    <string name="Number">Номер телефона</string>
+    <string name="Password">Пароль</string>
+    <string name="Forget_password">Забыли пароль?</string>
+    <string name="Enter_with">ВХОД С ПОМОЩЬЮ</string>
+    <string name="Not_account">Вы не имеете аккаунта?</string>
+    <string name="Registration">Регистрация</string>
+
+
+
 </resources>

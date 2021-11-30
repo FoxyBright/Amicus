@@ -20,7 +20,7 @@
         android:fontFamily="@font/inter_bold"
         android:layout_centerHorizontal="true"
         android:textColor="@color/dark_grey"
-        android:text="ВХОД"
+        android:text="@string/Enter"
         android:textSize="30dp"
         android:layout_marginTop="56dp"/>
 
@@ -39,21 +39,26 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
             android:textColor="@color/dark_grey"
-            android:text="Номер телефона" />
+            android:text="@string/Number" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/login_email_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Номер телефона"
-            android:background="@drawable/corner"
-            android:inputType="textEmailAddress" >
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inter_regular"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:background="@drawable/corner">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/number_textview"
             android:layout_width="match_parent"
             android:background="@drawable/corner"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
             android:inputType="number">
         </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -63,22 +68,26 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:textColor="@color/dark_grey"
+            android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="3dp"
-            android:text="Пароль" />
+            android:text="@string/Password" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/login_password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/corner"
-            android:hint="Введите пароль"
             android:inputType="textPassword"
+            android:fontFamily="@font/inter_regular"
+            android:paddingBottom="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:background="@drawable/corner"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
                 android:inputType="textPassword">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -94,7 +103,7 @@
             android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:text="Забыли пароль?"
+            android:text="@string/Forget_password"
             android:textSize="15sp" />
 
         <Button
@@ -104,7 +113,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/corner"
             android:fontFamily="@font/inter_bold"
-            android:text="Вход"
+            android:text="@string/Enter"
             android:textSize="22sp" />
 
 
@@ -133,7 +142,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/inter_bold"
                 android:textColor="@color/dark_grey"
-                android:text="ВХОД С ПОМОЩЬЮ" />
+                android:text="@string/Enter_with" />
 
             <View
                 android:layout_width="90dp"
@@ -161,23 +170,23 @@
 
         <ImageButton
             android:id="@+id/phoneSign"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="38dp" />
 
         <ImageButton
             android:id="@+id/fb_but"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"/>
 
         <ImageButton
             android:id="@+id/vk_but"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="42dp" />
@@ -195,8 +204,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
+            android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="5dp"
-            android:text="Вы не имеете аккаунта?"/>
+            android:text="@string/Not_account"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -205,9 +215,10 @@
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
             android:clickable="true"
+            android:fontFamily="@font/inter_regular"
             android:focusable="true"
             android:textColor="@color/yellow"
-            android:text="Регистрация"/>
+            android:text="@string/Registration"/>
     </LinearLayout>
 
 
