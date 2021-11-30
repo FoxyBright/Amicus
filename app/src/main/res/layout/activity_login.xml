@@ -17,12 +17,12 @@
         android:id="@+id/login_image"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:fontFamily="@font/inter_bold"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/dark_grey"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/inter_bold"
         android:text="@string/Enter"
-        android:textSize="30sp"
-        android:layout_marginTop="56dp"/>
+        android:textColor="@color/dark_grey"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:id="@+id/login_ll_box"
