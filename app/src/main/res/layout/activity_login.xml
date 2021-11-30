@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
             android:layout_marginBottom="10dp"
+            android:textColor="@color/dark_grey"
             android:fontFamily="@font/inter_regular"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:background="@drawable/corner">
@@ -58,6 +59,7 @@
             android:layout_width="match_parent"
             android:background="@drawable/corner"
             android:layout_height="wrap_content"
+            android:textColor="@color/dark_grey"
             android:fontFamily="@font/inter_regular"
             android:inputType="number">
         </com.google.android.material.textfield.TextInputEditText>
@@ -78,6 +80,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/corner"
             android:inputType="textPassword"
+            android:textColor="@color/dark_grey"
             android:fontFamily="@font/inter_regular"
             android:paddingBottom="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -87,6 +90,7 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/corner"
                 android:layout_height="wrap_content"
+                android:textColor="@color/dark_grey"
                 android:fontFamily="@font/inter_regular"
                 android:inputType="textPassword">
 
@@ -103,6 +107,7 @@
             android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="16dp"
             android:clickable="true"
+            android:textColor="@color/system_gray"
             android:text="@string/Forget_password"
             android:textSize="15sp" />
 
@@ -212,6 +217,7 @@
             android:layout_gravity="start"
             android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="5dp"
+            android:textColor="@color/system_gray"
             android:text="@string/Not_account"/>
 
         <TextView

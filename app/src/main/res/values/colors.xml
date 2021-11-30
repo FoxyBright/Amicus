@@ -13,5 +13,7 @@
     <color name="gray">#D5DDE0</color>
     <color name="light_gray">#F7F8F9</color>
     <color name="light_blue">#476DF5</color>
+    <color name="system_gray">#7A7A7A</color>
+
 
 </resources>
