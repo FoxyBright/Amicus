@@ -8,6 +8,7 @@
     <string name="title_chat"> </string>
     <string name="title_profile"> </string>
     <string name="Hello">Добро пожаловать в Amicus Drive</string>
+    <string name="Description">NONE</string>
 
 
 <!--    Strings to activity_login-->
@@ -15,10 +16,17 @@
     <string name="Number">Номер телефона</string>
     <string name="Password">Пароль</string>
     <string name="Forget_password">Забыли пароль?</string>
-    <string name="Enter_with">ВХОД С ПОМОЩЬЮ</string>
+    <string name="Enter_with">ВОЙТИ С ПОМОЩЬЮ</string>
     <string name="Not_account">Вы не имеете аккаунта?</string>
     <string name="Registration">Регистрация</string>
 
+
+<!--    Strings to activity_registration-->
+    <string name="REG">РЕГИСТРАЦИЯ</string>
+    <string name="Account">Уже имеете аккаунт?</string>
+    <string name="enter">Вход</string>
+    <string name="Continue">Далее</string>
+    <string name="Your_name">Ваше имя</string>
 
 
 </resources>
