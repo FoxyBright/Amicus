@@ -43,5 +43,12 @@
     <string name="Message">Код был отправлен на ваш телефон через SMS</string>
     <string name="ReSend">Отправить повторно</string>
 
+    <!--    Strings to my_auto_activity-->
+    <string name="CAR_SETTING">НАСТРОЙКИ АВТО</string>
+    <string name="Car_type">Тип машины</string>
+    <string name="Car_model">Модель машины</string>
+    <string name="year">Год выпуска</string>
+    <string name="Car_number">Номер машины</string>
+    <string name="SAVE_Baton">СОХРАНИТЬ</string>
 
 </resources>

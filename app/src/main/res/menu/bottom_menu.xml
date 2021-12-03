@@ -5,26 +5,26 @@
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/search_selector"
-        android:title="" />
+        android:title="@string/title_search"/>
 
     <item
         android:id="@+id/addFragment"
         android:icon="@drawable/add_selector"
-        android:title="" />
+        android:title="@string/title_add" />
 
     <item
         android:id="@+id/MyTravelFragment"
         android:icon="@drawable/my_travel_selector"
-        android:title="" />
+        android:title="@string/title_my_travel"/>
 
     <item
         android:id="@+id/navigation_chat"
         android:icon="@drawable/chat_selector"
-        android:title="" />
+        android:title="@string/title_chat" />
 
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/profile_selector"
-        android:title=""/>
+        android:title="@string/title_profile"/>
 
 </menu>

@@ -163,9 +163,7 @@
                 android:layout_marginRight="4dp"
                 android:background="@color/gray" />
 
-
         </LinearLayout>
-
 
     </LinearLayout>
 
@@ -177,7 +175,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp">
-
 
         <ImageButton
             android:id="@+id/vk_but"
@@ -243,7 +240,5 @@
             android:textColor="@color/yellow"
             tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
     </LinearLayout>
-
-
 
 </RelativeLayout>
