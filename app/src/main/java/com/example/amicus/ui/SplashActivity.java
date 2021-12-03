@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private ConstraintLayout layout;
+    private LinearLayout layout;
     private ImageView image;
     private TextView text;
 

@@ -7,7 +7,7 @@
     <string name="title_my_travel"> </string>
     <string name="title_chat"> </string>
     <string name="title_profile"> </string>
-    <string name="Hello">Добро пожаловать в Amicus Drive</string>
+    <string name="Hello">Добро пожаловать \n в Amicus Drive</string>
     <string name="Description">NONE</string>
 
 
@@ -23,6 +23,14 @@
     <string name="Registration">Регистрация</string>
 
 
+    <!--    Strings to profile_activity-->
+    <string name="auto">Настройки \n авто</string>
+    <string name="profile">Настройки \n профиля</string>
+    <string name="pay">Настройки \n оплаты</string>
+    <string name="app">Настройки \n приложения</string>
+    <string name="Exit">Выйти</string>
+
+
     <!--    Strings to activity_registration-->
     <string name="REG">РЕГИСТРАЦИЯ</string>
     <string name="Account">Уже имеете аккаунт?</string>
@@ -30,7 +38,7 @@
     <string name="Continue">Далее</string>
     <string name="Your_name">Ваше имя</string>
 
-    <!--    Strings to confirmation_registration-->
+    <!--    Strings to confirmation_activity-->
     <string name="CON">ПОДТВЕРЖДЕНИЕ ТЕЛЕФОНА</string>
     <string name="Message">Код был отправлен на ваш телефон через SMS</string>
     <string name="ReSend">Отправить повторно</string>

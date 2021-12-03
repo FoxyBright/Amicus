@@ -54,8 +54,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
-                android:text="Настройки
-                профиля"
+                android:text="@string/profile"
                 android:fontFamily="@font/inter_bold"
                 android:drawableTop="@drawable/profile_settings"
                 android:paddingTop="40dp"
@@ -65,8 +64,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
-                android:text="Настройки
-                авто"
+                android:text="@string/auto"
                 android:fontFamily="@font/inter_bold"
                 android:drawableTop="@drawable/automobile_settings"
                 android:paddingTop="40dp"
@@ -83,8 +81,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
-                android:text="Настройки
-                оплаты"
+                android:text="@string/pay"
                 android:fontFamily="@font/inter_bold"
                 android:drawableTop="@drawable/payment_settings"
                 android:paddingTop="40dp"
@@ -94,8 +91,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
-                android:text="Настройки
-                приложения"
+                android:text="@string/app"
                 android:fontFamily="@font/inter_bold"
                 android:drawableTop="@drawable/app_settings"
                 android:paddingTop="40dp"
@@ -109,7 +105,7 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:background="@drawable/red_corner_bt"
-        android:text="Выйти"
+        android:text="@string/Exit"
         android:textColor="@color/white"
         android:drawableStart="@drawable/exit"
         android:paddingRight="30dp"
