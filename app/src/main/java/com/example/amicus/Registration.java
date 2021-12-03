@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.amicus.ui.ConfirmationActivity;
+
 public class Registration extends AppCompatActivity {
 
     private TextView enter_link;
@@ -25,7 +27,7 @@ public class Registration extends AppCompatActivity {
         continue_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Registration.this, MainActivity.class);
+                Intent intent = new Intent(Registration.this, ConfirmationActivity.class);
                 startActivity(intent);
             }
         });
