@@ -20,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/inter_bold"
-        android:text="@string/Enter"
+        android:text="@string/ENT"
         android:textColor="@color/dark_grey"
         android:textSize="30sp" />
 
@@ -54,15 +54,29 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:background="@drawable/corner">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/number_textview"
-            android:layout_width="match_parent"
-            android:background="@drawable/corner"
-            android:layout_height="wrap_content"
-            android:textColor="@color/dark_grey"
-            android:fontFamily="@font/inter_regular"
-            android:inputType="number">
-        </com.google.android.material.textfield.TextInputEditText>
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/number_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/dark_grey"
+                android:inputType="phone"
+                android:typeface="monospace"
+                app:allowed_chars="1234567890"
+                app:mask="+7(###)###-##-##"
+                app:keep_hint="true"
+                />
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/number_textview"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:background="@drawable/corner"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/dark_grey"-->
+<!--            android:fontFamily="@font/inter_regular"-->
+<!--            android:inputType="number">-->
+<!--        </com.google.android.material.textfield.TextInputEditText>-->
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -88,11 +102,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:background="@drawable/corner"
                 android:layout_height="wrap_content"
-                android:textColor="@color/dark_grey"
+                android:background="@drawable/corner"
                 android:fontFamily="@font/inter_regular"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                android:textColor="@color/dark_grey"
+                tools:ignore="SpeakableTextPresentCheck">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,12 +119,13 @@
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:textColor="@color/system_gray"
+            android:fontFamily="@font/inter_regular"
             android:text="@string/Forget_password"
-            android:textSize="15sp" />
+            android:textColor="@color/system_gray"
+            android:textSize="15sp"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         <Button
             android:id="@+id/login_bt"
@@ -181,7 +197,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="38dp"
             android:background="@drawable/vkontakte"
-            android:contentDescription="@string/Description" />
+            android:contentDescription="@string/Description"
+            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <ImageButton
             android:id="@+id/fb_but"
@@ -190,17 +207,19 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/facebook"
-            android:contentDescription="@string/Description" />
+            android:contentDescription="@string/Description"
+            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/google_but"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="42dp"
             android:background="@drawable/google"
             android:contentDescription="@string/Description"
-            android:layout_marginEnd="42dp" />
+            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
     </RelativeLayout>
 
     <LinearLayout
@@ -215,10 +234,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:fontFamily="@font/inter_regular"
             android:layout_marginBottom="5dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/Not_account"
             android:textColor="@color/system_gray"
-            android:text="@string/Not_account"/>
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/registration_link"
@@ -227,10 +247,11 @@
             android:layout_marginStart="5dp"
             android:layout_marginBottom="5dp"
             android:clickable="true"
-            android:fontFamily="@font/inter_regular"
             android:focusable="true"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/Registration"
             android:textColor="@color/yellow"
-            android:text="@string/Registration"/>
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
     </LinearLayout>
 
 

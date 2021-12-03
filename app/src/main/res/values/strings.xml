@@ -12,9 +12,11 @@
 
 
 <!--    Strings to activity_login-->
-    <string name="Enter">ВХОД</string>
+    <string name="ENT">ВХОД</string>
+    <string name="Enter">Войти</string>
     <string name="Number">Номер телефона</string>
     <string name="Password">Пароль</string>
+    <string name="RePassword">Повтор пароля</string>
     <string name="Forget_password">Забыли пароль?</string>
     <string name="Enter_with">ВОЙТИ С ПОМОЩЬЮ</string>
     <string name="Not_account">Вы не имеете аккаунта?</string>
