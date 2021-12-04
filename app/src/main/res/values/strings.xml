@@ -51,4 +51,7 @@
     <string name="Car_number">Номер машины</string>
     <string name="SAVE_Baton">СОХРАНИТЬ</string>
 
+    <!--    Strings to app_settings_activity-->
+    <string name="APP_SETTING">НАСТРОЙКИ ПРИЛОЖЕНИЯ</string>
+
 </resources>

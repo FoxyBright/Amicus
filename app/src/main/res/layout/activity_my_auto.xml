@@ -12,7 +12,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MyAutoActivity">
 
-
     <TextView
         android:id="@+id/login_image"
         android:layout_width="wrap_content"

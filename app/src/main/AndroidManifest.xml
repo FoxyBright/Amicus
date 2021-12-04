@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Amicus" >
         <activity
+            android:name=".ui.AppSettingsActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
