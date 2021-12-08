@@ -20,11 +20,15 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.amicus.AutoFragment;
+import com.example.amicus.FragmentAppSettings;
+import com.example.amicus.FragmentPaySetting;
+import com.example.amicus.FragmentProfileSetting;
+import com.example.amicus.LoginActivity;
 import com.example.amicus.MainActivity;
 import com.example.amicus.R;
 
 import com.example.amicus.databinding.FragmentProfileBinding;
-
+import com.example.amicus.ui.SplashActivity;
 
 
 public class ProfileFragment extends Fragment {
@@ -56,15 +60,61 @@ public class ProfileFragment extends Fragment {
         auto_set_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment_replace_layout.setVisibility(View.VISIBLE);
-                profile_layout.setVisibility(View.INVISIBLE);
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fr_replace, new AutoFragment());
                 ft.commit();
+                fragment_replace_layout.setVisibility(View.VISIBLE);
+                profile_layout.setVisibility(View.INVISIBLE);
             }
         });
 
+        Button profile_set_bt = root.findViewById(R.id.profile_set_bt);
+        profile_set_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fr_replace, new FragmentProfileSetting());
+                ft.commit();
+                fragment_replace_layout.setVisibility(View.VISIBLE);
+                profile_layout.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        Button pay_set_bt = root.findViewById(R.id.pay_set_bt);
+        pay_set_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fr_replace, new FragmentPaySetting());
+                ft.commit();
+                fragment_replace_layout.setVisibility(View.VISIBLE);
+                profile_layout.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        Button app_set_bt = root.findViewById(R.id.app_set_bt);
+        app_set_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fr_replace, new FragmentAppSettings());
+                ft.commit();
+                fragment_replace_layout.setVisibility(View.VISIBLE);
+                profile_layout.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        Button exit_bt = root.findViewById(R.id.exit_bt);
+        exit_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
 
         return root;
 

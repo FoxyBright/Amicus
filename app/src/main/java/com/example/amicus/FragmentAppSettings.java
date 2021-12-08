@@ -10,12 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class AutoFragment extends Fragment {
+public class FragmentAppSettings extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_auto, container, false);
+        View view = inflater.inflate(R.layout.fragment_app_settings, container, false);
+
         Button back_bt = view.findViewById(R.id.back_bt);
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +40,5 @@ public class AutoFragment extends Fragment {
         });
 
         return view;
-
-
-
-
     }
 }

@@ -1,27 +1,15 @@
 package com.example.amicus.ui;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import com.example.amicus.LoginActivity;
 import com.example.amicus.MainActivity;
-import com.example.amicus.MyAutoActivity;
 import com.example.amicus.R;
-import com.example.amicus.databinding.ActivityMainBinding;
-import com.example.amicus.ui.profile.ProfileFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -17,7 +17,7 @@
         tools:context=".ui.profile.ProfileFragment">
 
         <fragment
-            android:name="com.example.amicus.AutoFragment"
+            android:name="com.example.amicus.ClearFragment"
             android:id="@+id/fr_replace"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -123,6 +123,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/exit_bt"
             android:layout_marginTop="50dp"
             android:layout_width="200dp"
             android:layout_height="40dp"

@@ -12,7 +12,7 @@
 
 
     <!--    Strings to activity_login-->
-    <string name="ENT">ВХОД</string>
+    <string name="ENT">АВОТРИЗАЦИЯ</string>
     <string name="Enter">Войти</string>
     <string name="Number">Номер телефона</string>
     <string name="Password">Пароль</string>

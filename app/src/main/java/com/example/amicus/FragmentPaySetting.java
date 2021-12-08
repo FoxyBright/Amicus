@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fragment_profile_main extends Fragment {
+public class FragmentPaySetting extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_main, container, false);
+
+        return inflater.inflate(R.layout.fragment_pay_setting, container, false);
     }
 }
