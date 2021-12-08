@@ -53,5 +53,12 @@
 
     <!--    Strings to app_settings_activity-->
     <string name="APP_SETTING">НАСТРОЙКИ ПРИЛОЖЕНИЯ</string>
+    <string name="version">AmicusDrive v1.0</string>
+    <string name="language">Язык</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="questions">Вопросы об Amicus Drive</string>
+    <string name="clear_cache">Очистить кэш</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

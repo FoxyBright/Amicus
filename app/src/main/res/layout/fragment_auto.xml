@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_auto_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:id="@+id/login_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/CAR_SETTING"
+        android:textColor="@color/dark_grey"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/automobile"
+        android:layout_gravity="center"
+        android:contentDescription="@string/Description"/>
+
+    <LinearLayout
+        android:id="@+id/login_ll_box"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_for_automobile"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/Car_type"
+            android:textSize="14sp"
+            android:textColor="@color/system_gray"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:fontFamily="@font/inter_regular"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/Car_model"
+            android:textSize="14sp"
+            android:textColor="@color/system_gray"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/year"
+            android:textSize="14sp"
+            android:textColor="@color/system_gray"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="14sp"
+            android:textColor="@color/system_gray"
+            android:text="@string/Car_number"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:fontFamily="@font/inter_regular"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/dark_grey"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_bt"
+        android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="@string/SAVE_Baton"
+        android:background="@drawable/blue_corner_bt"
+        android:textColor="@color/white"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

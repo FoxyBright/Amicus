@@ -20,6 +20,7 @@ import com.example.amicus.MainActivity;
 import com.example.amicus.MyAutoActivity;
 import com.example.amicus.R;
 import com.example.amicus.databinding.ActivityMainBinding;
+import com.example.amicus.ui.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SplashActivity extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-                Intent intent = new Intent(SplashActivity.this, MyAutoActivity.class);
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }, SPLASH_DURATION);
