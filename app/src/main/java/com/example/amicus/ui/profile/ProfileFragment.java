@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,14 +24,15 @@ import com.example.amicus.MainActivity;
 import com.example.amicus.R;
 
 import com.example.amicus.databinding.FragmentProfileBinding;
-import com.example.amicus.databinding.FragmentSearchBinding;
-import com.example.amicus.ui.search.SearchViewModel;
+
 
 
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel dashboardViewModel;
     private FragmentProfileBinding binding;
+    private LinearLayout fragment_replace_layout;
+    private LinearLayout profile_layout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +48,26 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+
+        LinearLayout fragment_replace_layout = root.findViewById(R.id.fragment_replace_layout);
+        LinearLayout profile_layout = root.findViewById(R.id.profile_layout);
+
+        Button auto_set_bt = root.findViewById(R.id.auto_set_bt);
+        auto_set_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment_replace_layout.setVisibility(View.VISIBLE);
+                profile_layout.setVisibility(View.INVISIBLE);
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fr_replace, new AutoFragment());
+                ft.commit();
+            }
+        });
+
+
         return root;
+
     }
 
     @Override
