@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentProfileSetting">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_bt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/shadow_back_bt"
+        android:textColor="@color/white"
+        android:layout_gravity="start"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +27,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="35dp"
             android:fontFamily="@font/inter_bold"
-            android:text="НАСТРОЙКИ ПРОФИЛЯ"
+            android:text="@string/PROF_SETTING"
             android:textColor="@color/dark_grey"
             android:textSize="20sp" />
 
@@ -26,197 +35,203 @@
             android:id="@+id/profile_image"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:layout_marginLeft="22dp"
             android:layout_gravity="center"
-            android:src="@drawable/empty_profile_photo"/>
+            android:layout_marginStart="22dp"
+            android:contentDescription="@string/Description"
+            android:src="@drawable/empty_profile_photo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="Игорь"
-            android:textColor="@color/dark_grey"
             android:fontFamily="@font/inter_bold"
-            android:layout_gravity="center"/>
+            android:text="@string/profile_name"
+            android:textColor="@color/dark_grey" />
 
-
-    <LinearLayout
-        android:id="@+id/login_ll_box"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rectangle_for_automobile"
-        android:orientation="vertical"
-        android:padding="25dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/login_ll_box"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rectangle_for_automobile"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/phone"
-                android:layout_gravity="center_vertical"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_email_et"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/dark_grey"
-                android:fontFamily="@font/inter_regular"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:background="@drawable/white_corner">
+                android:orientation="horizontal">
 
-                <br.com.sapereaude.maskedEditText.MaskedEditText
-                    android:id="@+id/number_textview"
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/Description"
+                    android:src="@drawable/phone" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_email_et"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/white_corner"
                     android:fontFamily="@font/inter_regular"
-                    android:textColor="@color/dark_grey"
-                    android:inputType="phone"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/dark_grey">
+
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
+                        android:id="@+id/number_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/white_corner"
+                        android:fontFamily="@font/inter_regular"
+                        android:inputType="phone"
+                        android:textColor="@color/dark_grey"
+                        android:typeface="monospace"
+                        app:allowed_chars="1234567890"
+                        app:keep_hint="true"
+                        app:mask="+7(###)###-##-##" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:typeface="monospace"
-                    app:allowed_chars="1234567890"
-                    app:mask="+7(###)###-##-##"
-                    app:keep_hint="true"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:contentDescription="@string/Description"
+                    android:src="@drawable/e_mail" />
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mail_edit"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:maxLength="20"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/light_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/e_mail"
-                android:layout_gravity="center_vertical"/>
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="@font/inter_regular"
-                android:maxLength="20"
-                android:textColor="@color/dark_grey"
-                android:textSize="16sp" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/Description"
+                    android:src="@drawable/facebook_profile_link" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/facebook_edit"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:maxLength="20"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/light_gray" />
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rectangle_for_automobile"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+            <LinearLayout
+                android:id="@+id/notification_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/facebook_profile_link"/>
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/Notification"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/Notification_description"
+                    android:textColor="@color/system_gray"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <ToggleButton
+                android:id="@+id/toggleButton1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="@font/inter_regular"
-                android:maxLength="20"
-                android:textColor="@color/dark_grey"
-                android:textSize="16sp" />
-
+                android:layout_marginStart="70dp"
+                android:background="@android:color/transparent"
+                android:button="@drawable/ic_name1_toggle_bg"
+                android:checked="true"
+                android:textOff=""
+                android:textOn="" />
         </LinearLayout>
-
-    </LinearLayout>
-<LinearLayout
-    android:layout_width="350dp"
-    android:layout_marginTop="20dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rectangle_for_automobile"
-    android:orientation="horizontal"
-    android:layout_gravity="center"
-    android:padding="10dp">
-
-    <LinearLayout
-        android:id="@+id/notification_layout"
-        android:layout_width="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Оповещения"
-            android:fontFamily="@font/inter_bold"
-            android:textColor="@color/dark_grey"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:fontFamily="@font/inter_regular"
-            android:textColor="@color/system_gray"
-            android:text="Для получения сообщений"/>
-
-    </LinearLayout>
-
-    <ToggleButton
-        android:id="@+id/toggleButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:button="@drawable/ic_name1_toggle_bg"
-        android:textOff=""
-        android:layout_marginStart="70dp"
-        android:textOn=""/>
-</LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/exit_bt"
-            android:layout_marginTop="30dp"
             android:layout_width="250dp"
             android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:background="@drawable/red_corner_bt"
-            android:text="Удалить аккаунт"
-            android:textColor="@color/white"
-            android:paddingRight="30dp"
             android:paddingHorizontal="20dp"
-            android:layout_gravity="center"/>
+            android:text="@string/Delete"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>

@@ -1,19 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.chat.ChatFragment">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Это форма чата"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:visibility="invisible"
+        android:id="@+id/replace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.profile.ProfileFragment">
+
+        <fragment
+            android:name="com.example.amicus.ClearFragment"
+            android:id="@+id/fr_replace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </fragment>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_chats"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/login_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="ЧАТЫ"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/chat1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:background="@drawable/corner"
+                    android:fontFamily="@font/inter_bold"
+                    android:paddingEnd="5dp"
+                    android:text="@string/profile_name"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="14sp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/igor_photo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Сегодня"
+                    android:textColor="@color/system_gray" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="60dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/chat_Last_message_member"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/emma_photo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="55dp"
+                    android:text="Огромное спасибо! Подтверждаю..."/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/chat2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:background="@drawable/corner"
+                    android:fontFamily="@font/inter_bold"
+                    android:paddingEnd="5dp"
+                    android:text="Групповой"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="14sp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/P"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/group_image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Вчера 17:50"
+                    android:textColor="@color/system_gray" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="60dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/group_chat_Last_message_member"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/emma_photo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="55dp"
+                    android:text="Огромное спасибо!..."/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/light_gray" />
+
+        <RelativeLayout
+            android:id="@+id/chat3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:background="@drawable/corner"
+                    android:fontFamily="@font/inter_bold"
+                    android:paddingEnd="5dp"
+                    android:text="Даниил"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="14sp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/group_image1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/sinitsa_photo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Вторник 10:13"
+                    android:textColor="@color/system_gray" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="60dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="55dp"
+                    android:text="Сообщений пока нет" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/light_gray" />
+
+    </LinearLayout>
+
+</RelativeLayout>

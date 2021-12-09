@@ -12,7 +12,7 @@
 
 
     <!--    Strings to activity_login-->
-    <string name="ENT">АВОТРИЗАЦИЯ</string>
+    <string name="ENT">АВТОРИЗАЦИЯ</string>
     <string name="Enter">Войти</string>
     <string name="Number">Номер телефона</string>
     <string name="Password">Пароль</string>
@@ -58,6 +58,20 @@
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="questions">Вопросы об Amicus Drive</string>
     <string name="clear_cache">Очистить кэш</string>
+
+    <!--    Strings to profile_settings_activity-->
+    <string name="PROF_SETTING">НАСТРОЙКИ ПРОФИЛЯ</string>
+    <string name="profile_name">Игорь</string>
+    <string name="Notification">Оповещения</string>
+    <string name="Notification_description">Для получения сообщений</string>
+    <string name="Delete">Удалить аккаунт</string>
+
+    <!--    Strings to profile_settings_activity-->
+    <string name="PAY_SETTING">НАСТРОЙКИ ОПЛАТЫ</string>
+    <string name="Pay_settings_card_owner">ИГОРЬ ИВАНОВ</string>
+    <string name="Pay_settings_card_date">01/23</string>
+    <string name="Pay_settings_card_number">4953 5462...</string>
+    <string name="Pay_settings_add_new_card">Добавить новую карту</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

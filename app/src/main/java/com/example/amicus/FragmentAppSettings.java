@@ -28,17 +28,6 @@ public class FragmentAppSettings extends Fragment {
             }
         });
 
-        Button save_bt = view.findViewById(R.id.save_bt);
-        save_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((LinearLayout)getActivity().findViewById(R.id.fragment_replace_layout))
-                        .setVisibility(View.INVISIBLE);
-                ((LinearLayout)getActivity().findViewById(R.id.profile_layout))
-                        .setVisibility(View.VISIBLE);
-            }
-        });
-
         return view;
     }
 }

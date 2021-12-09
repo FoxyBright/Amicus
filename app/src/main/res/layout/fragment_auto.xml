@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_auto_activity_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".AutoFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/back_bt"
@@ -64,6 +65,7 @@
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
                 android:maxLength="20"
+                android:text="Седан"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 
@@ -94,6 +96,7 @@
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
                 android:maxLength="20"
+                android:text="Renault Logan"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 
@@ -123,6 +126,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
+                android:text="1998 г."
                 android:maxLength="10"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
@@ -153,6 +157,7 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/inter_regular"
                 android:maxLength="10"
+                android:text="Я142МА.40"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 
