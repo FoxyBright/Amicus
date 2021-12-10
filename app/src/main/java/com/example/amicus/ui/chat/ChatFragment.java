@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.amicus.AutoFragment;
 import com.example.amicus.FragmentOneChat;
+import com.example.amicus.Fragment_TwoChat;
 import com.example.amicus.R;
 import com.example.amicus.databinding.FragmentChatBinding;
 import com.example.amicus.ui.profile.ProfileFragment;
@@ -79,7 +80,7 @@ public class ChatFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fr_replace, new ProfileFragment());
+                ft.replace(R.id.fr_replace, new Fragment_TwoChat());
                 ft.commit();
                 replace.setVisibility(View.VISIBLE);
                 layout_chats.setVisibility(View.INVISIBLE);

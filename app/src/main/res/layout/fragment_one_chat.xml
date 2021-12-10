@@ -5,6 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".FragmentOneChat">
 
+    <LinearLayout
+        android:visibility="invisible"
+        android:id="@+id/replace_one_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.profile.ProfileFragment">
+
+        <fragment
+            android:name="com.example.amicus.ClearFragment"
+            android:id="@+id/fr_replace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </fragment>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_one_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -37,7 +57,7 @@
             android:src="@drawable/igor_photo" />
 
         <TextView
-            android:id="@+id/login_image"
+            android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -84,5 +104,7 @@
             android:textSize="15sp" />
 
     </LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>
