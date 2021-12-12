@@ -1,8 +1,10 @@
 package com.example.amicus;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +23,10 @@ public class CardFragment extends Fragment {
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((LinearLayout)getActivity().findViewById(R.id.replace_pay_set))
-                        .setVisibility(View.INVISIBLE);
-                ((LinearLayout)getActivity().findViewById(R.id.pay_set_layout))
-                        .setVisibility(View.VISIBLE);
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fr_replace, new FragmentPaySetting());
+                ft.commit();
             }
         });
 

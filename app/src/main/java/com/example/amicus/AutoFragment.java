@@ -1,8 +1,11 @@
 package com.example.amicus;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +23,10 @@ public class AutoFragment extends Fragment {
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((LinearLayout)getActivity().findViewById(R.id.fragment_replace_layout))
-                        .setVisibility(View.INVISIBLE);
-                ((LinearLayout)getActivity().findViewById(R.id.profile_layout))
-                        .setVisibility(View.VISIBLE);
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment_container, new ProfileFragment());
+                ft.commit();
             }
         });
 
@@ -31,10 +34,7 @@ public class AutoFragment extends Fragment {
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((LinearLayout)getActivity().findViewById(R.id.fragment_replace_layout))
-                        .setVisibility(View.INVISIBLE);
-                ((LinearLayout)getActivity().findViewById(R.id.profile_layout))
-                        .setVisibility(View.VISIBLE);
+
             }
         });
 

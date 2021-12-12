@@ -1,10 +1,11 @@
 package com.example.amicus;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,14 +27,14 @@ public class FragmentPaySetting extends Fragment {
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((LinearLayout)getActivity().findViewById(R.id.fragment_replace_layout))
-                        .setVisibility(View.INVISIBLE);
-                ((LinearLayout)getActivity().findViewById(R.id.profile_layout))
-                        .setVisibility(View.VISIBLE);
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment_container, new ProfileFragment());
+                ft.commit();
+
             }
         });
 
-        LinearLayout replace_pay_set = view.findViewById(R.id.replace_pay_set);
         LinearLayout pay_set_layout = view.findViewById(R.id.pay_set_layout);
         LinearLayout card = view.findViewById(R.id.card);
         LinearLayout add_card = view.findViewById(R.id.add_card);
@@ -45,8 +46,7 @@ public class FragmentPaySetting extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fr_replace, new CardFragment());
                 ft.commit();
-                replace_pay_set.setVisibility(View.VISIBLE);
-                pay_set_layout.setVisibility(View.INVISIBLE);
+
             }
         });
 
@@ -57,8 +57,6 @@ public class FragmentPaySetting extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fr_replace, new CardViewFragment());
                 ft.commit();
-                replace_pay_set.setVisibility(View.VISIBLE);
-                pay_set_layout.setVisibility(View.INVISIBLE);
             }
         });
 

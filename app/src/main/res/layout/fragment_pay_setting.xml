@@ -3,22 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/card_fr"
     tools:context=".FragmentPaySetting">
 
-    <LinearLayout
-        android:visibility="invisible"
-        android:id="@+id/replace_pay_set"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.profile.ProfileFragment">
-
-        <fragment
-            android:id="@+id/fr_replace"
-            android:name="com.example.amicus.ClearFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"> </fragment>
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/pay_set_layout"

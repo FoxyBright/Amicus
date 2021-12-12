@@ -5,22 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".FragmentOneChat">
 
-    <LinearLayout
-        android:visibility="invisible"
-        android:id="@+id/replace_one_chat"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.profile.ProfileFragment">
-
-        <fragment
-            android:name="com.example.amicus.ClearFragment"
-            android:id="@+id/fr_replace"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </fragment>
-    </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/layout_one_chat"
         android:layout_width="match_parent"

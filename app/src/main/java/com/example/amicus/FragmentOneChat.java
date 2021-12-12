@@ -1,8 +1,8 @@
 package com.example.amicus;
 
+import android.app.Fragment;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +21,7 @@ public class FragmentOneChat extends Fragment {
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((LinearLayout)getActivity().findViewById(R.id.replace))
-                        .setVisibility(View.INVISIBLE);
-                ((LinearLayout)getActivity().findViewById(R.id.layout_chats))
-                        .setVisibility(View.VISIBLE);
+
             }
         });
 
