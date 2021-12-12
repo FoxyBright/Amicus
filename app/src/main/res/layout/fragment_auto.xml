@@ -126,8 +126,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="1998 г."
                 android:maxLength="10"
+                android:text="1998 г."
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 

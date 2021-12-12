@@ -76,5 +76,7 @@
     <!--    Strings to profile_settings_activity-->
     <string name="MessageOne">Здравствуйте, а можно \n сойти на площади победы?</string>
     <string name="MessageTwo">Здравствуйте, да</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
