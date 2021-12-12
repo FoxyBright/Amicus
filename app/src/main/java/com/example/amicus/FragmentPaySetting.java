@@ -35,17 +35,17 @@ public class FragmentPaySetting extends Fragment {
             }
         });
 
-        LinearLayout pay_set_layout = view.findViewById(R.id.pay_set_layout);
+
         LinearLayout card = view.findViewById(R.id.card);
         LinearLayout add_card = view.findViewById(R.id.add_card);
 
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fr_replace, new CardFragment());
-                ft.commit();
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4= fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, new CardViewFragment());
+                ft4.commit();
 
             }
         });
@@ -53,10 +53,10 @@ public class FragmentPaySetting extends Fragment {
         add_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fr_replace, new CardViewFragment());
-                ft.commit();
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4= fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, new CardFragment());
+                ft4.commit();
             }
         });
 
