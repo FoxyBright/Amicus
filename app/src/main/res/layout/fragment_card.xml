@@ -253,7 +253,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/blue_corner_bt"
             android:text="@string/SAVE_Baton"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

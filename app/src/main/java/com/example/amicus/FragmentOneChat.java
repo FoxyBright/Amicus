@@ -1,6 +1,8 @@
 package com.example.amicus;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 
@@ -21,7 +23,10 @@ public class FragmentOneChat extends Fragment {
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4= fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, new ChatFragment());
+                ft4.commit();
             }
         });
 

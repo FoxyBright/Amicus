@@ -71,6 +71,17 @@ public class CardViewFragment extends Fragment {
             }
         });
 
+        Button save_bt = view.findViewById(R.id.save_bt);
+        save_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4= fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, new FragmentPaySetting());
+                ft4.commit();
+            }
+        });
+
         return view;
     }
 }
