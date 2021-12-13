@@ -9,18 +9,6 @@
         <entry key="..\:/Amicus/app/src/main/res/drawable/search_selector.xml" value="0.3828125" />
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_main.xml" value="0.21784420289855072" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment__two_chat.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_add.xml" value="0.17831813576494426" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_app_settings.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_card.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_card_view.xml" value="0.17831813576494426" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_chat.xml" value="0.17831813576494426" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_my_travel.xml" value="0.17831813576494426" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_one_chat.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_pay_setting.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_profile.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_profile_setting.xml" value="0.18568840579710144" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_search.xml" value="0.17831813576494426" />
         <entry key="..\:/Amicus/app/src/main/res/layout/splashscreen.xml" value="0.17831813576494426" />
         <entry key="..\:/Amicus/app/src/main/res/menu/bottom_menu.xml" value="0.36102564102564105" />
         <entry key="..\:/Amicus/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
@@ -30,6 +18,7 @@
         <entry key="..\:/Labs/Amicus/app/src/main/res/drawable-v24/blue_corner_bt.xml" value="0.2703125" />
         <entry key="..\:/Labs/Amicus/app/src/main/res/drawable-v24/rectangle_for_automobile.xml" value="0.2703125" />
         <entry key="..\:/Labs/Amicus/app/src/main/res/drawable-xxhdpi/card_back.xml" value="0.2703125" />
+        <entry key="..\:/Labs/Amicus/app/src/main/res/drawable/back_arrow.xml" value="0.2703125" />
         <entry key="..\:/Labs/Amicus/app/src/main/res/drawable/back_for_messege_edit.xml" value="0.2703125" />
         <entry key="..\:/Labs/Amicus/app/src/main/res/drawable/chat_my_message_cloud.xml" value="0.2703125" />
         <entry key="..\:/Labs/Amicus/app/src/main/res/drawable/corner.xml" value="0.2703125" />
