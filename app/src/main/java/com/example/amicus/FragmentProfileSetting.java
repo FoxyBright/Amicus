@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FragmentProfileSetting extends Fragment {
     @Override
@@ -37,6 +38,15 @@ public class FragmentProfileSetting extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fragment_container, new ProfileFragment());
                 ft.commit();
+            }
+        });
+
+        Button delete_bt = view.findViewById(R.id.delete_bt);
+
+        delete_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Сервис временно не доступен, пожалуйста попробуйте позже", Toast.LENGTH_LONG).show();
             }
         });
 

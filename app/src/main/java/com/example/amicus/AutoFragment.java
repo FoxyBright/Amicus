@@ -34,7 +34,10 @@ public class AutoFragment extends Fragment {
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment_container, new ProfileFragment());
+                ft.commit();
             }
         });
 

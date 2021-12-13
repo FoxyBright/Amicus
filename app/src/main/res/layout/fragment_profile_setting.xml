@@ -33,10 +33,11 @@
 
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginStart="22dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="14dp"
             android:contentDescription="@string/Description"
             android:src="@drawable/empty_profile_photo" />
 
@@ -222,7 +223,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/exit_bt"
+            android:id="@+id/delete_bt"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
