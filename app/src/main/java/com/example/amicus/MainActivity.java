@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragment_container, new SearchFragment());
+        ft.commit();
+
         setContentView(R.layout.activity_main);
 
        bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -32,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.searchFragment:
-
                         FragmentManager fm = getFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
                         ft.replace(R.id.fragment_container, new SearchFragment());

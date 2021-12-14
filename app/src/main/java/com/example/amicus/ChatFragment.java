@@ -35,7 +35,10 @@ public class ChatFragment extends Fragment {
         chat2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentManager fm1 = getFragmentManager();
+                FragmentTransaction ft1 = fm1.beginTransaction();
+                ft1.replace(R.id.fragment_container, new GroupChatFragment());
+                ft1.commit();
             }
         });
 

@@ -3,6 +3,7 @@ package com.example.amicus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        registration_link.setPaintFlags(registration_link.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
