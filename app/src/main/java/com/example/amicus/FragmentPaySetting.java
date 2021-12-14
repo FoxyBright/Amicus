@@ -46,7 +46,6 @@ public class FragmentPaySetting extends Fragment {
                 FragmentTransaction ft4= fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, new CardViewFragment());
                 ft4.commit();
-
             }
         });
 

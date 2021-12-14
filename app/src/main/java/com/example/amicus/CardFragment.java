@@ -41,6 +41,19 @@ public class CardFragment extends Fragment {
             }
         });
 
+        LinearLayout card_scan = view.findViewById(R.id.card_scan);
+        card_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
         return view;
     }
+
+
+
 }

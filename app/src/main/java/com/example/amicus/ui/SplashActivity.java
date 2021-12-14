@@ -26,6 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         layout = findViewById(R.id.splash);
     }
 
+
     private void initFunctionality()
         {
             layout.postDelayed(new Runnable()
