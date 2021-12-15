@@ -21,39 +21,39 @@
             android:id="@+id/back_bt"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="15dp"
             android:background="@drawable/shadow_back_bt"
             android:textColor="@color/white"
             android:layout_gravity="start"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/igor_photo" />
-
-        <TextView
-            android:id="@+id/profile_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="Игорь"
-            android:textColor="@color/dark_grey"
-            android:textSize="20sp" />
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/igor_photo" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Игорь"
+                android:textColor="@color/dark_grey"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

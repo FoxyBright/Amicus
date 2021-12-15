@@ -45,9 +45,9 @@
 
     <!--    Strings to my_auto_activity-->
     <string name="CAR_SETTING">НАСТРОЙКИ АВТО</string>
-    <string name="Car_type">Тип машины</string>
+    <string name="car_color">Цвет</string>
     <string name="Car_model">Модель машины</string>
-    <string name="year">Год выпуска</string>
+    <string name="Car_places">Количество мест</string>
     <string name="Car_number">Номер машины</string>
     <string name="SAVE_Baton">СОХРАНИТЬ</string>
 
@@ -70,7 +70,7 @@
     <string name="PAY_SETTING">НАСТРОЙКИ ОПЛАТЫ</string>
     <string name="Pay_settings_card_owner">ИГОРЬ ИВАНОВ</string>
     <string name="Pay_settings_card_date">01/23</string>
-    <string name="Pay_settings_card_number">4950 4525...</string>
+    <string name="Pay_settings_card_number">4950 45XX XXXX XXXX</string>
     <string name="Pay_settings_add_new_card">Добавить новую карту</string>
 
     <!--    Strings to chat-->

@@ -11,7 +11,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="start"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/shadow_back_bt"
         android:textColor="@color/white" />
 
@@ -184,9 +184,9 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="50dp"
             android:background="@drawable/rectangle_for_automobile"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
             android:padding="15dp">
 
             <LinearLayout
@@ -199,17 +199,17 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/card_scan"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/card_scan" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Сканировать карту"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:text="Сканировать карту"
                     android:textColor="@color/dark_grey"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -231,16 +231,16 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/face_id"/>
+                    android:src="@drawable/face_id" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Добавить Face ID"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:text="Добавить Face ID"
                     android:textColor="@color/dark_grey"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -254,7 +254,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/blue_corner_bt"
             android:text="@string/SAVE_Baton"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

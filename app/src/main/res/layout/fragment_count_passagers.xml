@@ -10,7 +10,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="start"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/shadow_back_bt"
         android:textColor="@color/white" />
 
@@ -44,40 +44,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingHorizontal="10dp">
+            android:orientation="horizontal">
 
-            <ImageButton
+            <RelativeLayout
                 android:id="@+id/minus"
-                android:layout_width="20dp"
-                android:layout_centerVertical="true"
-                android:layout_height="20dp"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
                 android:layout_alignParentStart="true"
-                android:background="@color/white"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/minus" />
+                android:layout_centerVertical="true">
 
+                <ImageButton
+                    android:clickable="false"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="15dp"
+                    android:background="@color/white"
+                    android:src="@drawable/minus" />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="1"
-                android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/inter_regular"
-                android:textColor="@color/dark_grey"/>
-
-            <ImageButton
-                android:id="@+id/plus"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@color/white"
-                android:layout_marginEnd="15dp"
-                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/plus" />
+                android:fontFamily="@font/inter_regular"
+                android:text="1"
+                android:textColor="@color/dark_grey"
+                android:textSize="24sp" />
 
+            <RelativeLayout
+                android:id="@+id/plus"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <ImageButton
+                    android:clickable="false"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/white"
+                    android:src="@drawable/plus" />
+            </RelativeLayout>
 
         </RelativeLayout>
 

@@ -134,7 +134,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="start"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="15dp"
             android:background="@drawable/shadow_back_bt"
             android:textColor="@color/white" />
 

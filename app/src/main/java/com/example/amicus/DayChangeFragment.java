@@ -26,13 +26,19 @@ public class DayChangeFragment extends Fragment {
         Button Thu_bt = view.findViewById(R.id.Thu_bt);
         Button Fri_bt = view.findViewById(R.id.Fri_bt);
         Button Sut_bt = view.findViewById(R.id.Sut_bt);
+        Sun_bt.setTransformationMethod(null);
+        Mon_bt.setTransformationMethod(null);
+        Tus_bt.setTransformationMethod(null);
+        Wen_bt.setTransformationMethod(null);
+        Thu_bt.setTransformationMethod(null);
+        Fri_bt.setTransformationMethod(null);
+        Sut_bt.setTransformationMethod(null);
 
 
         Sun_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (Sun_bt.getBackground().equals(R.drawable.days_active_back)){
-
                     Sun_bt.setBackgroundResource(R.drawable.days_passive_back);
                     Sun_bt.setTextColor(Color.parseColor("#3E4958"));
 

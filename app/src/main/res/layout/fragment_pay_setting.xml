@@ -18,7 +18,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="start"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="15dp"
             android:background="@drawable/shadow_back_bt"
             android:textColor="@color/white" />
 
@@ -86,6 +86,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/inter_regular"
+                    android:singleLine="true"
                     android:text="@string/Pay_settings_card_number"
                     android:textColor="@color/dark_grey"
                     android:textSize="14sp" />

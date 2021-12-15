@@ -10,7 +10,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="start"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/shadow_back_bt"
         android:textColor="@color/white" />
 
@@ -56,7 +56,7 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="ПН"
+                android:text="пн"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -69,7 +69,7 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="ВТ"
+                android:text="вт"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -82,7 +82,7 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="СР"
+                android:text="ср"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -95,7 +95,7 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="ЧТ"
+                android:text="чт"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -108,7 +108,7 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="ПТ"
+                android:text="пт"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -121,7 +121,7 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="СБ"
+                android:text="сб"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -133,7 +133,7 @@
                 android:layout_marginStart="5dp"
                 android:background="@drawable/days_active_back"
                 android:fontFamily="@font/inter_regular"
-                android:text="ВС"
+                android:text="вс"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 

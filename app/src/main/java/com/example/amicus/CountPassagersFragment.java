@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -23,8 +24,8 @@ public class CountPassagersFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_passagers, container, false);
 
-        ImageButton plus = view.findViewById(R.id.plus);
-        ImageButton minus = view.findViewById(R.id.minus);
+        RelativeLayout plus = view.findViewById(R.id.plus);
+        RelativeLayout minus = view.findViewById(R.id.minus);
         TextView count = view.findViewById(R.id.count);
         DecimalFormat format = new DecimalFormat("0.#");
         plus.setOnClickListener(new View.OnClickListener() {

@@ -10,7 +10,7 @@
         android:id="@+id/back_bt"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/shadow_back_bt"
         android:textColor="@color/white"
         android:layout_gravity="start"/>
@@ -53,37 +53,6 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="@string/Car_type"
-                android:textColor="@color/system_gray"
-                android:textSize="14sp" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="@font/inter_regular"
-                android:maxLength="20"
-                android:text="Седан"
-                android:textColor="@color/dark_grey"
-                android:textSize="16sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="15dp"
-                android:background="@color/light_gray" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="@font/inter_regular"
                 android:text="@string/Car_model"
                 android:textColor="@color/system_gray"
                 android:textSize="14sp" />
@@ -97,6 +66,7 @@
                 android:fontFamily="@font/inter_regular"
                 android:maxLength="20"
                 android:text="Renault Logan"
+                android:singleLine="true"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 
@@ -115,7 +85,39 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="@string/year"
+                android:text="@string/car_color"
+                android:textColor="@color/system_gray"
+                android:textSize="14sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/inter_regular"
+                android:maxLength="20"
+                android:text="Белый"
+                android:singleLine="true"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/Car_places"
                 android:textColor="@color/system_gray"
                 android:textSize="14sp" />
 
@@ -127,7 +129,8 @@
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/inter_regular"
                 android:maxLength="10"
-                android:text="1998 г."
+                android:text="3"
+                android:singleLine="true"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 
@@ -157,7 +160,8 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/inter_regular"
                 android:maxLength="10"
-                android:text="Я142МА.40"
+                android:text="M 203 AX"
+                android:singleLine="true"
                 android:textColor="@color/dark_grey"
                 android:textSize="16sp" />
 
