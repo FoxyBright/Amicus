@@ -55,6 +55,17 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        Button search = view.findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4= fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, new SearchResultFragment());
+                ft4.commit();
+            }
+        });
+
         return view;
     }
 

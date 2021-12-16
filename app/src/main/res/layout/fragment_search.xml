@@ -192,15 +192,15 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/save_bt"
+            android:id="@+id/search"
             android:layout_width="220dp"
             android:layout_height="40dp"
-            android:layout_gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:background="@drawable/blue_corner_bt"
             android:text="ПОИСК"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
