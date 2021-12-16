@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimeChangeFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_bt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/shadow_back_bt"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/login_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="ВРЕМЯ ВЫЕЗДА"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="95dp"
+                android:src="@drawable/arrow_top" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_top" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="100dp">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <TimePicker
+                android:id="@+id/departure_hours"
+                android:layout_width="85dp"
+                android:layout_height="190dp"
+                android:theme="@style/MyTimePickerStyle"
+                android:timePickerMode="spinner"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <NumberPicker
+                android:id="@+id/departure_minutes"
+                android:layout_width="85dp"
+                android:theme="@style/MyTimePickerStyle"
+                android:layout_height="190dp"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="95dp"
+                android:src="@drawable/arrow_bottom" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_bottom" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_bold"
+            android:text="ВРЕМЯ ПРИЕЗДА"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="95dp"
+                android:src="@drawable/arrow_top" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_top" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="100dp">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <TimePicker
+                android:id="@+id/arrival_hours"
+                android:layout_width="85dp"
+                android:layout_height="190dp"
+                android:theme="@style/MyTimePickerStyle"
+                android:timePickerMode="spinner"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+            <NumberPicker
+                android:id="@+id/arrival_minutes"
+                android:layout_width="85dp"
+                android:theme="@style/MyTimePickerStyle"
+                android:layout_height="190dp"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/light_gray" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="95dp"
+                android:src="@drawable/arrow_bottom" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow_bottom" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_bt"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/blue_corner_bt"
+        android:text="@string/SAVE_Baton"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

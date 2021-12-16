@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class ChatFragment extends Fragment {
@@ -48,6 +49,17 @@ public class ChatFragment extends Fragment {
                 FragmentManager fm1 = getFragmentManager();
                 FragmentTransaction ft1 = fm1.beginTransaction();
                 ft1.replace(R.id.fragment_container, new FragmentOneChat());
+                ft1.commit();
+            }
+        });
+
+        ImageView profile_image = view.findViewById(R.id.profile_image);
+        profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm1 = getFragmentManager();
+                FragmentTransaction ft1 = fm1.beginTransaction();
+                ft1.replace(R.id.fragment_container, new UserProfileFragment());
                 ft1.commit();
             }
         });

@@ -3,6 +3,8 @@ package com.example.amicus;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 
@@ -26,6 +28,16 @@ public class GroupChatFragment extends Fragment {
                 FragmentTransaction ft1 = fm1.beginTransaction();
                 ft1.replace(R.id.fragment_container, new ChatFragment());
                 ft1.commit();
+            }
+        });
+
+        Button call = view.findViewById(R.id.call);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:89534637916"));
+                startActivity(intent);
             }
         });
 

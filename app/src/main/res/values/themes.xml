@@ -25,4 +25,13 @@
     <style name="Theme.Amicus.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Amicus.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MyTimePickerStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="title">false</item>
+        <item name="android:textColorPrimary">@color/dark_grey</item>
+        <item name="android:textColorSecondary">@color/yellow</item>
+        <item name="android:textSize">18dp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="background">@drawable/blue_corner_bt</item>
+    </style>
+
 </resources>

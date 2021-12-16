@@ -5,4 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".ClearFragment">
 
+    <TimePicker
+        android:id="@+id/arrival_minutes"
+        android:layout_width="85dp"
+        android:layout_height="190dp"
+        android:theme="@style/MyTimePickerStyle"
+        android:timePickerMode="spinner"/>
+
+    <NumberPicker
+        android:layout_width="85dp"
+        android:theme="@style/MyTimePickerStyle"
+        android:layout_height="190dp"/>
+
 </FrameLayout>
