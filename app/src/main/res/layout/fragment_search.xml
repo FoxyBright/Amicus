@@ -8,20 +8,8 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/login_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="КУДА ПОЕДЕМ?"
-        android:textColor="@color/dark_grey"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
         android:fontFamily="@font/inter_regular"
         android:text="Откуда"
         android:textColor="@color/dark_grey"
@@ -95,8 +83,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="10dp"
-                android:singleLine="true"
                 android:fontFamily="@font/inter_regular"
+                android:singleLine="true"
                 android:text="пн ср"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
@@ -200,129 +188,20 @@
         android:background="@color/light_gray" />
 
     <RelativeLayout
-        android:id="@+id/chat1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:background="@drawable/corner"
-                android:fontFamily="@font/inter_bold"
-                android:paddingEnd="5dp"
-                android:text="@string/profile_name"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/dark_grey"
-                android:textSize="14sp" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/igor_photo" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="40dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginBottom="15dp"
-                    android:text="Салтыкова-Щедрина, 107/103" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="35dp"
-                    android:text="Грабцевское Шоссе, 126" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="15dp"
-                    android:text="7:00" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="10dp"
-                    android:text="17:00" />
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="70dp"
-                android:background="@drawable/corner"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="01.11.2021"
-                    android:layout_marginStart="55dp"
-                    android:textColor="@color/dark_grey"
-                    android:textSize="12dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="80 ₽"
-                    android:layout_marginEnd="55dp"
-                    android:textColor="@color/dark_grey"
-                    android:textSize="12dp" />
-
-            </RelativeLayout>
-
-        </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_bt"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/blue_corner_bt"
+            android:text="ПОИСК"
+            android:textColor="@color/white"/>
 
     </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/light_gray" />
 
 </LinearLayout>
