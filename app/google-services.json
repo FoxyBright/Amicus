@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "836905689866",
+    "project_id": "amicus-f81c5",
+    "storage_bucket": "amicus-f81c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836905689866:android:5749bb6c488ca3d06e50f3",
+        "android_client_info": {
+          "package_name": "com.example.amicus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836905689866-kv5u4dakscr5ueidcq62psip17qlkscl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0AKAEYoUkHw8-lVYU8f3G5z5Xb_bcVL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "836905689866-kv5u4dakscr5ueidcq62psip17qlkscl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
