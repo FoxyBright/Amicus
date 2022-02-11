@@ -3,42 +3,46 @@ package com.example.amicus;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.amicus.ui.ConfirmationActivity;
-import com.example.amicus.ui.SplashActivity;
+import com.example.amicus.API.AuthorizationBody;
+import com.example.amicus.API.AuthorizationResponce;
+import com.example.amicus.API.JSONPlaceHolderApi;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
-import br.com.sapereaude.maskedEditText.MaskedEditText;
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
+
+    public static final String BASE_URL = "https://амикусдрайв.рф";
+    public Retrofit mRetrofit;
 
     TextInputLayout login_email_et;
     TextInputLayout very_code;
@@ -128,31 +132,44 @@ public class LoginActivity extends AppCompatActivity {
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (login_bt.getText().toString().equals("Получить код")) {
-                    String phone = number_textview.getText().toString().trim();
-                    if (TextUtils.isEmpty(phone)) {
-                        Toast.makeText(LoginActivity.this, "Введите номер телефона", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        login_bt.setText("Войти");
-                        tw_phone.setVisibility(View.GONE);
-                        login_email_et.setVisibility(View.GONE);
-                        code.setVisibility(View.VISIBLE);
-                        very_code.setVisibility(View.VISIBLE);
-                        startPhoneNumberVerification(phone);
-                    }
-                }else if (login_bt.getText().toString().equals("Войти")){
-                    String code = code_veryfic.getText().toString().trim();
-                    verifyPhoneNumberWithCode(mVerificationId,code);
-                    if (smscode.equals(code_veryfic.getText())) {
-                        Toast.makeText(LoginActivity.this, "Код праавильный", Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(LoginActivity.this, "кОД НЕПРАВИЛЬНЫЙ", Toast.LENGTH_SHORT).show();
-                    }
+                OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                if (BuildConfig.DEBUG) {
+                    builder.addInterceptor(new OkHttpProfilerInterceptor());
+                    OkHttpClient client = builder.build();
+                    mRetrofit = new Retrofit.Builder()
+                            .baseUrl(BASE_URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .client(client)
+                            .build();
                 }
+
+
+                JSONPlaceHolderApi api = mRetrofit.create(JSONPlaceHolderApi.class);
+                AuthorizationBody body = new AuthorizationBody();
+                body.phone = number_textview.getText().toString();
+                body.password = code_veryfic.getText().toString();
+                api.authUser(body);
+                Call<AuthorizationResponce> call = api.authUser(body);
+                call.enqueue(new Callback<AuthorizationResponce>() {
+                    @Override
+                    public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {
+                        Toast.makeText(LoginActivity.this, "Добро пожаловать, " +response.body().getName(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<AuthorizationResponce> call, Throwable t) {
+                        Toast.makeText(LoginActivity.this, "", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
-    }
+
+
+
+
+     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)

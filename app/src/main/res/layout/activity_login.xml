@@ -71,7 +71,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +81,6 @@
             android:text="@string/code" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:visibility="gone"
             android:id="@+id/very_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,7 +101,7 @@
                 android:inputType="phone"
                 android:typeface="monospace"
                 app:allowed_chars="1234567890"
-                app:mask="####"
+                app:mask="######"
                 app:keep_hint="true" />
         </com.google.android.material.textfield.TextInputLayout>
 

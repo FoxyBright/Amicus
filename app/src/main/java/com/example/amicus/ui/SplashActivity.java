@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
         layout = findViewById(R.id.splash);
-
+        initFunctionality();
     }
 
 
@@ -49,12 +49,6 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         }, SPLASH_DURATION);
-    }
-
-    protected void onResume()
-    {
-        super.onResume();
-        initFunctionality();
     }
 
 
