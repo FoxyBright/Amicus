@@ -50,12 +50,16 @@
             android:fontFamily="@font/inter_regular"
             android:paddingBottom="5dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/your_name_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner"
                 android:fontFamily="@font/inter_regular"
+                android:textColor="@color/dark_grey"
+                android:typeface="monospace"
+                app:mask="##########"
+                app:keep_hint="true"
                 android:inputType="textCapSentences" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -70,7 +74,6 @@
             android:textColor="@color/dark_grey" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_email_et"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,8 +82,8 @@
             android:fontFamily="@font/inter_regular"
             android:paddingBottom="5dp">
 
-            <br.com.sapereaude.maskedEditText.MaskedEditText
-                android:id="@+id/number_textview"
+            <EditText
+                android:id="@+id/login_email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner"
@@ -104,7 +107,6 @@
             android:textColor="@color/dark_grey" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_password_et"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,14 +116,15 @@
             android:paddingBottom="5dp"
             app:passwordToggleEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
+                android:id="@+id/login_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner"
                 android:fontFamily="@font/inter_regular"
                 android:inputType="textPassword">
 
-            </com.google.android.material.textfield.TextInputEditText>
+            </EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -135,7 +138,6 @@
             android:textColor="@color/dark_grey" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_password_et_rewrite"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -145,14 +147,15 @@
             android:paddingBottom="5dp"
             app:passwordToggleEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
+                android:id="@+id/login_password_et_rewrite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner"
                 android:fontFamily="@font/inter_regular"
                 android:inputType="textPassword">
 
-            </com.google.android.material.textfield.TextInputEditText>
+            </EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
