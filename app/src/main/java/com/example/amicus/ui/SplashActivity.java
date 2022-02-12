@@ -1,11 +1,15 @@
 package com.example.amicus.ui;
 
+
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,12 +44,16 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                SharedPreferences preferences =getSharedPreferences("checkbox",MODE_PRIVATE);
+                String checkbox = preferences.getString("remember","");
+                if (checkbox.equals("true")) {
+                    Intent intent = new Intent(SplashActivity.this,MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }else{
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity .class);
+                    Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         }, SPLASH_DURATION);

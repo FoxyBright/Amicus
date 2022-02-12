@@ -1,14 +1,20 @@
 package com.example.amicus;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.amicus.LoginActivity.name;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.amicus.ui.SplashActivity;
@@ -20,6 +26,7 @@ public class ProfileFragment extends Fragment {
     Button pay_set_bt;
     Button app_set_bt;
     Button exit_bt;
+    TextView name_prof;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,12 +38,19 @@ public class ProfileFragment extends Fragment {
         pay_set_bt = view.findViewById(R.id.pay_set_bt);
         app_set_bt = view.findViewById(R.id.app_set_bt);
         exit_bt = view.findViewById(R.id.exit_bt);
+        name_prof = view.findViewById(R.id.name_prof);
+
+        name_prof.setText(name);
 
         exit_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileFragment.this.getActivity(), LoginActivity.class);
-                startActivity(intent);
+
+                SharedPreferences prefs = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("remember","false");
+                editor.apply();
+                getActivity().finish();
             }
         });
 

@@ -7,11 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,7 +61,12 @@ public class LoginActivity extends AppCompatActivity {
 
     String smscode;
 
+    public static String name;
+    public static String phone;
+
     ProgressDialog pd;
+    CheckBox checkBox;
+    SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        prefs = getSharedPreferences("Amicus", MODE_PRIVATE);
+
 
 
         pd = new ProgressDialog(this);
@@ -80,8 +90,8 @@ public class LoginActivity extends AppCompatActivity {
         code = findViewById(R.id.code);
         login_email_et = findViewById(R.id.login_email_et);
         code_veryfic = findViewById(R.id.code_veryfic);
+        checkBox = findViewById(R.id.checkBox);
         Button login_bt = findViewById(R.id.login_bt);
-
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
@@ -143,6 +153,8 @@ public class LoginActivity extends AppCompatActivity {
                 call.enqueue(new Callback<AuthorizationResponce>() {
                     @Override
                     public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {
+                        name = response.body().getName();
+                        phone = response.body().getPhone();
                         Toast.makeText(LoginActivity.this, "Добро пожаловать, " +response.body().getName(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(intent);
@@ -156,7 +168,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (compoundButton.isChecked()) {
+                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember","true");
+                    editor.apply();
+                    Toast.makeText(LoginActivity.this, "Запомнили", Toast.LENGTH_SHORT).show();
 
+                }else if(!compoundButton.isChecked()){
+                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember","false");
+                    editor.apply();
+                    Toast.makeText(LoginActivity.this, "не запомнили", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
      }

@@ -1,5 +1,8 @@
 package com.example.amicus;
 
+import static com.example.amicus.LoginActivity.name;
+import static com.example.amicus.LoginActivity.phone;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -22,7 +25,10 @@ public class FragmentProfileSetting extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile_setting, container, false);
 
         TextView number_textview = view.findViewById(R.id.number_textview);
-        number_textview.setText("9534637916");
+        TextView profile_name = view.findViewById(R.id.profile_name);
+
+        number_textview.setText(phone);
+        profile_name.setText(name);
 
         TextView mail_edit = view.findViewById(R.id.mail_edit);
         mail_edit.setText("grig@gmail.com");
