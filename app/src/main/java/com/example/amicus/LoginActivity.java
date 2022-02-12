@@ -1,5 +1,7 @@
 package com.example.amicus;
 
+import static com.example.amicus.API.RetrofitAPI.BASE_URL;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import com.example.amicus.API.AuthorizationBody;
 import com.example.amicus.API.AuthorizationResponce;
 import com.example.amicus.API.JSONPlaceHolderApi;
+import com.example.amicus.API.RetrofitAPI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -40,9 +43,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
-
-    public static final String BASE_URL = "https://амикусдрайв.рф";
-    public Retrofit mRetrofit;
 
     TextInputLayout login_email_et;
     TextInputLayout very_code;
@@ -132,24 +132,14 @@ public class LoginActivity extends AppCompatActivity {
         login_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                if (BuildConfig.DEBUG) {
-                    builder.addInterceptor(new OkHttpProfilerInterceptor());
-                    OkHttpClient client = builder.build();
-                    mRetrofit = new Retrofit.Builder()
-                            .baseUrl(BASE_URL)
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .client(client)
-                            .build();
-                }
 
+                RetrofitAPI api = RetrofitAPI.getInstance();
 
-                JSONPlaceHolderApi api = mRetrofit.create(JSONPlaceHolderApi.class);
                 AuthorizationBody body = new AuthorizationBody();
                 body.phone = number_textview.getText().toString();
                 body.password = code_veryfic.getText().toString();
-                api.authUser(body);
-                Call<AuthorizationResponce> call = api.authUser(body);
+                api.getJSONApi().authUser(body);
+                Call<AuthorizationResponce> call = api.getJSONApi().authUser(body);
                 call.enqueue(new Callback<AuthorizationResponce>() {
                     @Override
                     public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {

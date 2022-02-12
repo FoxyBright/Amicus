@@ -41,19 +41,19 @@
             android:layout_marginStart="5dp"
             android:layout_marginBottom="3dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/dark_grey"
-            android:text="@string/Number" />
+            android:text="@string/Number"
+            android:textColor="@color/dark_grey" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/login_email_et"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/dark_grey"
+            android:background="@drawable/corner"
             android:fontFamily="@font/inter_regular"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:background="@drawable/corner">
+            android:paddingBottom="5dp"
+            android:textColor="@color/dark_grey">
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/number_textview"
@@ -61,13 +61,12 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner"
                 android:fontFamily="@font/inter_regular"
-                android:textColor="@color/dark_grey"
                 android:inputType="phone"
+                android:textColor="@color/dark_grey"
                 android:typeface="monospace"
                 app:allowed_chars="1234567890"
-                app:mask="+7(###)###-##-##"
                 app:keep_hint="true"
-                />
+                app:mask="+7(###)###-##-##" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -77,19 +76,20 @@
             android:layout_marginStart="5dp"
             android:layout_marginBottom="3dp"
             android:fontFamily="@font/inter_regular"
-            android:textColor="@color/dark_grey"
-            android:text="@string/code" />
+            android:text="@string/code"
+            android:textColor="@color/dark_grey" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/very_code"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/dark_grey"
+            android:background="@drawable/corner"
             android:fontFamily="@font/inter_regular"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:background="@drawable/corner">
+            android:paddingBottom="5dp"
+            android:textColor="@color/dark_grey"
+            app:passwordToggleEnabled="true">
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/code_veryfic"
@@ -97,12 +97,11 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/corner"
                 android:fontFamily="@font/inter_regular"
+                android:inputType="textPassword"
                 android:textColor="@color/dark_grey"
-                android:inputType="phone"
                 android:typeface="monospace"
-                app:allowed_chars="1234567890"
-                app:mask="######"
-                app:keep_hint="true" />
+                app:keep_hint="true"
+                app:mask="##############################################################" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -120,8 +119,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <View
@@ -141,8 +140,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/inter_bold"
-                android:textColor="@color/dark_grey"
-                android:text="@string/Enter_with" />
+                android:text="@string/Enter_with"
+                android:textColor="@color/dark_grey" />
 
             <View
                 android:layout_width="90dp"

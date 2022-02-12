@@ -8,4 +8,5 @@ public class AuthorizationBody {
     public String phone;
     public String password;
 
+
 }

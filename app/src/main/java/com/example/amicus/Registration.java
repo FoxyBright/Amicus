@@ -14,7 +14,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.amicus.API.RegistrationBody;
+import com.example.amicus.API.RegistrationResponce;
+import com.example.amicus.API.RetrofitAPI;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class Registration extends AppCompatActivity {
@@ -45,11 +55,34 @@ public class Registration extends AppCompatActivity {
                 String phone = number_textview.getText().toString();
                 String pass = password_create.getText().toString();
                 String rep_pass =password_create.getText().toString();
+
+
                 if (validateForm(password_create,repeat_pass) && toggleButton1.isChecked() && !TextUtils.isEmpty(name) && !TextUtils.isEmpty(phone)
                 &&!TextUtils.isEmpty(pass) &&!TextUtils.isEmpty(rep_pass)) {
-                    Intent intent = new Intent(Registration.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    RetrofitAPI api = RetrofitAPI.getInstance();
+                    RegistrationBody body = new RegistrationBody();
+                    body.name = name;
+                    body.phone = phone;
+                    body.password = pass;
+                    api.getJSONApi().regUser(body);
+                    Call<RegistrationResponce> call = api.getJSONApi().regUser(body);
+                    call.enqueue(new Callback<RegistrationResponce>() {
+                        @Override
+                        public void onResponse(Call<RegistrationResponce> call, Response<RegistrationResponce> response) {
+                            Intent intent = new Intent(Registration.this,MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(Call<RegistrationResponce> call, Throwable t) {
+                            StringWriter sw = new StringWriter();
+                            PrintWriter pw = new PrintWriter(sw);
+                            t.printStackTrace(pw);
+                            String error = pw.toString();
+                            Toast.makeText(Registration.this, error, Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }else{
                     Toast.makeText(Registration.this, "Что то мы забыли", Toast.LENGTH_SHORT).show();
                 }

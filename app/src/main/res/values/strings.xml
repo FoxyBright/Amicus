@@ -13,7 +13,7 @@
 
     <!--    Strings to activity_login-->
     <string name="ENT">АВТОРИЗАЦИЯ</string>
-    <string name="Enter">Получить код</string>
+    <string name="Enter">Вход</string>
     <string name="Number">Номер телефона</string>
     <string name="code">Пароль</string>
     <string name="Password">Пароль</string>
