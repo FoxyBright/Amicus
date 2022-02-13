@@ -82,12 +82,11 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<AuthorizationResponce>() {
             @Override
             public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {
-                Toast.makeText(MainActivity.this, "Запрос с главной активности " +response.body().getName(), Toast.LENGTH_SHORT).show();
                 name1 = response.body().getName();
                 facebook = response.body().getFacebook();
                 pochta = response.body().getMail();
-                truba = response.body().getPhone();
                 logo = response.body().getLogo();
+                truba = response.body().getPhone();
             }
 
             @Override

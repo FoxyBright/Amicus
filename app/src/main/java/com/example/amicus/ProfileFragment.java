@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class ProfileFragment extends Fragment {
 
@@ -46,7 +47,7 @@ public class ProfileFragment extends Fragment {
         imageView = view.findViewById(R.id.profile_image);
 
 
-        Glide.with(ProfileFragment.this).load(logo).into(imageView);
+        Glide.with(ProfileFragment.this).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(imageView);
 
         name_prof.setText(name1);
         if (pochta1.equals("")) {
