@@ -1,6 +1,8 @@
 package com.example.amicus;
 
+import static com.example.amicus.MainActivity.facebook;
 import static com.example.amicus.MainActivity.name1;
+import static com.example.amicus.MainActivity.pochta;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -22,6 +24,7 @@ public class ProfileFragment extends Fragment {
     Button app_set_bt;
     Button exit_bt;
     TextView name_prof;
+    TextView pochta1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,8 +37,16 @@ public class ProfileFragment extends Fragment {
         app_set_bt = view.findViewById(R.id.app_set_bt);
         exit_bt = view.findViewById(R.id.exit_bt);
         name_prof = view.findViewById(R.id.name_prof);
+        pochta1 = view.findViewById(R.id.pochta);
 
         name_prof.setText(name1);
+        if (pochta1.equals("")) {
+            pochta1.setText("Добавить E-mail");
+
+        }
+        pochta1.setText(pochta);
+
+
 
         exit_bt.setOnClickListener(new View.OnClickListener() {
             @Override

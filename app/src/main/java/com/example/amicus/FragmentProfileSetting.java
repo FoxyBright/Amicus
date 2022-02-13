@@ -33,12 +33,20 @@ public class FragmentProfileSetting extends Fragment {
 
         number_textview.setText(truba);
         profile_name.setText(name1);
-
-        TextView mail_edit = view.findViewById(R.id.mail_edit);
-        mail_edit.setText(pochta);
-
         TextView facebook_edit = view.findViewById(R.id.facebook_edit);
+        TextView mail_edit = view.findViewById(R.id.mail_edit);
+
+        number_textview.setText(truba);
+        profile_name.setText(name1);
+        mail_edit.setText(pochta);
         facebook_edit.setText(facebook);
+        if (pochta.equals("")) {
+            mail_edit.setText("Добавить почту");
+        }
+        if(facebook.equals("")){
+            facebook_edit.setText("Добавить Facebook");
+        }
+
 
         Button back_bt = view.findViewById(R.id.back_bt);
         back_bt.setOnClickListener(new View.OnClickListener() {

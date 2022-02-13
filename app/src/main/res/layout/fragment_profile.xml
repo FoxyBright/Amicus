@@ -34,10 +34,10 @@
             android:textColor="@color/dark_grey" />
 
         <TextView
+            android:id="@+id/pochta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="igor@mail.ru"
             android:textColor="@color/system_gray" />
 
         <LinearLayout
