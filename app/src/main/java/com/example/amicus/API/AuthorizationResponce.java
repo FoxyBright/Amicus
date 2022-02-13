@@ -22,6 +22,17 @@ public class AuthorizationResponce {
     @SerializedName("mail")
     @Expose
     private String mail;
+    @SerializedName("photo")
+    @Expose
+    private String logo;
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 
     public String getMail() {
         return mail;

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
    static String facebook;
    static String pochta;
    static String truba;
+   static String logo;
 
     @Override
     public void onBackPressed() {
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 facebook = response.body().getFacebook();
                 pochta = response.body().getMail();
                 truba = response.body().getPhone();
+                logo = response.body().getLogo();
             }
 
             @Override

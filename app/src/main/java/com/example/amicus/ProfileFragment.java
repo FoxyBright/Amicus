@@ -1,6 +1,7 @@
 package com.example.amicus;
 
 import static com.example.amicus.MainActivity.facebook;
+import static com.example.amicus.MainActivity.logo;
 import static com.example.amicus.MainActivity.name1;
 import static com.example.amicus.MainActivity.pochta;
 
@@ -14,7 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 public class ProfileFragment extends Fragment {
 
@@ -25,6 +29,7 @@ public class ProfileFragment extends Fragment {
     Button exit_bt;
     TextView name_prof;
     TextView pochta1;
+    ImageView imageView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +43,10 @@ public class ProfileFragment extends Fragment {
         exit_bt = view.findViewById(R.id.exit_bt);
         name_prof = view.findViewById(R.id.name_prof);
         pochta1 = view.findViewById(R.id.pochta);
+        imageView = view.findViewById(R.id.profile_image);
+
+
+        Glide.with(ProfileFragment.this).load(logo).into(imageView);
 
         name_prof.setText(name1);
         if (pochta1.equals("")) {
