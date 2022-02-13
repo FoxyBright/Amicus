@@ -1,13 +1,11 @@
 package com.example.amicus;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.amicus.LoginActivity.name;
+import static com.example.amicus.MainActivity.name1;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,9 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.amicus.ui.SplashActivity;
 
 public class ProfileFragment extends Fragment {
 
@@ -40,7 +35,7 @@ public class ProfileFragment extends Fragment {
         exit_bt = view.findViewById(R.id.exit_bt);
         name_prof = view.findViewById(R.id.name_prof);
 
-        name_prof.setText(name);
+        name_prof.setText(name1);
 
         exit_bt.setOnClickListener(new View.OnClickListener() {
             @Override

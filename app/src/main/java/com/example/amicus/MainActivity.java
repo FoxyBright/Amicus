@@ -4,21 +4,34 @@ package com.example.amicus;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
+import com.example.amicus.API.AuthorizationBody;
+import com.example.amicus.API.AuthorizationResponce;
+import com.example.amicus.API.RetrofitAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MainActivity extends AppCompatActivity {
 
    BottomNavigationView bottomNavigationView;
+   static String phone;
+   static String parol1;
+   static String name1;
+   static String facebook;
+   static String pochta;
+   static String truba;
 
     @Override
     public void onBackPressed() {
@@ -39,6 +52,47 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle arguments = getIntent().getExtras();
+        String name;
+        String parol;
+
+        if(arguments!=null){
+            name = arguments.get("phone").toString();
+            parol = arguments.getString("parol");
+            SharedPreferences sp=getSharedPreferences("Login", 0);
+            SharedPreferences.Editor Ed=sp.edit();
+            Ed.putString("name",name );
+            Ed.putString("parol",parol);
+            Ed.commit();
+        }
+
+        SharedPreferences sp1=this.getSharedPreferences("Login",0);
+        phone =sp1.getString("name", null);
+        parol1 = sp1.getString("parol", null);
+
+        RetrofitAPI api = RetrofitAPI.getInstance();
+
+        AuthorizationBody body = new AuthorizationBody();
+        body.phone = phone;
+        body.password = parol1;
+        api.getJSONApi().authUser(body);
+        Call<AuthorizationResponce> call = api.getJSONApi().authUser(body);
+        call.enqueue(new Callback<AuthorizationResponce>() {
+            @Override
+            public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {
+                Toast.makeText(MainActivity.this, "Запрос с главной активности " +response.body().getName(), Toast.LENGTH_SHORT).show();
+                name1 = response.body().getName();
+                facebook = response.body().getFacebook();
+                pochta = response.body().getMail();
+                truba = response.body().getPhone();
+            }
+
+            @Override
+            public void onFailure(Call<AuthorizationResponce> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

@@ -51,36 +51,24 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout very_code;
     private TextView tw_phone;
     private TextView code;
-    private Button login_bt;
-    private String mVerificationId;
-    private PhoneAuthProvider.ForceResendingToken mResendToken;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-    private FirebaseAuth mAuth;
     private EditText number_textview;
     private EditText code_veryfic;
 
-    String smscode;
 
-    public static String name;
-    public static String phone;
 
-    ProgressDialog pd;
-    CheckBox checkBox;
-    SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
-        prefs = getSharedPreferences("Amicus", MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("remember","true");
+        editor.apply();
+        Toast.makeText(LoginActivity.this, "Запомнили", Toast.LENGTH_SHORT).show();
 
 
-
-        pd = new ProgressDialog(this);
-        pd.setTitle("Хагрузка");
-        pd.setCanceledOnTouchOutside(false);
 
 
         TextView registration_link = findViewById(R.id.registration_link);
@@ -90,43 +78,8 @@ public class LoginActivity extends AppCompatActivity {
         code = findViewById(R.id.code);
         login_email_et = findViewById(R.id.login_email_et);
         code_veryfic = findViewById(R.id.code_veryfic);
-        checkBox = findViewById(R.id.checkBox);
         Button login_bt = findViewById(R.id.login_bt);
 
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(PhoneAuthCredential credential) {
-
-                code_veryfic.setText(credential.getSmsCode());
-                signInWithPhoneAuthCredential(credential);
-
-                smscode = credential.getSmsCode();
-            }
-
-            @Override
-            public void onVerificationFailed(@NonNull FirebaseException e) {
-                if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                    // Invalid request
-                } else if (e instanceof FirebaseTooManyRequestsException) {
-                    // The SMS quota for the project has been exceeded
-                }
-
-                // Show a message and update the UI
-            }
-
-            @Override
-            public void onCodeSent(@NonNull String verificationId,
-                                   @NonNull PhoneAuthProvider.ForceResendingToken token) {
-                // The SMS verification code has been sent to the provided phone number, we
-                // now need to ask the user to enter the code and then construct a credential
-                // by combining the code with a verification ID.
-
-                // Save verification ID and resending token so we can use them later
-                mVerificationId = verificationId;
-                mResendToken = token;
-
-            }
-        };
 
 
         registration_link.setOnClickListener(new View.OnClickListener() {
@@ -153,10 +106,10 @@ public class LoginActivity extends AppCompatActivity {
                 call.enqueue(new Callback<AuthorizationResponce>() {
                     @Override
                     public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {
-                        name = response.body().getName();
-                        phone = response.body().getPhone();
                         Toast.makeText(LoginActivity.this, "Добро пожаловать, " +response.body().getName(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        intent.putExtra("phone", body.phone);
+                        intent.putExtra("parol", body.password);
                         startActivity(intent);
                     }
 
@@ -167,67 +120,27 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
-
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (compoundButton.isChecked()) {
-                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember","true");
-                    editor.apply();
-                    Toast.makeText(LoginActivity.this, "Запомнили", Toast.LENGTH_SHORT).show();
-
-                }else if(!compoundButton.isChecked()){
-                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember","false");
-                    editor.apply();
-                    Toast.makeText(LoginActivity.this, "не запомнили", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+            //TODO ГАЛОЧКА
+//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+//                if (compoundButton.isChecked()) {
+//                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remember","true");
+//                    editor.apply();
+//                    Toast.makeText(LoginActivity.this, "Запомнили", Toast.LENGTH_SHORT).show();
+//
+//                }else if(!compoundButton.isChecked()){
+//                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remember","false");
+//                    editor.apply();
+//                    Toast.makeText(LoginActivity.this, "не запомнили", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
 
      }
-
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        } else {
-                            // Sign in failed, display a message and update the UI
-
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
-                            }
-                        }
-                    }
-                });
-    }
-
-    private void startPhoneNumberVerification(String phoneNumber) {
-        // [START start_phone_auth]
-        PhoneAuthOptions options =
-                PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(phoneNumber)       // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(this)                 // Activity (for callback binding)
-                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
-                        .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
-        // [END start_phone_auth]
-    }
-
-    private void verifyPhoneNumberWithCode(String verificationId, String code) {
-        // [START verify_with_code]
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        // [END verify_with_code]
-        signInWithPhoneAuthCredential(credential);
-    }
 }

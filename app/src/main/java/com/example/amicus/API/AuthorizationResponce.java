@@ -16,6 +16,29 @@ public class AuthorizationResponce {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("facebook")
+    @Expose
+    private String facebook;
+    @SerializedName("mail")
+    @Expose
+    private String mail;
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
 
     public String getPassword() {
         return password;

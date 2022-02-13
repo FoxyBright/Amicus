@@ -1,7 +1,12 @@
 package com.example.amicus;
 
-import static com.example.amicus.LoginActivity.name;
-import static com.example.amicus.LoginActivity.phone;
+
+import static com.example.amicus.MainActivity.facebook;
+import static com.example.amicus.MainActivity.name1;
+import static com.example.amicus.MainActivity.phone;
+import static com.example.amicus.MainActivity.parol1;
+import static com.example.amicus.MainActivity.pochta;
+import static com.example.amicus.MainActivity.truba;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -14,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,14 +31,14 @@ public class FragmentProfileSetting extends Fragment {
         TextView number_textview = view.findViewById(R.id.number_textview);
         TextView profile_name = view.findViewById(R.id.profile_name);
 
-        number_textview.setText(phone);
-        profile_name.setText(name);
+        number_textview.setText(truba);
+        profile_name.setText(name1);
 
         TextView mail_edit = view.findViewById(R.id.mail_edit);
-        mail_edit.setText("grig@gmail.com");
+        mail_edit.setText(pochta);
 
         TextView facebook_edit = view.findViewById(R.id.facebook_edit);
-        facebook_edit.setText("https://www.facebook.com/grig");
+        facebook_edit.setText(facebook);
 
         Button back_bt = view.findViewById(R.id.back_bt);
         back_bt.setOnClickListener(new View.OnClickListener() {
