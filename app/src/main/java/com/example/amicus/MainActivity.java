@@ -4,6 +4,7 @@ package com.example.amicus;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -116,11 +117,8 @@ public class MainActivity extends AppCompatActivity {
                         ft.commit();
                         break;
                     case R.id.addFragment:
-
-                        FragmentManager fm1 = getFragmentManager();
-                        FragmentTransaction ft1 = fm1.beginTransaction();
-                        ft1.replace(R.id.fragment_container, new AddFragment());
-                        ft1.commit();
+                        Intent intent = new Intent(MainActivity.this,AddActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.MyTravelFragment:
 

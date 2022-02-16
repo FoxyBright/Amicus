@@ -11,10 +11,11 @@ import static com.example.amicus.MainActivity.truba;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 
 
-
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class FragmentProfileSetting extends Fragment {
+
+    CircleImageView profile_image;
+    private static final int PIC_IMAGE =1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class FragmentProfileSetting extends Fragment {
 
         TextView number_textview = view.findViewById(R.id.number_textview);
         TextView profile_name = view.findViewById(R.id.profile_name);
+        profile_image = view.findViewById(R.id.profile_image);
 
         number_textview.setText(truba);
         profile_name.setText(name1);
@@ -69,5 +76,7 @@ public class FragmentProfileSetting extends Fragment {
         });
 
         return view;
+
+
     }
 }

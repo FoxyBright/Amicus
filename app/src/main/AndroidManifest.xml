@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.amicus" >
+    package="com.example.amicus">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,9 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Amicus">
         <activity
+            android:name=".AddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AutoChange"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileSetting"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true"
@@ -23,18 +32,20 @@
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"
-                    android:screenOrientation="portrait"/>
+                    android:screenOrientation="portrait" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Registration"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.ConfirmationActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
+
 </manifest>

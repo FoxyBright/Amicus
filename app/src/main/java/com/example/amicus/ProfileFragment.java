@@ -9,6 +9,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -73,10 +74,13 @@ public class ProfileFragment extends Fragment {
         profile_set_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, new FragmentProfileSetting());
-                ft4.commit();
+//                FragmentManager fm4 = getFragmentManager();
+//                FragmentTransaction ft4= fm4.beginTransaction();
+//                ft4.replace(R.id.fragment_container, new FragmentProfileSetting());
+//                ft4.commit();
+
+                Intent intent = new Intent(getActivity(),ProfileSetting.class);
+                startActivity(intent);
             }
         });
 
