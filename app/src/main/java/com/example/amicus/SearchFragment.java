@@ -23,6 +23,7 @@ public class SearchFragment extends Fragment {
     TextView timeto;
     TextView timeFrom;
     TextView pass;
+    TextView weeks1;
     final static String SHARED_NAME_STRING="sharedp";
     final static String USER_NAME_STRING="user";
     final static String USER_NAME_STRING1="user1";
@@ -37,6 +38,15 @@ public class SearchFragment extends Fragment {
             String from = getArguments().getString("timeFrom");
             String to = getArguments().getString("timeTo");
             String pass1 = getArguments().getString("pass");
+            String week = getArguments().getString("week");
+            String all = getArguments().getString("all");
+
+            weeks1 = view.findViewById(R.id.week);
+            weeks1.setText(all);
+
+
+
+
 
             SharedPreferences.Editor editor = getContext().getSharedPreferences(SHARED_NAME_STRING, MODE_PRIVATE).edit();
             SharedPreferences prefs = getContext().getSharedPreferences(SHARED_NAME_STRING, MODE_PRIVATE);

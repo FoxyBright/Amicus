@@ -12,87 +12,109 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
 
 public class DayChangeFragment extends Fragment {
+
+    CheckBox mColorCheckBox,mColorCheckBox2,mColorCheckBox3,mColorCheckBox4,
+            mColorCheckBox5,mColorCheckBox6,mColorCheckBox7;
+    String pn = "пн ";
+    String vt = "вт ";
+    String sr = "ср ";
+    String cht = "чт ";
+    String pt = "пт ";
+    String sn = "сб ";
+    String st = "вс";
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_day_change, container, false);
 
-        Button Sun_bt = view.findViewById(R.id.Sun_bt);
-        Button Mon_bt = view.findViewById(R.id.Mon_bt);
-        Button Tus_bt = view.findViewById(R.id.Tus_bt);
-        Button Wen_bt = view.findViewById(R.id.Wen_bt);
-        Button Thu_bt = view.findViewById(R.id.Thu_bt);
-        Button Fri_bt = view.findViewById(R.id.Fri_bt);
-        Button Sut_bt = view.findViewById(R.id.Sut_bt);
-        Sun_bt.setTransformationMethod(null);
-        Mon_bt.setTransformationMethod(null);
-        Tus_bt.setTransformationMethod(null);
-        Wen_bt.setTransformationMethod(null);
-        Thu_bt.setTransformationMethod(null);
-        Fri_bt.setTransformationMethod(null);
-        Sut_bt.setTransformationMethod(null);
+        mColorCheckBox = view.findViewById(R.id.checkBoxColor);
+        mColorCheckBox2 = view.findViewById(R.id.checkBoxColor2);
+        mColorCheckBox3 = view.findViewById(R.id.checkBoxColor3);
+        mColorCheckBox4 = view.findViewById(R.id.checkBoxColor4);
+        mColorCheckBox5 = view.findViewById(R.id.checkBoxColor5);
+        mColorCheckBox6 = view.findViewById(R.id.checkBoxColor6);
+        mColorCheckBox7 = view.findViewById(R.id.checkBoxColor7);
 
-
-        Sun_bt.setOnClickListener(new View.OnClickListener() {
+        mColorCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Sun_bt.getBackground().equals(R.drawable.days_active_back)){
-                    Sun_bt.setBackgroundResource(R.drawable.days_passive_back);
-                    Sun_bt.setTextColor(Color.parseColor("#3E4958"));
-
-                }
-                else {
-
-                    Sun_bt.setBackgroundResource(R.drawable.days_active_back);
-                    Sun_bt.setTextColor(Color.parseColor("#ffffff"));
-
+                if (mColorCheckBox.isChecked()) {
+                    pn = mColorCheckBox.getText().toString() + " ";
+                }else{
+                    pn = ".";
                 }
             }
         });
-
-        Mon_bt.setOnClickListener(new View.OnClickListener() {
+        mColorCheckBox2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (mColorCheckBox2.isChecked()) {
+                    vt = mColorCheckBox2.getText().toString() + " ";
+                }else{
+                    vt = ".";
+                }
+            }
+        });
+        mColorCheckBox3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mColorCheckBox3.isChecked()) {
+                    sr = mColorCheckBox3.getText().toString() + " ";
+                }else{
+                    sr = ".";
+                }
+            }
+        });
+        mColorCheckBox4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mColorCheckBox4.isChecked()) {
+                    cht = mColorCheckBox4.getText().toString() + " ";
+                }else{
+                    cht = ".";
+                }
+            }
+        });
+        mColorCheckBox5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mColorCheckBox5.isChecked()) {
+                    pt = mColorCheckBox5.getText().toString() + " ";
+                }else{
+                    pt = ".";
+                }
+            }
+        });
+        mColorCheckBox6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mColorCheckBox6.isChecked()) {
+                    sn= mColorCheckBox6.getText().toString() + " ";
+                }else{
+                    sn = ".";
+                }
+            }
+        });
+        mColorCheckBox7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mColorCheckBox7.isChecked()) {
+                    st = mColorCheckBox7.getText().toString();
+                }else{
+                    st = ".";
+                }
             }
         });
 
-        Tus_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        Wen_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        Thu_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        Fri_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        Sut_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         Button back_bt = view.findViewById(R.id.back_bt);
         back_bt.setOnClickListener(new View.OnClickListener() {
@@ -109,10 +131,28 @@ public class DayChangeFragment extends Fragment {
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String weekDays =  pn+vt+sr+cht+pt+sn+st;
+                Bundle bundle = new Bundle();
+                String everyDay = "Каждый день";
+                weekDays = weekDays.replace(".", "");
+                if (weekDays.equals("пн вт ср чт пт сб вс") ){
+                    bundle.putString("week", weekDays);
+                    bundle.putString("all", everyDay);
+                }else{
+                    bundle.putString("all", weekDays);
+                    bundle.putString("week", weekDays);
+                }
+                SearchFragment fragobj = new SearchFragment();
+                fragobj.setArguments(bundle);
                 FragmentManager fm4 = getFragmentManager();
                 FragmentTransaction ft4= fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, new SearchFragment());
+                ft4.replace(R.id.fragment_container, fragobj);
                 ft4.commit();
+//                FragmentManager fm4 = getFragmentManager();
+//                FragmentTransaction ft4= fm4.beginTransaction();
+//                ft4.replace(R.id.fragment_container, new SearchFragment());
+//                ft4.commit();
             }
         });
 

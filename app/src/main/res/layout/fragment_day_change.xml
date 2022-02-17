@@ -28,125 +28,74 @@
             android:layout_marginBottom="21dp"
             android:fontFamily="@font/inter_bold"
             android:text="В КАКИЕ ДНИ?"
+
             android:textColor="@color/dark_grey"
             android:textSize="20sp" />
 
-        <View
+        <CheckBox
+            android:id="@+id/checkBoxColor"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/light_gray" />
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="пн" />
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/checkBoxColor2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingHorizontal="10dp">
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="вт" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Mon_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="пн"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Tus_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="вт"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Wen_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="ср"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Thu_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="чт"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Fri_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="пт"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Sut_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="сб"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Sun_bt"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/days_active_back"
-                android:fontFamily="@font/inter_regular"
-                android:text="вс"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <View
+        <CheckBox
+            android:id="@+id/checkBoxColor3"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/light_gray" />
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="ср" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="чт" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="пт" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="сб" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor7"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="вс" />
+
+
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
