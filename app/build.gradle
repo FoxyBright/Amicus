@@ -61,5 +61,9 @@ dependencies {
     implementation 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.7'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 
+    implementation('com.mikepenz.materialdrawer:library:0.9.5@aar') {
+        transitive = true
+    }
+
 
 }

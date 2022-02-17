@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Amicus">
         <activity
+            android:name=".TimeChangeActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddActivity"
             android:exported="false" />
         <activity

@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             Ed.commit();
         }
 
+
         SharedPreferences sp1=this.getSharedPreferences("Login",0);
         phone =sp1.getString("name", null);
         parol1 = sp1.getString("parol", null);

@@ -15,44 +15,51 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class TimeChangeFragment extends Fragment {
+public class TimeChangeFragment extends Fragment implements
+        TimePicker.OnTimeChangedListener {
+
+    private TimePicker timePicker;
+    private Button btnSet;
+    private TimePicker timePicker1;
+    String timeFrom;
+    String time_to;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_time_change, container, false);
+        timePicker = view.findViewById(R.id.timePicker);
+        timePicker.setOnTimeChangedListener(this);
+        timePicker1 =view.findViewById(R.id.timePicker1);
+        timePicker1.setOnTimeChangedListener(this);
 
-        TimePicker arrival_hours = view.findViewById(R.id.arrival_hours);
-        NumberPicker arrival_minutes = view.findViewById(R.id.arrival_minutes);
-        TimePicker departure_hours = view.findViewById(R.id.departure_hours);
-        NumberPicker departure_minutes = view.findViewById(R.id.departure_minutes);
-
-        arrival_hours.setIs24HourView(true);
-        departure_hours.setIs24HourView(true);
-        departure_minutes.setMaxValue(60);
-        arrival_minutes.setMaxValue(60);
-
-        Button back_bt = view.findViewById(R.id.back_bt);
-        back_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fragment_container, new SearchFragment());
-                ft.commit();
-            }
-        });
 
         Button save_bt = view.findViewById(R.id.save_bt);
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fragment_container, new SearchFragment());
-                ft.commit();
+                if (v == null) {
+                    
+                }
+                timeFrom = timePicker.getHour() + ":" + timePicker.getMinute();
+                time_to = timePicker1.getHour() + ":" + timePicker1.getMinute();
+                Bundle bundle = new Bundle();
+                bundle.putString("timeFrom", timeFrom);
+                bundle.putString("timeTo", time_to);
+                SearchFragment fragobj = new SearchFragment();
+                fragobj.setArguments(bundle);
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4= fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, fragobj);
+                ft4.commit();
+
             }
         });
 
             return view;
+    }
+
+    @Override
+    public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+
     }
 }
