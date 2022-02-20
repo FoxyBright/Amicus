@@ -69,7 +69,8 @@ public class Registration extends AppCompatActivity {
                     call.enqueue(new Callback<RegistrationResponce>() {
                         @Override
                         public void onResponse(Call<RegistrationResponce> call, Response<RegistrationResponce> response) {
-                            Intent intent = new Intent(Registration.this,MainActivity.class);
+                            Toast.makeText(Registration.this, "Вы успешно зарегистрировались", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Registration.this,LoginActivity.class);
                             startActivity(intent);
                             finish();
                         }

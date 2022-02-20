@@ -1,7 +1,5 @@
 package com.example.amicus.API;
 
-import com.example.amicus.Registration;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,4 +15,10 @@ public interface JSONPlaceHolderApi {
 
     @POST("/getusersauto")
     Call<List<AutoResponce>> autoUser(@Body AutoBody autoBody);
+
+    @POST("/searchtravel")
+    Call<List<SerachTravel>> searchTrav(@Body SaerchBody body);
+
+    @POST("addtravel")
+    Call<AddTravelResponce> addTravel (@Body AddBody addBody);
 }

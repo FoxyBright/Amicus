@@ -1,5 +1,6 @@
 package com.example.amicus;
 
+import static android.content.Context.MODE_PRIVATE;
 import static com.example.amicus.MainActivity.facebook;
 import static com.example.amicus.MainActivity.logo;
 import static com.example.amicus.MainActivity.name1;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.amicus.ui.SplashActivity;
 
 public class ProfileFragment extends Fragment {
 
@@ -45,6 +47,7 @@ public class ProfileFragment extends Fragment {
         exit_bt = view.findViewById(R.id.exit_bt);
         name_prof = view.findViewById(R.id.name_prof);
         pochta1 = view.findViewById(R.id.pochta);
+
         imageView = view.findViewById(R.id.profile_image);
 
 
@@ -63,11 +66,11 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences prefs = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("remember","false");
-                editor.apply();
-                getActivity().finish();
+                SharedPreferences.Editor editor = getActivity().getSharedPreferences("remember", MODE_PRIVATE).edit();
+                editor.putBoolean("remember", false);
+                editor.commit();
+                Intent intent = new Intent(getActivity(), SplashActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -36,22 +36,6 @@ public class MainActivity extends AppCompatActivity {
    static String logo;
 
     @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setMessage("Вы уверены что хотите выйти?")
-                .setPositiveButton("Да", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-
-                })
-                .setNegativeButton("Нет", null)
-                .show();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -118,8 +102,12 @@ public class MainActivity extends AppCompatActivity {
                         ft.commit();
                         break;
                     case R.id.addFragment:
-                        Intent intent = new Intent(MainActivity.this,AddActivity.class);
-                        startActivity(intent);
+//                        Intent intent = new Intent(MainActivity.this,AddActivity.class);
+//                        startActivity(intent);
+                        FragmentManager fm0 = getFragmentManager();
+                        FragmentTransaction ft0 = fm0.beginTransaction();
+                        ft0.replace(R.id.fragment_container, new AddFragment());
+                        ft0.commit();
                         break;
                     case R.id.MyTravelFragment:
 
@@ -147,6 +135,20 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Вы уверены что хотите выйти?")
+                .setPositiveButton("Да", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
 
+                })
+                .setNegativeButton("Нет", null)
+                .show();
     }
 }

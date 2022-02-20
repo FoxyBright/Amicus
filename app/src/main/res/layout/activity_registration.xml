@@ -82,7 +82,7 @@
             android:fontFamily="@font/inter_regular"
             android:paddingBottom="5dp">
 
-            <EditText
+            <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/login_email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

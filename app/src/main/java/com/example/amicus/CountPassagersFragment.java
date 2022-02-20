@@ -15,12 +15,16 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.text.DecimalFormat;
 
 public class CountPassagersFragment extends Fragment {
 
 
+    TextView count;
     String s;
+    static int number = 1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,15 +32,14 @@ public class CountPassagersFragment extends Fragment {
 
         RelativeLayout plus = view.findViewById(R.id.plus);
         RelativeLayout minus = view.findViewById(R.id.minus);
-        TextView count = view.findViewById(R.id.count);
+        count = view.findViewById(R.id.count);
         DecimalFormat format = new DecimalFormat("0.#");
+        count.setText(String.valueOf(number));
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                s= count.getText().toString();
-                int a = Integer.parseInt(s);
-                count.setText(format.format(a + 1));
-
+               number++;
+                count.setText(format.format(number));
 
             }
         });
@@ -44,10 +47,10 @@ public class CountPassagersFragment extends Fragment {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                s = count.getText().toString();
-                int a = Integer.parseInt(s);
-                if (a > 1){
-                    count.setText(format.format(a - 1));
+                number--;
+                count.setText(format.format(number));
+                if (number > 1){
+                    count.setText(format.format(number));
                 }
             }
         });
@@ -56,10 +59,8 @@ public class CountPassagersFragment extends Fragment {
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("pass", count.getText().toString());
+                number = Integer.parseInt(count.getText().toString());
                 SearchFragment fragobj = new SearchFragment();
-                fragobj.setArguments(bundle);
                 FragmentManager fm4 = getFragmentManager();
                 FragmentTransaction ft4= fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, fragobj);

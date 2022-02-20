@@ -2,6 +2,7 @@ package com.example.amicus.ui;
 
 
 
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
     private ImageView image;
     private TextView text;
 
-    
+
 
     private static final int SPLASH_DURATION = 2500;
 
@@ -44,14 +45,14 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run()
             {
-                SharedPreferences preferences =getSharedPreferences("checkbox",MODE_PRIVATE);
-                String checkbox = preferences.getString("remember","");
-                if (checkbox.equals("true")) {
+                SharedPreferences prefs = getSharedPreferences("remember", MODE_PRIVATE);
+                boolean rem = prefs.getBoolean("remember", false);
+                if (rem) {
                     Intent intent = new Intent(SplashActivity.this,MainActivity.class);
                     startActivity(intent);
                     finish();
-                }else{
-                    Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+                }else {
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }

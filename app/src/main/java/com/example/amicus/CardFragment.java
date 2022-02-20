@@ -45,7 +45,7 @@ public class CardFragment extends Fragment {
         card_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            //TODO https://github.com/faceterteam/PayCards_Android
             }
         });
 

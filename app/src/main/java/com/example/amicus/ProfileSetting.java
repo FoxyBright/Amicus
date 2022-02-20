@@ -1,6 +1,7 @@
 package com.example.amicus;
 
 import static com.example.amicus.MainActivity.facebook;
+import static com.example.amicus.MainActivity.logo;
 import static com.example.amicus.MainActivity.name1;
 import static com.example.amicus.MainActivity.pochta;
 import static com.example.amicus.MainActivity.truba;
@@ -19,6 +20,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -50,6 +54,8 @@ public class ProfileSetting extends AppCompatActivity {
         profile_name.setText(name1);
         mail_edit.setText(pochta);
         facebook_edit.setText(facebook);
+        Glide.with(ProfileSetting.this).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(profile_image);
+
         if (pochta.equals("")) {
             mail_edit.setText("Добавить почту");
         }

@@ -16,6 +16,7 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/departurePlace"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/corner"
@@ -35,6 +36,7 @@
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/arrivalPlace"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/corner"
@@ -79,13 +81,15 @@
                 android:src="@drawable/pointer_vertical" />
 
             <TextView
+                android:id="@+id/week"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="10dp"
                 android:fontFamily="@font/inter_regular"
                 android:singleLine="true"
-                android:text="пн ср"
+                android:hint="Каждый день"
+                android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -115,6 +119,7 @@
                 android:src="@drawable/pointer_vertical" />
 
             <TextView
+                android:id="@+id/pass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -151,6 +156,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/timefrom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_regular"
@@ -164,6 +170,7 @@
                     android:src="@drawable/pointer_horizontal" />
 
                 <TextView
+                    android:id="@+id/timeto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -232,12 +239,13 @@
         android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/bablo"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/corner"
         android:fontFamily="@font/inter_regular"
         android:singleLine="true"
-        android:text="250"
+        android:text=""
         android:textAlignment="center"
         android:textColor="@color/dark_grey"
         android:textSize="16sp" />
@@ -252,6 +260,7 @@
         android:textSize="14sp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/corner"

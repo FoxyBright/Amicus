@@ -40,7 +40,7 @@ public class FragmentAppSettings extends Fragment {
         cash_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteCache(getContext());
+                deleteCache(getActivity().getApplicationContext());
                 Toast.makeText(getActivity(), "Кэш успешно очищен!", Toast.LENGTH_LONG).show();
             }
         });
@@ -76,7 +76,8 @@ public class FragmentAppSettings extends Fragment {
         try {
             File dir = context.getCacheDir();
             deleteDir(dir);
-        } catch (Exception e) { e.printStackTrace();}
+        } catch (Exception e)
+        { e.printStackTrace();}
     }
 
     public static boolean deleteDir(File dir) {

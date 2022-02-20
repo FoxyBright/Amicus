@@ -26,6 +26,7 @@ public class AuthorizationResponce {
     @Expose
     private String logo;
 
+
     public String getLogo() {
         return logo;
     }

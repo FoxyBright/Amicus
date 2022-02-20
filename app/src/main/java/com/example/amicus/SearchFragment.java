@@ -1,87 +1,89 @@
 package com.example.amicus;
 
-import static android.content.Context.MODE_PRIVATE;
+import static com.example.amicus.CountPassagersFragment.number;
 
-import android.accounts.AccountManager;
-import android.app.Application;
+import static com.example.amicus.DayChangeFragment.weekDays;
+import static com.example.amicus.TimeChangeFragment.timeFrom1;
+import static com.example.amicus.TimeChangeFragment.time_to1;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.amicus.API.RetrofitAPI;
+import com.example.amicus.API.SaerchBody;
+import com.example.amicus.API.SerachTravel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class SearchFragment extends Fragment {
 
     TextView timeto;
     TextView timeFrom;
+    TextView week;
     TextView pass;
     TextView weeks1;
-    final static String SHARED_NAME_STRING="sharedp";
-    final static String USER_NAME_STRING="user";
-    final static String USER_NAME_STRING1="user1";
-    final static String USER_NAME_STRING2="user2";
+    TextView error;
+    EditText departurePlace;
+    EditText arrivalPlace;
+    RecyclerView recyclerView;
+    TravelAdapter autoAdapter;
+    List<SerachTravel> serachTravels;
+
+    String str_from;
+    String str_to;
+    String str_pass;
+    String str_departure;
+    String str_go_to;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            String from = getArguments().getString("timeFrom");
-            String to = getArguments().getString("timeTo");
-            String pass1 = getArguments().getString("pass");
-            String week = getArguments().getString("week");
-            String all = getArguments().getString("all");
-
-            weeks1 = view.findViewById(R.id.week);
-            weeks1.setText(all);
-
-
-
-
-
-            SharedPreferences.Editor editor = getContext().getSharedPreferences(SHARED_NAME_STRING, MODE_PRIVATE).edit();
-            SharedPreferences prefs = getContext().getSharedPreferences(SHARED_NAME_STRING, MODE_PRIVATE);
+        departurePlace = view.findViewById(R.id.departurePlace);
+        arrivalPlace = view.findViewById(R.id.arrivalPlace);
+        timeFrom = view.findViewById(R.id.timefrom);
+        timeto = view.findViewById(R.id.timeto);
+        pass = view.findViewById(R.id.pass);
+        week = view.findViewById(R.id.week);
+        recyclerView = view.findViewById(R.id.rec_view_tr);
+        error = view.findViewById(R.id.error);
+        timeFrom.setText(timeFrom1);
+        timeto.setText(time_to1);
+        pass.setText(String.valueOf(number));
+        week.setText(weekDays);
 
 
-            if (pass1 != null) {
-                if (from != null && to !=null) {
-                    editor.putString(USER_NAME_STRING1, from);
-                    editor.putString(USER_NAME_STRING2, to);
-                    editor.apply();
-                }
-                editor.putString(USER_NAME_STRING, pass1);
-                editor.apply();
-            }
-            // To load the data at a later time
-            String loadedString = prefs.getString(USER_NAME_STRING, null);
-            pass= view.findViewById(R.id.pass);
-            pass.setText(loadedString);
-            if (from != null && to !=null) {
-                String loadedString1 = prefs.getString(USER_NAME_STRING1, null);
-                String loadedStrin21 = prefs.getString(USER_NAME_STRING2, null);
-                timeFrom= view.findViewById(R.id.timefrom);
-                timeto= view.findViewById(R.id.timeto);
-                timeFrom.setText(loadedString1);
-                timeto.setText(loadedStrin21);
-            }
 
-        }
+
+
 
         LinearLayout calendar = view.findViewById(R.id.calendar);
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
+                FragmentTransaction ft4 = fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, new DayChangeFragment());
                 ft4.commit();
             }
@@ -92,7 +94,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
+                FragmentTransaction ft4 = fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, new TimeChangeFragment());
                 ft4.commit();
             }
@@ -103,7 +105,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
+                FragmentTransaction ft4 = fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, new CountPassagersFragment());
                 ft4.commit();
             }
@@ -113,15 +115,52 @@ public class SearchFragment extends Fragment {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, new SearchResultFragment());
-                ft4.commit();
+
+                serachTravels = new ArrayList<>();
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                autoAdapter = new TravelAdapter(getActivity(),serachTravels);
+                recyclerView.setAdapter(autoAdapter);
+
+                str_departure = departurePlace.getText().toString();
+                str_go_to = arrivalPlace.getText().toString();
+                str_from = timeFrom.getText().toString();
+                str_to = timeto.getText().toString();
+                str_pass = pass.getText().toString();
+
+                RetrofitAPI api = RetrofitAPI.getInstance();
+                SaerchBody saerchBody = new SaerchBody();
+                saerchBody.departureplace = str_departure;
+                saerchBody.arrivalplace = str_go_to;
+                saerchBody.membercount = str_pass;
+                saerchBody.weekday = weekDays;
+                saerchBody.departuretime = str_from;
+                saerchBody.arrivaltime = str_to;
+                Call<List<SerachTravel>> call = api.getJSONApi().searchTrav(saerchBody);
+                call.enqueue(new Callback<List<SerachTravel>>() {
+                    @Override
+                    public void onResponse(Call<List<SerachTravel>> call, Response<List<SerachTravel>> response) {
+                    serachTravels = response.body();
+                        if (response.body().size() == 0) {
+                            recyclerView.setVisibility(View.GONE);
+                            error.setVisibility(View.VISIBLE);
+                        }else {
+                            error.setVisibility(View.GONE);
+                            autoAdapter.setSerachTravels(serachTravels);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<SerachTravel>> call, Throwable t) {
+                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+//                FragmentManager fm4 = getFragmentManager();
+//                FragmentTransaction ft4 = fm4.beginTransaction();
+//                ft4.replace(R.id.fragment_container, new SearchResultFragment());
+//                ft4.commit();
             }
         });
-
-
-
 
 
         return view;

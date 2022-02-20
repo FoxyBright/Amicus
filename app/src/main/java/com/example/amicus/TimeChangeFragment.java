@@ -19,10 +19,9 @@ public class TimeChangeFragment extends Fragment implements
         TimePicker.OnTimeChangedListener {
 
     private TimePicker timePicker;
-    private Button btnSet;
     private TimePicker timePicker1;
-    String timeFrom;
-    String time_to;
+    static String timeFrom1;
+    static String time_to1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,27 +30,21 @@ public class TimeChangeFragment extends Fragment implements
         timePicker.setOnTimeChangedListener(this);
         timePicker1 =view.findViewById(R.id.timePicker1);
         timePicker1.setOnTimeChangedListener(this);
+        timePicker.setIs24HourView(true);
+        timePicker1.setIs24HourView(true);
 
 
         Button save_bt = view.findViewById(R.id.save_bt);
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v == null) {
-                    
-                }
-                timeFrom = timePicker.getHour() + ":" + timePicker.getMinute();
-                time_to = timePicker1.getHour() + ":" + timePicker1.getMinute();
-                Bundle bundle = new Bundle();
-                bundle.putString("timeFrom", timeFrom);
-                bundle.putString("timeTo", time_to);
-                SearchFragment fragobj = new SearchFragment();
-                fragobj.setArguments(bundle);
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, fragobj);
-                ft4.commit();
 
+                timeFrom1 = timePicker.getHour() + ":" + timePicker.getMinute();
+                time_to1 = timePicker1.getHour() + ":" + timePicker1.getMinute();
+                FragmentManager fm4 = getFragmentManager();
+                FragmentTransaction ft4 = fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container, new SearchFragment());
+                ft4.commit();
             }
         });
 

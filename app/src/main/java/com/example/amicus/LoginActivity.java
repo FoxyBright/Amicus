@@ -56,20 +56,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("remember","true");
-        editor.apply();
-        Toast.makeText(LoginActivity.this, "Запомнили", Toast.LENGTH_SHORT).show();
-
-
-
 
         TextView registration_link = findViewById(R.id.registration_link);
         tw_phone = findViewById(R.id.tw_phone);
@@ -96,6 +86,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SharedPreferences.Editor editor = getSharedPreferences("remember", MODE_PRIVATE).edit();
+                editor.putBoolean("remember", true);
+                editor.commit();
+
                 RetrofitAPI api = RetrofitAPI.getInstance();
 
                 AuthorizationBody body = new AuthorizationBody();
@@ -106,11 +100,16 @@ public class LoginActivity extends AppCompatActivity {
                 call.enqueue(new Callback<AuthorizationResponce>() {
                     @Override
                     public void onResponse(Call<AuthorizationResponce> call, Response<AuthorizationResponce> response) {
-                        Toast.makeText(LoginActivity.this, "Добро пожаловать, " +response.body().getName(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                        intent.putExtra("phone", body.phone);
-                        intent.putExtra("parol", body.password);
-                        startActivity(intent);
+                        if (response.body().getPhone().equals("Bad phone or password")){
+                            Toast.makeText(LoginActivity.this, "Неверный логин или пароль ", Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Добро пожаловать, " +response.body().getName(), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent.putExtra("phone", body.phone);
+                            intent.putExtra("parol", body.password);
+                            startActivity(intent);
+                        }
                     }
 
                     @Override
@@ -120,27 +119,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
-            //TODO ГАЛОЧКА
-//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-//                if (compoundButton.isChecked()) {
-//                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = preferences.edit();
-//                    editor.putString("remember","true");
-//                    editor.apply();
-//                    Toast.makeText(LoginActivity.this, "Запомнили", Toast.LENGTH_SHORT).show();
-//
-//                }else if(!compoundButton.isChecked()){
-//                    SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = preferences.edit();
-//                    editor.putString("remember","false");
-//                    editor.apply();
-//                    Toast.makeText(LoginActivity.this, "не запомнили", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
 
      }
 }

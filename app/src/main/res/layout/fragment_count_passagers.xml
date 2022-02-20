@@ -63,12 +63,12 @@
                     android:background="@color/white"
                     android:src="@drawable/minus" />
             </RelativeLayout>
+
             <TextView
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
                 android:fontFamily="@font/inter_regular"
                 android:text="1"
                 android:textColor="@color/dark_grey"

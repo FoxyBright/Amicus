@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DayChangeFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_bt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/shadow_back_bt"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/login_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="21dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="В КАКИЕ ДНИ?"
+
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="пн" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="вт" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="ср" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="чт" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="пт" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="сб" />
+
+        <CheckBox
+            android:id="@+id/checkBoxColor7"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:theme="@style/MyCheckBox"
+            android:textSize="30dp"
+            android:checked="true"
+            android:text="вс" />
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_bt"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/blue_corner_bt"
+        android:text="@string/SAVE_Baton"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
