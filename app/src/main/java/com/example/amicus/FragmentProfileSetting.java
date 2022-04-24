@@ -12,6 +12,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 
@@ -29,6 +30,8 @@ public class FragmentProfileSetting extends Fragment {
 
     CircleImageView profile_image;
     private static final int PIC_IMAGE =1;
+    static final int GALLERY_REQUEST = 1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class FragmentProfileSetting extends Fragment {
         }
 
 
+
         Button back_bt = view.findViewById(R.id.back_bt);
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,5 +82,12 @@ public class FragmentProfileSetting extends Fragment {
         return view;
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+        Uri selectedImage = imageReturnedIntent.getData();
+        profile_image.setImageURI(selectedImage);
     }
 }
