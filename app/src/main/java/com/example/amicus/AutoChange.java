@@ -1,5 +1,6 @@
 package com.example.amicus;
 
+import static com.example.amicus.MainActivity.id;
 import static com.example.amicus.MainActivity.phone;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,11 +46,8 @@ public class AutoChange extends AppCompatActivity {
         autoAdapter = new AutoAdapter(this,autoResponces);
         recyclerView.setAdapter(autoAdapter);
 
-
-        AutoBody body = new AutoBody();
-        body.phone = phone;
         RetrofitAPI api = RetrofitAPI.getInstance();
-       Call<List<AutoResponce>> call = api.getJSONApi().autoUser(body);
+       Call<List<AutoResponce>> call = api.getJSONApi().autoUser(id);
        call.enqueue(new Callback<List<AutoResponce>>() {
            @Override
            public void onResponse(Call<List<AutoResponce>> call, Response<List<AutoResponce>> response) {
@@ -59,7 +57,7 @@ public class AutoChange extends AppCompatActivity {
 
            @Override
            public void onFailure(Call<List<AutoResponce>> call, Throwable t) {
-               Toast.makeText(AutoChange.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+               Toast.makeText(AutoChange.this, "Авто не найдены", Toast.LENGTH_SHORT).show();
            }
        });
     }

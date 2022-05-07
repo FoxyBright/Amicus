@@ -33,6 +33,7 @@ public class Registration extends AppCompatActivity {
     EditText number_textview;
     EditText password_create;
     EditText repeat_pass;
+    EditText email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class Registration extends AppCompatActivity {
         your_name_textview = findViewById(R.id.your_name_textview);
         number_textview = findViewById(R.id.login_email_et);
         password_create = findViewById(R.id.login_password_et);
+        email = findViewById(R.id.email);
         repeat_pass = findViewById(R.id.login_password_et_rewrite);
         ToggleButton toggleButton1 = findViewById(R.id.toggleButton1);
         TextView enter_link = findViewById(R.id.enter_link);
@@ -55,6 +57,7 @@ public class Registration extends AppCompatActivity {
                 String phone = number_textview.getText().toString();
                 String pass = password_create.getText().toString();
                 String rep_pass =password_create.getText().toString();
+                String email1 = email.getText().toString();
 
 
                 if (validateForm(password_create,repeat_pass) && toggleButton1.isChecked() && !TextUtils.isEmpty(name) && !TextUtils.isEmpty(phone)
@@ -64,6 +67,7 @@ public class Registration extends AppCompatActivity {
                     body.name = name;
                     body.phone = phone;
                     body.password = pass;
+                    body.email = email1;
                     api.getJSONApi().regUser(body);
                     Call<RegistrationResponce> call = api.getJSONApi().regUser(body);
                     call.enqueue(new Callback<RegistrationResponce>() {

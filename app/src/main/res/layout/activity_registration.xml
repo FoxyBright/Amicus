@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/registration_activity_layout"
@@ -10,6 +10,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin">
 
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/login_image"
@@ -58,7 +61,6 @@
                 android:fontFamily="@font/inter_regular"
                 android:textColor="@color/dark_grey"
                 android:typeface="monospace"
-                app:mask="##########"
                 app:keep_hint="true"
                 android:inputType="textCapSentences" />
 
@@ -95,6 +97,38 @@
                 app:keep_hint="true"
                 app:mask="+7(###)###-##-##" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/email"
+            android:textColor="@color/dark_grey" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner"
+            android:fontFamily="@font/inter_regular"
+            android:inputType="textPassword"
+            android:paddingBottom="5dp">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner"
+                android:fontFamily="@font/inter_regular"
+                android:typeface="monospace"
+                app:keep_hint="true"
+                android:inputType="textCapSentences">
+
+            </EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -157,6 +191,8 @@
 
             </EditText>
         </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -241,5 +277,5 @@
             android:text="@string/enter"
             android:textColor="@color/yellow" />
     </LinearLayout>
-
 </RelativeLayout>
+</ScrollView>

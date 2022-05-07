@@ -1,5 +1,6 @@
 package com.example.amicus;
 
+import static com.example.amicus.MainActivity.id;
 import static com.example.amicus.MainActivity.phone;
 
 import android.app.Fragment;
@@ -42,10 +43,8 @@ public class AutoChangeFragment extends Fragment {
         autoAdapter = new AutoAdapter(getActivity(),autoResponces);
         recyclerView.setAdapter(autoAdapter);
 
-        AutoBody body = new AutoBody();
-        body.phone = phone;
         RetrofitAPI api = RetrofitAPI.getInstance();
-        Call<List<AutoResponce>> call = api.getJSONApi().autoUser(body);
+        Call<List<AutoResponce>> call = api.getJSONApi().autoUser(id);
         call.enqueue(new Callback<List<AutoResponce>>() {
             @Override
             public void onResponse(Call<List<AutoResponce>> call, Response<List<AutoResponce>> response) {
@@ -55,7 +54,7 @@ public class AutoChangeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<AutoResponce>> call, Throwable t) {
-                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Авто не найдены", Toast.LENGTH_SHORT).show();
             }
         });
 

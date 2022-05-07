@@ -18,6 +18,7 @@
     <string name="code">Пароль</string>
     <string name="Password">Пароль</string>
     <string name="RePassword">Повтор пароля</string>
+    <string name="email">Электронная почта</string>
     <string name="Forget_password">Забыли пароль?</string>
     <string name="Enter_with">ВОЙТИ С ПОМОЩЬЮ</string>
     <string name="Not_account">Вы не имеете аккаунта?</string>

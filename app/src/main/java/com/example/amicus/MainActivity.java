@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
    static String pochta;
    static String truba;
    static String logo;
+   static int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 pochta = response.body().getMail();
                 logo = response.body().getLogo();
                 truba = response.body().getPhone();
+                id = response.body().getId();
             }
 
             @Override

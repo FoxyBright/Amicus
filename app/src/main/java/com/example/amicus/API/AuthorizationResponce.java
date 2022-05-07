@@ -25,7 +25,17 @@ public class AuthorizationResponce {
     @SerializedName("photo")
     @Expose
     private String logo;
+    @SerializedName("id")
+    @Expose
+    private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getLogo() {
         return logo;
