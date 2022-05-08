@@ -4,6 +4,9 @@ import static com.example.amicus.DayChangeFragment.weekDays;
 import static com.example.amicus.MainActivity.logo;
 
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 import androidx.fragment.app.FragmentActivity;
 
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -50,7 +54,8 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
     String  str_pass;
     String str_departure;
     String str_go_to;
-    static int position1;
+    int position1;
+    static int author;
 
     public TravelAdapter(Context mContext,List<SerachTravel> serachTravels){
         this.context = mContext;
@@ -84,17 +89,16 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
         holder.auto_name.setText(serachTravels.get(position).getAutomobile());
         holder.description_travel.setText(serachTravels.get(position).getDescription());
         Glide.with(context).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
+        str_departure = serachTravels.get(position).getDepartureplace();
+        str_go_to = serachTravels.get(position).getArrivalplace();
+        str_from = serachTravels.get(position).getDeparturetime();
+        str_to = serachTravels.get(position).getArrivaltime();
+        str_pass = String.valueOf(serachTravels.get(position).getMembercount());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 position1 = holder.getAdapterPosition();
 
-
-                str_departure = serachTravels.get(position).getDepartureplace();
-                str_go_to = serachTravels.get(position).getArrivalplace();
-                str_from = serachTravels.get(position).getDeparturetime();
-                str_to = serachTravels.get(position).getArrivaltime();
-                str_pass = String.valueOf(serachTravels.get(position).getMembercount());
                 RetrofitAPI api = RetrofitAPI.getInstance();
                 SaerchBody saerchBody = new SaerchBody();
                 saerchBody.departureplace = str_departure;
@@ -115,7 +119,9 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                             String jsonstr1 = new Gson().toJson(jsonArray.getJSONObject(position1));
                             String jsonstr2 = jsonstr1.substring(18,jsonstr1.length()-1);
                             SerachTravel serachTravel = new Gson().fromJson(jsonstr2,SerachTravel.class);
-                            System.out.println(serachTravel.getAutor());
+
+                            author = serachTravel.getAutor();
+                            System.out.println(author);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -177,6 +183,15 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                 @Override
                 public void onClick(View v) {
                     other.setVisibility(View.VISIBLE);
+                }
+            });
+
+            autophoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UsersData newsFragment = new UsersData();
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
                 }
             });
 
