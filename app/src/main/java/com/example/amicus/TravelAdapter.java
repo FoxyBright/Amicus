@@ -1,6 +1,8 @@
 package com.example.amicus;
 
+import static com.example.amicus.DayChangeFragment.weekDays;
 import static com.example.amicus.MainActivity.logo;
+
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,25 +11,46 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.amicus.API.AutoResponce;
+import com.example.amicus.API.RetrofitAPI;
+import com.example.amicus.API.SaerchBody;
 import com.example.amicus.API.SerachTravel;
+import com.google.gson.Gson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.w3c.dom.Text;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelViewHolder> {
 
     List<SerachTravel> serachTravels;
     Context context;
+
+    String str_from;
+    String str_to;
+    String  str_pass;
+    String str_departure;
+    String str_go_to;
+    static int position1;
 
     public TravelAdapter(Context mContext,List<SerachTravel> serachTravels){
         this.context = mContext;
@@ -61,6 +84,52 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
         holder.auto_name.setText(serachTravels.get(position).getAutomobile());
         holder.description_travel.setText(serachTravels.get(position).getDescription());
         Glide.with(context).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                position1 = holder.getAdapterPosition();
+
+
+                str_departure = serachTravels.get(position).getDepartureplace();
+                str_go_to = serachTravels.get(position).getArrivalplace();
+                str_from = serachTravels.get(position).getDeparturetime();
+                str_to = serachTravels.get(position).getArrivaltime();
+                str_pass = String.valueOf(serachTravels.get(position).getMembercount());
+                RetrofitAPI api = RetrofitAPI.getInstance();
+                SaerchBody saerchBody = new SaerchBody();
+                saerchBody.departureplace = str_departure;
+                saerchBody.arrivalplace = str_go_to;
+                saerchBody.membercount = str_pass;
+                saerchBody.weekday = weekDays;
+                saerchBody.departuretime = str_from;
+                saerchBody.arrivaltime = str_to;
+
+                Call<List<SerachTravel>> call = api.getJSONApi().searchTrav(saerchBody);
+                call.enqueue(new Callback<List<SerachTravel>>() {
+                    @Override
+                    public void onResponse(Call<List<SerachTravel>> call, Response<List<SerachTravel>> response) {
+                        String jsonstr = new Gson().toJson(serachTravels = response.body());
+
+                        try {
+                            JSONArray jsonArray = new JSONArray(jsonstr);
+                            String jsonstr1 = new Gson().toJson(jsonArray.getJSONObject(position1));
+                            String jsonstr2 = jsonstr1.substring(18,jsonstr1.length()-1);
+                            SerachTravel serachTravel = new Gson().fromJson(jsonstr2,SerachTravel.class);
+                            System.out.println(serachTravel.getAutor());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<SerachTravel>> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
 
 
     }
@@ -91,6 +160,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
 
             adr_trav = itemView.findViewById(R.id.adr_trav);
             time_dep = itemView.findViewById(R.id.time_dep);
+
             adr_arr = itemView.findViewById(R.id.adr_arr);
             time_arr = itemView.findViewById(R.id.time_arr);
             passagir = itemView.findViewById(R.id.passagir);
@@ -102,11 +172,11 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
             autophoto = itemView.findViewById(R.id.autophoto);
             other = itemView.findViewById(R.id.other);
 
+
             bablo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     other.setVisibility(View.VISIBLE);
-
                 }
             });
 

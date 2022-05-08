@@ -1,6 +1,7 @@
 package com.example.amicus;
 
 
+
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
@@ -14,10 +15,19 @@ import com.example.amicus.API.AuthorizationBody;
 import com.example.amicus.API.AuthorizationResponce;
 import com.example.amicus.API.RetrofitAPI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+
+
+import androidx.viewpager.widget.ViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
    static String logo;
    static int id;
 
+    static final int NUM_ITEMS = 4;
+    private List<Fragment> fragmentList = new ArrayList<Fragment>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Bundle arguments = getIntent().getExtras();
         String name;
         String parol;
@@ -113,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.MyTravelFragment:
 
-                        FragmentManager fm2 = getFragmentManager();
-                        FragmentTransaction ft2 = fm2.beginTransaction();
+                        androidx.fragment.app.FragmentManager fm2 = getSupportFragmentManager();
+                        androidx.fragment.app.FragmentTransaction ft2 = fm2.beginTransaction();
                         ft2.replace(R.id.fragment_container, new MyTravel());
                         ft2.commit();
                         break;
@@ -126,17 +138,17 @@ public class MainActivity extends AppCompatActivity {
                         ft3.commit();
                         break;
                     case R.id.profileFragment:
-
                         FragmentManager fm4 = getFragmentManager();
                         FragmentTransaction ft4= fm4.beginTransaction();
                         ft4.replace(R.id.fragment_container, new ProfileFragment());
                         ft4.commit();
                         break;
                 }
-
                 return true;
             }
         });
+        fragmentList.add(new MyTravel());
+        fragmentList.add(new MyTravel());
     }
     @Override
     public void onBackPressed() {
@@ -152,5 +164,29 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Нет", null)
                 .show();
+    }
+
+    private void initView(){
+        TabLayout tab_layout = findViewById(R.id.tablayout);
+        ViewPager viewPager = findViewById(R.id.viewpager);
+        MyAdapter fragmentAdater = new  MyAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(fragmentAdater);
+        tab_layout.setupWithViewPager(viewPager);
+    }
+
+    public class MyAdapter extends FragmentPagerAdapter {
+        public MyAdapter(androidx.fragment.app.FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
     }
 }

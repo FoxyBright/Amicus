@@ -26,8 +26,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.amicus.API.RetrofitAPI;
 import com.example.amicus.API.SaerchBody;
 import com.example.amicus.API.SerachTravel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -51,9 +59,10 @@ public class SearchFragment extends Fragment {
 
     String str_from;
     String str_to;
-    String str_pass;
+    String  str_pass;
     String str_departure;
     String str_go_to;
+    static int author;
 
 
     @Override
@@ -126,7 +135,6 @@ public class SearchFragment extends Fragment {
                 str_from = timeFrom.getText().toString();
                 str_to = timeto.getText().toString();
                 str_pass = pass.getText().toString();
-
                 RetrofitAPI api = RetrofitAPI.getInstance();
                 SaerchBody saerchBody = new SaerchBody();
                 saerchBody.departureplace = str_departure;
@@ -139,11 +147,13 @@ public class SearchFragment extends Fragment {
                 call.enqueue(new Callback<List<SerachTravel>>() {
                     @Override
                     public void onResponse(Call<List<SerachTravel>> call, Response<List<SerachTravel>> response) {
-                    serachTravels = response.body();
+                        serachTravels = response.body();
+
                         if (response.body().size() == 0) {
                             recyclerView.setVisibility(View.GONE);
                             error.setVisibility(View.VISIBLE);
                         }else {
+                            recyclerView.setVisibility(View.VISIBLE);
                             error.setVisibility(View.GONE);
                             autoAdapter.setSerachTravels(serachTravels);
                         }

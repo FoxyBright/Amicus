@@ -11,6 +11,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 
 public interface JSONPlaceHolderApi {
@@ -30,8 +31,8 @@ public interface JSONPlaceHolderApi {
     @POST("/addauto")
     Call<AddAuto> addauto(@Body AddBodyAuto body);
 
-    @POST("addtravel")
-    Call<AddTravelResponce> addTravel(@Body AddBody addBody);
+    @POST("addtravel/{id}")
+    Call<AddTravelResponce> addTravel(@Body AddBody addBody, @Path ("id") int groupId);
 
     @Multipart
     @POST("/uploadphoto")

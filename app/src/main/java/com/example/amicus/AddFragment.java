@@ -4,6 +4,7 @@ import static com.example.amicus.CountPassagersFragment.number;
 import static com.example.amicus.CountPassagersFragmentAdd.number1;
 import static com.example.amicus.DayChangeFragment.weekDays;
 import static com.example.amicus.DayChangeFragmentAdd.weekDays1;
+import static com.example.amicus.MainActivity.id;
 import static com.example.amicus.MainActivity.logo;
 import static com.example.amicus.MainActivity.name1;
 import static com.example.amicus.MainActivity.phone;
@@ -164,7 +165,7 @@ public class AddFragment extends Fragment {
                 addBody.autor = phone;
                 addBody.autorphoto = logo;
                 addBody.autorname = name1;
-                Call<AddTravelResponce> call = api.getJSONApi().addTravel(addBody);
+                Call<AddTravelResponce> call = api.getJSONApi().addTravel(addBody,id);
                 call.enqueue(new Callback<AddTravelResponce>() {
                     @Override
                     public void onResponse(Call<AddTravelResponce> call, Response<AddTravelResponce> response) {

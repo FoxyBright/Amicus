@@ -36,7 +36,7 @@ public class SerachTravel {
     private String description;
     @SerializedName("autor")
     @Expose
-    private String autor;
+    private Integer autor;
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -46,6 +46,23 @@ public class SerachTravel {
     @SerializedName("autophoto")
     @Expose
     private String autophoto;
+
+    public SerachTravel(String departureplace, String arrivalplace, String departuretime, String arrivaltime, Integer membercount, String distance, String price, String weekday, String automobile, String description, Integer autor, Integer id, String autorname, String autophoto) {
+        this.departureplace = departureplace;
+        this.arrivalplace = arrivalplace;
+        this.departuretime = departuretime;
+        this.arrivaltime = arrivaltime;
+        this.membercount = membercount;
+        this.distance = distance;
+        this.price = price;
+        this.weekday = weekday;
+        this.automobile = automobile;
+        this.description = description;
+        this.autor = autor;
+        this.id = id;
+        this.autorname = autorname;
+        this.autophoto = autophoto;
+    }
 
     public String getAutorname() {
         return autorname;
@@ -143,11 +160,11 @@ public class SerachTravel {
         this.description = description;
     }
 
-    public String getAutor() {
+    public Integer getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Integer autor)  {
         this.autor = autor;
     }
 

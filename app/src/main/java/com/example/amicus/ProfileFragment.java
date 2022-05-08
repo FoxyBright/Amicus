@@ -92,7 +92,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fm4 = getFragmentManager();
                 FragmentTransaction ft4= fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, new AutoFragment());
+                ft4.replace(R.id.fragment_container, new RecyclerAutoFragment());
                 ft4.commit();
             }
         });
