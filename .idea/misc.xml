@@ -6,7 +6,9 @@
         <entry key="..\:/Amicus/app/src/main/res/drawable-anydpi/ic_eye.xml" value="0.3828125" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/corner.xml" value="0.3828125" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/empty_profile_photo.xml" value="0.323" />
+        <entry key="..\:/Amicus/app/src/main/res/drawable/green_corner.xml" value="0.297" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/my_travel_selector.xml" value="0.3828125" />
+        <entry key="..\:/Amicus/app/src/main/res/drawable/red_corner_bt.xml" value="0.3665" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/search_selector.xml" value="0.3828125" />
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_add.xml" value="0.2930253623188406" />
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_auto_change.xml" value="0.2930253623188406" />
@@ -45,7 +47,7 @@
         <entry key="..\:/Amicus/app/src/main/res/layout/fragment_time_change.xml" value="0.2930253623188406" />
         <entry key="..\:/Amicus/app/src/main/res/layout/fragment_time_change_add.xml" value="0.3242753623188406" />
         <entry key="..\:/Amicus/app/src/main/res/layout/fragment_user_profile.xml" value="0.2930253623188406" />
-        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_users_data.xml" value="0.18854166666666666" />
+        <entry key="..\:/Amicus/app/src/main/res/layout/fragment_users_data.xml" value="0.6074201898188093" />
         <entry key="..\:/Amicus/app/src/main/res/layout/item_add.xml" value="0.5" />
         <entry key="..\:/Amicus/app/src/main/res/layout/menu_bottom_navigation.xml" value="0.2717391304347826" />
         <entry key="..\:/Amicus/app/src/main/res/layout/splashscreen.xml" value="0.17831813576494426" />

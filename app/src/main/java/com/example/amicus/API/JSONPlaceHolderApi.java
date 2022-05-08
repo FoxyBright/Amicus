@@ -38,4 +38,7 @@ public interface JSONPlaceHolderApi {
     @POST("/uploadphoto")
     Call<ResponseBody> uploadphoto(@Part MultipartBody.Part part, @Part("somebody") RequestBody requestBody);
 
+    @GET("/getuserdata/{id}")
+    Call<GetUserData> getUsData(@Path("id") int groupId);
+
 }

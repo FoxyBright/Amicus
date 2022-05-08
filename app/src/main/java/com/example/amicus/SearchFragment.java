@@ -129,7 +129,8 @@ public class SearchFragment extends Fragment {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 autoAdapter = new TravelAdapter(getActivity(),serachTravels);
                 recyclerView.setAdapter(autoAdapter);
-
+                departurePlace.setText("Обнинск");
+                arrivalPlace.setText("Москва");
                 str_departure = departurePlace.getText().toString();
                 str_go_to = arrivalPlace.getText().toString();
                 str_from = timeFrom.getText().toString();

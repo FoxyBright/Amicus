@@ -94,11 +94,11 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
         str_from = serachTravels.get(position).getDeparturetime();
         str_to = serachTravels.get(position).getArrivaltime();
         str_pass = String.valueOf(serachTravels.get(position).getMembercount());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.autophoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 position1 = holder.getAdapterPosition();
-
+                System.out.println("Позиция "+ position1);
                 RetrofitAPI api = RetrofitAPI.getInstance();
                 SaerchBody saerchBody = new SaerchBody();
                 saerchBody.departureplace = str_departure;
@@ -119,9 +119,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                             String jsonstr1 = new Gson().toJson(jsonArray.getJSONObject(position1));
                             String jsonstr2 = jsonstr1.substring(18,jsonstr1.length()-1);
                             SerachTravel serachTravel = new Gson().fromJson(jsonstr2,SerachTravel.class);
-
                             author = serachTravel.getAutor();
-                            System.out.println(author);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -134,6 +132,10 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
 
                     }
                 });
+                System.out.println("Автор "+ author);
+                UsersData newsFragment = new UsersData();
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
             }
         });
 
@@ -186,14 +188,15 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                 }
             });
 
-            autophoto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    UsersData newsFragment = new UsersData();
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
-                }
-            });
+//            autophoto.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+
+//                    UsersData newsFragment = new UsersData();
+//                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+//                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
+//                }
+//            });
 
         }
     }

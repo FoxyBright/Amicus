@@ -65,9 +65,12 @@
     <!--    Strings to profile_settings_activity-->
     <string name="PROF_SETTING">НАСТРОЙКИ ПРОФИЛЯ</string>
     <string name="profile_name">Игорь</string>
+    <string name="email_name">пошта</string>
     <string name="Notification">Оповещения</string>
     <string name="Notification_description">Для получения сообщений</string>
     <string name="Delete">Удалить аккаунт</string>
+    <string name="zvonok">Позвонить</string>
+    <string name="napisat">Написать</string>
 
     <!--    Strings to profile_settings_activity-->
     <string name="PAY_SETTING">НАСТРОЙКИ ОПЛАТЫ</string>
