@@ -6,8 +6,12 @@
     tools:context=".PageFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_view_all"
+        android:id="@+id/rec_voditel"
         android:layout_width="match_parent"
-        android:layout_height="280dp" />
+        android:scrollbars="vertical"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

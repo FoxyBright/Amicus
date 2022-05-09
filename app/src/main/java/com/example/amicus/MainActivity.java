@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
                         ft0.commit();
                         break;
                     case R.id.MyTravelFragment:
-
                         androidx.fragment.app.FragmentManager fm2 = getSupportFragmentManager();
                         androidx.fragment.app.FragmentTransaction ft2 = fm2.beginTransaction();
                         ft2.replace(R.id.fragment_container, new MyTravel());

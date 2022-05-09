@@ -62,7 +62,7 @@ public class SearchFragment extends Fragment {
     String  str_pass;
     String str_departure;
     String str_go_to;
-    static int author;
+
 
 
     @Override

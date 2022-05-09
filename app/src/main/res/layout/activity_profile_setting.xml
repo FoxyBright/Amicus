@@ -132,8 +132,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="3dp"
-                    android:singleLine="true"
                     android:fontFamily="@font/inter_regular"
+                    android:singleLine="true"
                     android:textColor="@color/dark_grey"
                     android:textSize="16sp" />
 
@@ -159,6 +159,7 @@
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/Description"
                     android:src="@drawable/facebook_profile_link" />
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/facebook_edit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -166,8 +167,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="3dp"
-                    android:singleLine="true"
                     android:fontFamily="@font/inter_regular"
+                    android:singleLine="true"
                     android:textColor="@color/dark_grey"
                     android:textSize="16sp" />
             </LinearLayout>

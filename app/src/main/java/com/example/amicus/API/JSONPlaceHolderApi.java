@@ -1,5 +1,7 @@
 package com.example.amicus.API;
 
+import com.example.amicus.VoditelData;
+
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -40,5 +42,8 @@ public interface JSONPlaceHolderApi {
 
     @GET("/getuserdata/{id}")
     Call<GetUserData> getUsData(@Path("id") int groupId);
+
+    @GET("/gettravelswhereuserdriver/{id}")
+    Call<List<VoditelData>> getVodila(@Path("id") int groupId);
 
 }
