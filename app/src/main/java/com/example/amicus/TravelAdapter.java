@@ -55,7 +55,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
     String str_departure;
     String str_go_to;
     int position1;
-    static int author;
+    public static int author;
 
     public TravelAdapter(Context mContext,List<SerachTravel> serachTravels){
         this.context = mContext;
@@ -120,6 +120,9 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                             String jsonstr2 = jsonstr1.substring(18,jsonstr1.length()-1);
                             SerachTravel serachTravel = new Gson().fromJson(jsonstr2,SerachTravel.class);
                             author = serachTravel.getAutor();
+                            UsersData newsFragment = new UsersData();
+                            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -133,9 +136,8 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                     }
                 });
                 System.out.println("Автор "+ author);
-                UsersData newsFragment = new UsersData();
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
+
+
             }
         });
 

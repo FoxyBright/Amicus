@@ -61,8 +61,6 @@ public class UsersData extends Fragment {
                 facebook.setText(getUserData.getFacebook());
                 phone_edit.setText(getUserData.getPhone());
                 Glide.with(UsersData.this).load(getUserData.getPhoto()).diskCacheStrategy(DiskCacheStrategy.NONE).into(profile_image);
-
-
             }
 
             @Override
@@ -70,6 +68,11 @@ public class UsersData extends Fragment {
 
             }
         });
+
+
+
+
+
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
