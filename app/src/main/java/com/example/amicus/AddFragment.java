@@ -60,6 +60,7 @@ public class AddFragment extends Fragment {
     EditText cost;
     EditText description;
     Button save_bt;
+    String myStr;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -89,7 +90,7 @@ public class AddFragment extends Fragment {
         Bundle bundle = this.getArguments();
 
         if (bundle != null) {
-            String myStr = getArguments().getString("auto");
+            myStr = getArguments().getString("auto");
             text_auto.setText(myStr);
         }
 
@@ -159,7 +160,7 @@ public class AddFragment extends Fragment {
                 addBody.arrivaltime = str_to;
                 addBody.membercount = str_pass;
                 addBody.weekday = weekDays1;
-                addBody.automobile = "Черный Volkswagen Polo М 193 ЕХ 70RU";
+                addBody.automobile = myStr;
                 addBody.price = cost1;
                 addBody.description = description1;
                 addBody.autor = phone;

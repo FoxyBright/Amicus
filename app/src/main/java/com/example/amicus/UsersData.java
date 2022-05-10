@@ -68,11 +68,6 @@ public class UsersData extends Fragment {
 
             }
         });
-
-
-
-
-
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

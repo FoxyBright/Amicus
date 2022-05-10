@@ -78,7 +78,7 @@ public class AddActivity extends AppCompatActivity {
         autoChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddActivity.this,AutoChange.class);
+                Intent intent = new Intent(AddActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }

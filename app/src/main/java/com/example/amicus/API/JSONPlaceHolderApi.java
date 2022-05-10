@@ -1,5 +1,6 @@
 package com.example.amicus.API;
 
+import com.example.amicus.PassagerData;
 import com.example.amicus.VoditelData;
 
 import java.util.List;
@@ -45,5 +46,8 @@ public interface JSONPlaceHolderApi {
 
     @GET("/gettravelswhereuserdriver/{id}")
     Call<List<VoditelData>> getVodila(@Path("id") int groupId);
+
+    @GET("/gettravelwhereuserpassenger/{id}")
+    Call<List<PassagerData>> getPassager(@Path("id") int groupId);
 
 }

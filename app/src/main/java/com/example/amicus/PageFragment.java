@@ -27,7 +27,7 @@ public class PageFragment extends Fragment {
 
     RecyclerView recyclerView;
     VoditelAdapter voditelAdapter;
-    List<VoditelData >voditelData;
+    List<VoditelData> voditelData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -30,7 +30,7 @@ import java.util.List;
 
 public class AutoAdapter extends RecyclerView.Adapter<AutoAdapter.AutoViewHolder> {
 
-    List<AutoResponce> autoModel;
+    static List<AutoResponce> autoModel;
     Context context;
 
     public AutoAdapter(Context mContext,List<AutoResponce> autoModel){
@@ -59,11 +59,14 @@ public class AutoAdapter extends RecyclerView.Adapter<AutoAdapter.AutoViewHolder
         holder.layout_rec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,AddActivity.class);
-                intent.putExtra("Autoname",autoModel.get(position).getColor() + " " + autoModel.get(position).getModel() + " " +  autoModel.get(position).getStatenumber());
-                context.startActivity(intent);
-                ((Activity)context).finish();
-
+                AddFragment fragment = new AddFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("auto",autoModel.get(position).getColor() + " " + autoModel.get(position).getModel() + " " +  autoModel.get(position).getStatenumber());
+                fragment.setArguments(bundle);
+                FragmentManager fm4 = ((Activity)context).getFragmentManager();
+                FragmentTransaction ft4 = fm4.beginTransaction();
+                ft4.replace(R.id.fragment_container,fragment);
+                ft4.commit();
             }
         });
     }
