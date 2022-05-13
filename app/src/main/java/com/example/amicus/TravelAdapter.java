@@ -54,6 +54,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
     String  str_pass;
     String str_departure;
     String str_go_to;
+    String price;
     int position1;
     public static int author;
 
@@ -78,17 +79,18 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
 
     @Override
     public void onBindViewHolder(@NonNull TravelViewHolder holder, int position) {
+        price = serachTravels.get(position).getPrice();
         holder.adr_trav.setText(serachTravels.get(position).getDepartureplace());
         holder.adr_arr.setText(serachTravels.get(position).getArrivalplace());
         holder.time_dep.setText(serachTravels.get(position).getDeparturetime());
         holder.time_arr.setText(serachTravels.get(position).getArrivaltime());
         holder.passagir.setText(String.valueOf(serachTravels.get(position).getMembercount()));
         holder.dayz.setText(serachTravels.get(position).getWeekday());
-        holder.bablo.setText(serachTravels.get(position).getPrice() + "₽");
+        holder.bablo.setText("Подробнее " + serachTravels.get(position).getPrice() + "₽");
         holder.autoname.setText(serachTravels.get(position).getAutorname());
         holder.auto_name.setText(serachTravels.get(position).getAutomobile());
         holder.description_travel.setText(serachTravels.get(position).getDescription());
-        Glide.with(context).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
+        Glide.with(context).load(serachTravels.get(position).getAutorphoto()).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
         str_departure = serachTravels.get(position).getDepartureplace();
         str_go_to = serachTravels.get(position).getArrivalplace();
         str_from = serachTravels.get(position).getDeparturetime();
@@ -142,6 +144,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
         });
 
 
+
     }
 
     @Override
@@ -162,6 +165,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
         TextView autoname;
         CircleImageView autophoto;
         Button bablo;
+        Button add;
         LinearLayout other;
 
 
@@ -178,6 +182,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
             auto_name = itemView.findViewById(R.id.auto_name);
             description_travel = itemView.findViewById(R.id.description_travel);
             bablo = itemView.findViewById(R.id.bablo);
+
             autoname = itemView.findViewById(R.id.autoname);
             autophoto = itemView.findViewById(R.id.autophoto);
             other = itemView.findViewById(R.id.other);
@@ -186,7 +191,15 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
             bablo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    other.setVisibility(View.VISIBLE);
+
+                    if (bablo.getText().toString().substring(0,1).equals("3")) {
+                        Toast.makeText(context, "список карт", Toast.LENGTH_SHORT).show();
+                    }else {
+                        bablo.setText(bablo.getText().toString().replace("Подробнее", "Забронировать"));
+                        other.setVisibility(View.VISIBLE);
+                    }
+
+
                 }
             });
 
