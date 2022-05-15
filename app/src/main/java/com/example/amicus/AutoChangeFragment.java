@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.amicus.API.AutoBody;
@@ -31,6 +32,8 @@ public class AutoChangeFragment extends Fragment {
     AutoAdapter autoAdapter;
     List<AutoResponce> autoResponces;
     RecyclerView recyclerView;
+    LinearLayout AddNewAuto;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,9 +42,11 @@ public class AutoChangeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_auto_change, container, false);
         autoResponces = new ArrayList<>();
         recyclerView = view.findViewById(R.id.rec_view);
+        AddNewAuto = view.findViewById(R.id.AddNewAuto);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         autoAdapter = new AutoAdapter(getActivity(),autoResponces);
         recyclerView.setAdapter(autoAdapter);
+
 
         RetrofitAPI api = RetrofitAPI.getInstance();
         Call<List<AutoResponce>> call = api.getJSONApi().autoUser(id);
@@ -55,6 +60,13 @@ public class AutoChangeFragment extends Fragment {
             @Override
             public void onFailure(Call<List<AutoResponce>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Авто не найдены", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AddNewAuto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Добавить авто?", Toast.LENGTH_SHORT).show();
             }
         });
 

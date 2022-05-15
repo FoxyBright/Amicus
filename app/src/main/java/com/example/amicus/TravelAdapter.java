@@ -4,6 +4,7 @@ import static com.example.amicus.DayChangeFragment.weekDays;
 import static com.example.amicus.MainActivity.logo;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -192,8 +193,11 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                 @Override
                 public void onClick(View v) {
 
-                    if (bablo.getText().toString().substring(0,1).equals("3")) {
-                        Toast.makeText(context, "список карт", Toast.LENGTH_SHORT).show();
+                    if (bablo.getText().toString().substring(0,1).equals("З")) {
+                        FragmentManager fm4 = ((Activity)context).getFragmentManager();
+                        FragmentTransaction ft4= fm4.beginTransaction();
+                        ft4.replace(R.id.fragment_container, new CardListFragment());
+                        ft4.commit();
                     }else {
                         bablo.setText(bablo.getText().toString().replace("Подробнее", "Забронировать"));
                         other.setVisibility(View.VISIBLE);

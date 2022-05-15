@@ -1,5 +1,6 @@
 package com.example.amicus.API;
 
+import com.example.amicus.CardResponce;
 import com.example.amicus.PassagerData;
 import com.example.amicus.VoditelData;
 
@@ -49,5 +50,8 @@ public interface JSONPlaceHolderApi {
 
     @GET("/gettravelwhereuserpassenger/{id}")
     Call<List<PassagerData>> getPassager(@Path("id") int groupId);
+
+    @GET("/getuserscards/{id}")
+    Call<List<CardResponce>> cardListResponce(@Path("id") int groupId);
 
 }
