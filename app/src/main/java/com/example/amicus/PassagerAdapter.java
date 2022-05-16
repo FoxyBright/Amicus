@@ -56,7 +56,7 @@ public class PassagerAdapter extends RecyclerView.Adapter<PassagerAdapter.Passag
         holder.autoname.setText(passagerData.get(position).getAutorname());
         holder.auto_name.setText(passagerData.get(position).getAutomobile());
         holder.description_travel.setText(passagerData.get(position).getDescription());
-        Glide.with(context).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
+        Glide.with(context).load(passagerData.get(position).getAutorphoto()).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
     }
 
     @Override

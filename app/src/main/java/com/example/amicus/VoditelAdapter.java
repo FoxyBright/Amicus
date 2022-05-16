@@ -65,7 +65,7 @@ public class VoditelAdapter extends RecyclerView.Adapter<VoditelAdapter.VoditelV
         holder.autoname.setText(voditelData.get(position).getAutorname());
         holder.auto_name.setText(voditelData.get(position).getAutomobile());
         holder.description_travel.setText(voditelData.get(position).getDescription());
-        Glide.with(context).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
+        Glide.with(context).load(voditelData.get(position).getAutorphoto()).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.autophoto);
     }
 
     @Override

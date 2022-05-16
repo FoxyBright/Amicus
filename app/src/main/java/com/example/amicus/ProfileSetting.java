@@ -1,6 +1,7 @@
 package com.example.amicus;
 
 import static com.example.amicus.MainActivity.facebook;
+import static com.example.amicus.MainActivity.id;
 import static com.example.amicus.MainActivity.logo;
 import static com.example.amicus.MainActivity.name1;
 import static com.example.amicus.MainActivity.pochta;
@@ -110,7 +111,7 @@ public class ProfileSetting extends AppCompatActivity {
         MultipartBody.Part part = MultipartBody.Part.createFormData("file",file.getName(),requestBody);
         RequestBody someDate = RequestBody.create(MediaType.parse("text/plan"),"new fotka");
         RetrofitAPI api = RetrofitAPI.getInstance();
-        Call<ResponseBody> call = api.getJSONApi().uploadphoto(part,someDate);
+        Call<ResponseBody> call = api.getJSONApi().uploadphoto(id,part,someDate);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

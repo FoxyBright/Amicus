@@ -40,8 +40,8 @@ public interface JSONPlaceHolderApi {
     Call<AddTravelResponce> addTravel(@Body AddBody addBody, @Path ("id") int groupId);
 
     @Multipart
-    @POST("/uploadphoto")
-    Call<ResponseBody> uploadphoto(@Part MultipartBody.Part part, @Part("somebody") RequestBody requestBody);
+    @POST("/uploadphoto/{id}")
+    Call<ResponseBody> uploadphoto(@Path("id") int groupId,@Part MultipartBody.Part part, @Part("somebody") RequestBody requestBody);
 
     @GET("/getuserdata/{id}")
     Call<GetUserData> getUsData(@Path("id") int groupId);
