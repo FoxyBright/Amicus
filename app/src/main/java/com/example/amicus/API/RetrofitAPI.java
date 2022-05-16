@@ -1,7 +1,7 @@
 package com.example.amicus.API;
 
 import com.example.amicus.BuildConfig;
-import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor;
+import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -15,15 +15,15 @@ public class RetrofitAPI {
 
     private RetrofitAPI() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                if (BuildConfig.DEBUG) {
-                    builder.addInterceptor(new OkHttpProfilerInterceptor());
-                    OkHttpClient client = builder.build();
-                    mRetrofit = new Retrofit.Builder()
-                            .baseUrl(BASE_URL)
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .client(client)
-                            .build();
-                }
+        if (BuildConfig.DEBUG) {
+            builder.addInterceptor(new OkHttpProfilerInterceptor());
+        }
+        OkHttpClient client = builder.build();
+        mRetrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
     }
 
     public static RetrofitAPI getInstance() {

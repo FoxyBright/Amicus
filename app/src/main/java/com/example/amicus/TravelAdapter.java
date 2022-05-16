@@ -1,6 +1,7 @@
 package com.example.amicus;
 
 import static com.example.amicus.DayChangeFragment.weekDays;
+import static com.example.amicus.SearchFragment.idpoezdki;
 import static com.example.amicus.MainActivity.logo;
 
 
@@ -9,6 +10,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,11 +99,12 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
         str_from = serachTravels.get(position).getDeparturetime();
         str_to = serachTravels.get(position).getArrivaltime();
         str_pass = String.valueOf(serachTravels.get(position).getMembercount());
+        idpoezdki = serachTravels.get(position).getId();
         holder.autophoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 position1 = holder.getAdapterPosition();
-                System.out.println("Позиция "+ position1);
+
                 RetrofitAPI api = RetrofitAPI.getInstance();
                 SaerchBody saerchBody = new SaerchBody();
                 saerchBody.departureplace = str_departure;
@@ -116,7 +119,6 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                     @Override
                     public void onResponse(Call<List<SerachTravel>> call, Response<List<SerachTravel>> response) {
                         String jsonstr = new Gson().toJson(serachTravels = response.body());
-
                         try {
                             JSONArray jsonArray = new JSONArray(jsonstr);
                             String jsonstr1 = new Gson().toJson(jsonArray.getJSONObject(position1));

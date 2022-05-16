@@ -34,7 +34,6 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -42,8 +41,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class LoginActivity extends AppCompatActivity {
 

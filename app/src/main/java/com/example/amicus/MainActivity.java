@@ -124,10 +124,12 @@ public class MainActivity extends AppCompatActivity {
                         ft0.commit();
                         break;
                     case R.id.MyTravelFragment:
-                        androidx.fragment.app.FragmentManager fm2 = getSupportFragmentManager();
-                        androidx.fragment.app.FragmentTransaction ft2 = fm2.beginTransaction();
-                        ft2.replace(R.id.fragment_container, new MyTravel());
-                        ft2.commit();
+                        Intent intent = new Intent(MainActivity.this, MyTravelActivity.class);
+                        startActivity(intent);
+//                        androidx.fragment.app.FragmentManager fm2 = getSupportFragmentManager();
+//                        androidx.fragment.app.FragmentTransaction ft2 = fm2.beginTransaction();
+//                        ft2.replace(R.id.fragment_container, new MyTravel());
+//                        ft2.commit();
                         break;
                     case R.id.navigation_chat:
 
@@ -146,8 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        fragmentList.add(new MyTravel());
-        fragmentList.add(new MyTravel());
     }
     @Override
     public void onBackPressed() {

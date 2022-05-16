@@ -55,37 +55,39 @@ public class AutoFragment extends Fragment {
         save_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String model1 = model.getText().toString();
                 String color1 = color.getText().toString();
                 String places1 = places.getText().toString();
                 String statenumber1 = statenumber.getText().toString();
+                if (model1.equals("") || color1.equals("") || places1.equals("")
+                        || statenumber1.equals("")) {
+                    Toast.makeText(getActivity(), "Заполните поля", Toast.LENGTH_SHORT).show();
+                } else {
+                    RetrofitAPI api = RetrofitAPI.getInstance();
+                    AddBodyAuto addBodyAuto = new AddBodyAuto();
+                    addBodyAuto.setStatenumber(statenumber1);
+                    addBodyAuto.setPlaces(places1);
+                    addBodyAuto.setColor(color1);
+                    addBodyAuto.setModel(model1);
+                    addBodyAuto.setOwner(MainActivity.id);
+                    Call<AddAuto> call = api.getJSONApi().addauto(addBodyAuto);
+                    call.enqueue(new Callback<AddAuto>() {
+                        @Override
+                        public void onResponse(Call<AddAuto> call, Response<AddAuto> response) {
+                        }
 
-                RetrofitAPI api = RetrofitAPI.getInstance();
-                AddBodyAuto addBodyAuto = new AddBodyAuto();
-                addBodyAuto.setStatenumber(statenumber1);
-                addBodyAuto.setPlaces(places1);
-                addBodyAuto.setColor(color1);
-                addBodyAuto.setModel(model1);
-                addBodyAuto.setOwner(MainActivity.id);
-                Call<AddAuto> call = api.getJSONApi().addauto(addBodyAuto);
-                call.enqueue(new Callback<AddAuto>() {
-                    @Override
-                    public void onResponse(Call<AddAuto> call, Response<AddAuto> response) {
-                    }
+                        @Override
+                        public void onFailure(Call<AddAuto> call, Throwable t) {
+                            Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
-                    @Override
-                    public void onFailure(Call<AddAuto> call, Throwable t) {
-                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.fragment_container, new ProfileFragment());
-                ft.commit();
+                        }
+                    });
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.fragment_container, new ProfileFragment());
+                    ft.commit();
+                }
             }
-
         });
 
         return view;

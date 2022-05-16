@@ -151,35 +151,37 @@ public class AddFragment extends Fragment {
                 String str_pass = pass.getText().toString();
                 String cost1 = cost.getText().toString();
                 String description1 = description.getText().toString();
+                if (str_departure.equals("") || str_go_to.equals("") || cost1.equals("")) {
+                    Toast.makeText(getActivity(), "Заполните поля", Toast.LENGTH_SHORT).show();
+                }else {
+                    RetrofitAPI api = RetrofitAPI.getInstance();
+                    AddBody addBody = new AddBody();
+                    addBody.departureplace = str_departure;
+                    addBody.arrivalplace = str_go_to;
+                    addBody.departuretime = str_from;
+                    addBody.arrivaltime = str_to;
+                    addBody.membercount = str_pass;
+                    addBody.weekday = weekDays1;
+                    addBody.automobile = myStr;
+                    addBody.price = cost1;
+                    addBody.description = description1;
+                    addBody.autor = phone;
+                    addBody.autorphoto = logo;
+                    addBody.autorname = name1;
+                    Call<AddTravelResponce> call = api.getJSONApi().addTravel(addBody, id);
+                    call.enqueue(new Callback<AddTravelResponce>() {
+                        @Override
+                        public void onResponse(Call<AddTravelResponce> call, Response<AddTravelResponce> response) {
+                            Toast.makeText(getActivity(), "Поездка создана", Toast.LENGTH_SHORT).show();
+                        }
 
-                RetrofitAPI api = RetrofitAPI.getInstance();
-                AddBody addBody = new AddBody();
-                addBody.departureplace = str_departure;
-                addBody.arrivalplace = str_go_to;
-                addBody.departuretime = str_from;
-                addBody.arrivaltime = str_to;
-                addBody.membercount = str_pass;
-                addBody.weekday = weekDays1;
-                addBody.automobile = myStr;
-                addBody.price = cost1;
-                addBody.description = description1;
-                addBody.autor = phone;
-                addBody.autorphoto = logo;
-                addBody.autorname = name1;
-                Call<AddTravelResponce> call = api.getJSONApi().addTravel(addBody,id);
-                call.enqueue(new Callback<AddTravelResponce>() {
-                    @Override
-                    public void onResponse(Call<AddTravelResponce> call, Response<AddTravelResponce> response) {
-                        Toast.makeText(getActivity(), "Поездка создана", Toast.LENGTH_SHORT).show();
-                    }
+                        @Override
+                        public void onFailure(Call<AddTravelResponce> call, Throwable t) {
 
-                    @Override
-                    public void onFailure(Call<AddTravelResponce> call, Throwable t) {
+                        }
+                    });
 
-                    }
-                });
-
-
+                }
             }
         });
 

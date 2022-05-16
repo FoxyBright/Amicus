@@ -1,5 +1,6 @@
 package com.example.amicus;
 
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 
 import org.w3c.dom.Text;
 
@@ -61,8 +63,8 @@ public class CountPassagersFragment extends Fragment {
             public void onClick(View v) {
                 number = Integer.parseInt(count.getText().toString());
                 SearchFragment fragobj = new SearchFragment();
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4= fm4.beginTransaction();
+                android.app.FragmentManager fm4 = getFragmentManager();
+                android.app.FragmentTransaction ft4= fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, fragobj);
                 ft4.commit();
             }

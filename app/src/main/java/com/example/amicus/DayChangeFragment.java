@@ -1,6 +1,7 @@
 package com.example.amicus;
 
 
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -15,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+
 
 import java.util.ArrayList;
 

@@ -63,6 +63,7 @@ public class AutoAdapter extends RecyclerView.Adapter<AutoAdapter.AutoViewHolder
                 Bundle bundle = new Bundle();
                 bundle.putString("auto",autoModel.get(position).getColor() + " " + autoModel.get(position).getModel() + " " +  autoModel.get(position).getStatenumber());
                 fragment.setArguments(bundle);
+                //TODO УБИТЬ В АДАПТЕРЕ
                 FragmentManager fm4 = ((Activity)context).getFragmentManager();
                 FragmentTransaction ft4 = fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container,fragment);

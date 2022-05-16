@@ -1,19 +1,35 @@
 package com.example.amicus;
 
+import static com.example.amicus.MainActivity.id;
+import static com.example.amicus.SearchFragment.idpoezdki;
+
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.amicus.API.AddTravelToresponce;
 import com.example.amicus.API.AutoResponce;
+import com.example.amicus.API.RetrofitAPI;
+import com.google.gson.Gson;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardViewHolder> {
 
@@ -65,6 +81,31 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         default:
             holder.imageView.setImageResource(R.drawable.phone);
     }
+    holder.cardLay.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RetrofitAPI api = RetrofitAPI.getInstance();
+            Call<AddTravelToresponce> call = api.getJSONApi().humanAdd(idpoezdki,id);
+            call.enqueue(new Callback<AddTravelToresponce>() {
+                @Override
+                public void onResponse(Call<AddTravelToresponce> call, Response<AddTravelToresponce> response) {
+                    Toast.makeText(context, "вы добавлены в поездку", Toast.LENGTH_SHORT).show();
+                    SearchFragment fragment = new SearchFragment();
+                    FragmentManager fm4 = ((Activity)context).getFragmentManager();
+                    FragmentTransaction ft4 = fm4.beginTransaction();
+                    ft4.replace(R.id.fragment_container,fragment);
+                    ft4.commit();
+
+                }
+
+                @Override
+                public void onFailure(Call<AddTravelToresponce> call, Throwable t) {
+                    Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+    });
     }
 
 
@@ -78,6 +119,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         TextView date;
         TextView number;
         ImageView imageView;
+        LinearLayout cardLay;
 
 
 
@@ -87,6 +129,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
             date = itemView.findViewById(R.id.date);
             number = itemView.findViewById(R.id.number);
             imageView = itemView.findViewById(R.id.banksystem);
+            cardLay = itemView.findViewById(R.id.card_layout);
 
         }
     }

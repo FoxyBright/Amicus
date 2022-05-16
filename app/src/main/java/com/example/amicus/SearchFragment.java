@@ -6,10 +6,12 @@ import static com.example.amicus.DayChangeFragment.weekDays;
 import static com.example.amicus.TimeChangeFragment.timeFrom1;
 import static com.example.amicus.TimeChangeFragment.time_to1;
 
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,6 +65,7 @@ public class SearchFragment extends Fragment {
     String  str_pass;
     String str_departure;
     String str_go_to;
+    static int idpoezdki;
 
 
 
@@ -82,17 +86,12 @@ public class SearchFragment extends Fragment {
         pass.setText(String.valueOf(number));
         week.setText(weekDays);
 
-
-
-
-
-
         LinearLayout calendar = view.findViewById(R.id.calendar);
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4 = fm4.beginTransaction();
+                android.app.FragmentManager fm4 = getFragmentManager();
+                android.app.FragmentTransaction ft4 = fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, new DayChangeFragment());
                 ft4.commit();
             }
@@ -102,8 +101,8 @@ public class SearchFragment extends Fragment {
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4 = fm4.beginTransaction();
+                android.app.FragmentManager fm4 = getFragmentManager();
+                android.app.FragmentTransaction ft4 = fm4.beginTransaction();
                 ft4.replace(R.id.fragment_container, new TimeChangeFragment());
                 ft4.commit();
             }
@@ -150,6 +149,8 @@ public class SearchFragment extends Fragment {
                     public void onResponse(Call<List<SerachTravel>> call, Response<List<SerachTravel>> response) {
                         serachTravels = response.body();
 
+                        String jsonstr = new Gson().toJson(serachTravels = response.body());
+                        Log.d("JSON",jsonstr);
                         if (response.body().size() == 0) {
                             recyclerView.setVisibility(View.GONE);
                             error.setVisibility(View.VISIBLE);
