@@ -18,6 +18,11 @@ import android.widget.Toast;
 import com.example.amicus.API.AutoBody;
 import com.example.amicus.API.AutoResponce;
 import com.example.amicus.API.RetrofitAPI;
+import com.example.amicus.API.SerachTravel;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +37,7 @@ public class AutoChangeFragment extends Fragment {
     AutoAdapter autoAdapter;
     List<AutoResponce> autoResponces;
     RecyclerView recyclerView;
-    LinearLayout AddNewAuto;
+    static String idAuto;
 
 
     @Override
@@ -42,7 +47,7 @@ public class AutoChangeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_auto_change, container, false);
         autoResponces = new ArrayList<>();
         recyclerView = view.findViewById(R.id.rec_view);
-        AddNewAuto = view.findViewById(R.id.AddNewAuto);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         autoAdapter = new AutoAdapter(getActivity(),autoResponces);
         recyclerView.setAdapter(autoAdapter);
@@ -55,18 +60,12 @@ public class AutoChangeFragment extends Fragment {
             public void onResponse(Call<List<AutoResponce>> call, Response<List<AutoResponce>> response) {
                 autoResponces = response.body();
                 autoAdapter.setAutoList(autoResponces);
+
             }
 
             @Override
             public void onFailure(Call<List<AutoResponce>> call, Throwable t) {
                 Toast.makeText(getActivity(), "Авто не найдены", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        AddNewAuto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "Добавить авто?", Toast.LENGTH_SHORT).show();
             }
         });
 

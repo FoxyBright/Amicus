@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Amicus">
         <activity
+            android:name=".DeleteAuto"
+            android:exported="false" />
+        <activity
             android:name=".MyTravelActivity"
             android:exported="false" />
         <activity

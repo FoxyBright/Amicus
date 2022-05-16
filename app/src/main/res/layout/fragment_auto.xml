@@ -71,7 +71,6 @@
                     android:fontFamily="@font/inter_regular"
                     android:maxLength="20"
                     android:singleLine="true"
-                    android:text="Renault Logan"
                     android:textColor="@color/dark_grey"
                     android:textSize="16sp" />
 
@@ -104,7 +103,6 @@
                     android:fontFamily="@font/inter_regular"
                     android:maxLength="20"
                     android:singleLine="true"
-                    android:text="Белый"
                     android:textColor="@color/dark_grey"
                     android:textSize="16sp" />
 
@@ -137,7 +135,6 @@
                     android:fontFamily="@font/inter_regular"
                     android:maxLength="10"
                     android:singleLine="true"
-                    android:text="3"
                     android:textColor="@color/dark_grey"
                     android:textSize="16sp" />
 
@@ -169,8 +166,6 @@
                     android:fontFamily="@font/inter_regular"
                     android:maxLength="10"
                     android:singleLine="true"
-
-                    android:text="M 203 AX"
                     android:textColor="@color/dark_grey"
                     android:textSize="16sp" />
 

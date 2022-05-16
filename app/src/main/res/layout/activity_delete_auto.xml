@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_auto_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AutoFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_bt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/shadow_back_bt"
+            android:textColor="@color/white"
+            android:layout_gravity="start"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/login_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/CAR_SETTING"
+                android:textColor="@color/dark_grey"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/Description"
+                android:src="@drawable/automobile" />
+
+            <LinearLayout
+                android:id="@+id/login_ll_box"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rectangle_for_automobile"
+                android:orientation="vertical"
+                android:padding="25dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/Car_model"
+                    android:textColor="@color/system_gray"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/model"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:text="Renault Logan"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/car_color"
+                    android:textColor="@color/system_gray"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/color"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:text="Белый"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/Car_places"
+                    android:textColor="@color/system_gray"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/places"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text="3"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/Car_number"
+                    android:textColor="@color/system_gray"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/statenumber"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:maxLength="10"
+                    android:singleLine="true"
+
+                    android:text="M 203 AX"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_bt"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/blue_corner_bt"
+                android:text="@string/SAVE_Baton"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/del_bt"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/red_corner_bt"
+                android:text="@string/DEL_Baton"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
+

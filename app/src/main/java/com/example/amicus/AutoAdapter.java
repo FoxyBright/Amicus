@@ -1,5 +1,7 @@
 package com.example.amicus;
 
+import static com.example.amicus.AutoChangeFragment.idAuto;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
@@ -59,6 +61,7 @@ public class AutoAdapter extends RecyclerView.Adapter<AutoAdapter.AutoViewHolder
         holder.layout_rec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                idAuto = autoModel.get(position).getId();
                 AddFragment fragment = new AddFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("auto",autoModel.get(position).getColor() + " " + autoModel.get(position).getModel() + " " +  autoModel.get(position).getStatenumber());

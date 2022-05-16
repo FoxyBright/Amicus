@@ -58,4 +58,6 @@ public interface JSONPlaceHolderApi {
     @GET("/addusertotravel/{travelid}/{userid}")
     Call<AddTravelToresponce> humanAdd(@Path("travelid") int groupId,@Path("userid") int humanId);
 
+    @POST("/updateautodata")
+    Call<UpdateAuto> updateAuto(@Body UpdateBody addBody);
 }

@@ -52,6 +52,7 @@
     <string name="Car_places">Количество мест</string>
     <string name="Car_number">Номер машины</string>
     <string name="SAVE_Baton">СОХРАНИТЬ</string>
+    <string name="DEL_Baton">УДАЛИТЬ</string>
     <string name="add_auto">Добавить авто</string>
 
     <!--    Strings to app_settings_activity-->

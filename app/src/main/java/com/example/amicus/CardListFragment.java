@@ -40,7 +40,7 @@ public class CardListFragment extends Fragment {
 
         cardResponces = new ArrayList<>();
         recyclerView = view.findViewById(R.id.rec_view_card);
-        AddNalichka = view.findViewById(R.id.AddNewAuto);
+        AddNalichka = view.findViewById(R.id.nalichka);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         cardListAdapter = new CardListAdapter(getActivity(),cardResponces);
         recyclerView.setAdapter(cardListAdapter);

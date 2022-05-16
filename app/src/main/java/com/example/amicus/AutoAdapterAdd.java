@@ -45,11 +45,22 @@ public class AutoAdapterAdd extends RecyclerView.Adapter<AutoAdapterAdd.AutoView
     @Override
     public void onBindViewHolder(@NonNull AutoAdapterAdd.AutoViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.textView.setText(autoModel.get(position).getColor() + " " + autoModel.get(position).getModel() + " " +  autoModel.get(position).getStatenumber());
-
+        String model = autoModel.get(position).getModel();
+        String color = autoModel.get(position).getColor();
+        String places = autoModel.get(position).getPlaces();
+        String numb = autoModel.get(position).getStatenumber();
+        String idAuto = autoModel.get(position).getId();
         holder.layout_rec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context,DeleteAuto.class);
+                intent.putExtra("model",model);
+                intent.putExtra("color",color);
+                intent.putExtra("places",places);
+                intent.putExtra("numb",numb);
+                intent.putExtra("idAuto",idAuto);
+                context.startActivity(intent);
+                ((Activity)context).finish();
 //                Intent intent = new Intent(context,AddActivity.class);
 //                intent.putExtra("Autoname",autoModel.get(position).getColor() + " " + autoModel.get(position).getModel() + " " +  autoModel.get(position).getStatenumber());
 //                context.startActivity(intent);
