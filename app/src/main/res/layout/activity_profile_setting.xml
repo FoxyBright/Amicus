@@ -179,56 +179,66 @@
                             android:singleLine="true"
                             android:textColor="@color/dark_grey"
                             android:textSize="16sp" />
+
+
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/rectangle_for_automobile"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@color/light_gray" />
 
                     <LinearLayout
-                        android:id="@+id/notification_layout"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/inter_bold"
-                            android:text="@string/Notification"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="16sp" />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/Description"
+                            android:src="@drawable/key" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/white_corner"
                             android:fontFamily="@font/inter_regular"
-                            android:text="@string/Notification_description"
-                            android:textColor="@color/system_gray"
-                            android:textSize="14sp" />
+                            android:inputType="textPassword"
+                            android:paddingBottom="5dp"
+                            app:passwordToggleEnabled="true">
+
+                            <EditText
+                                android:id="@+id/password_edit"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/white_corner"
+                                android:fontFamily="@font/inter_regular"
+                                android:inputType="textPassword">
+
+                            </EditText>
+                        </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
 
-                    <ToggleButton
-                        android:id="@+id/toggleButton1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="70dp"
-                        android:background="@android:color/transparent"
-                        android:button="@drawable/ic_name1_toggle_bg"
-                        android:checked="true"
-                        android:textOff=""
-                        android:textOn="" />
                 </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/save_bt"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/blue_corner_bt"
+                    android:paddingHorizontal="20dp"
+                    android:text="@string/save"
+                    android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/delete_bt"

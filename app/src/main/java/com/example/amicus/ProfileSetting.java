@@ -9,22 +9,18 @@ import static com.example.amicus.MainActivity.phone;
 import static com.example.amicus.MainActivity.pochta;
 import static com.example.amicus.MainActivity.truba;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,8 +32,6 @@ import com.example.amicus.API.RetrofitAPI;
 import com.example.amicus.API.UpdateAuto;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
@@ -54,27 +48,32 @@ public class ProfileSetting extends AppCompatActivity {
     private static final int PIC_IMAGE =1;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     Button delete_bt;
+    Button save_bt;
     String imagePath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setting);
 
-        TextView number_textview = findViewById(R.id.number_textview);
+        EditText number_textview = findViewById(R.id.number_textview);
         TextView profile_name =findViewById(R.id.profile_name);
+        EditText facebook_edit =findViewById(R.id.facebook_edit);
+        EditText password_edit =findViewById(R.id.password_edit);
+
         profile_image = findViewById(R.id.profile_image);
         mSwipeRefreshLayout = findViewById(R.id.swipe_container);
         delete_bt = findViewById(R.id.delete_bt);
+        save_bt = findViewById(R.id.save_bt);
 
         number_textview.setText(truba);
         profile_name.setText(name1);
-        TextView facebook_edit = findViewById(R.id.facebook_edit);
         TextView mail_edit = findViewById(R.id.mail_edit);
 
         number_textview.setText(truba);
         profile_name.setText(name1);
         mail_edit.setText(pochta);
         facebook_edit.setText(facebook);
+        password_edit.setText(parol1);
         Glide.with(ProfileSetting.this).load(logo).diskCacheStrategy(DiskCacheStrategy.NONE).into(profile_image);
 
         if (pochta.equals("")) {
@@ -84,7 +83,6 @@ public class ProfileSetting extends AppCompatActivity {
             facebook_edit.setText("Добавить Facebook");
         }
 
-
         Button back_bt = findViewById(R.id.back_bt);
         back_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +90,34 @@ public class ProfileSetting extends AppCompatActivity {
                 finish();
             }
         });
+        save_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RetrofitAPI api = RetrofitAPI.getInstance();
+                UpdateProfile addBody = new UpdateProfile();
+                addBody.setUserid(id);
+                addBody.setEmail(mail_edit.getText().toString());
+                addBody.setFacebook(facebook_edit.getText().toString());
+                addBody.setName(profile_name.getText().toString());
+                addBody.setPassword(password_edit.getText().toString());
+                addBody.setPhone(number_textview.getText().toString());
+                Call<UpdateAuto> call = api.getJSONApi().upUser(addBody);
+                call.enqueue(new Callback<UpdateAuto>() {
+                    @Override
+                    public void onResponse(Call<UpdateAuto> call, Response<UpdateAuto> response) {
+                        Toast.makeText(ProfileSetting.this, "Данные профиля успешно изменены", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ProfileSetting.this,MainActivity.class);
+                        startActivity(intent);
+                    }
 
-        Button delete_bt = findViewById(R.id.delete_bt);
+                    @Override
+                    public void onFailure(Call<UpdateAuto> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+        
         profile_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

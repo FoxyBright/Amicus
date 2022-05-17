@@ -77,10 +77,6 @@ public class ProfileFragment extends Fragment {
         profile_set_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentManager fm4 = getFragmentManager();
-//                FragmentTransaction ft4= fm4.beginTransaction();
-//                ft4.replace(R.id.fragment_container, new FragmentProfileSetting());
-//                ft4.commit();
 
                 Intent intent = new Intent(getActivity(),ProfileSetting.class);
                 startActivity(intent);
