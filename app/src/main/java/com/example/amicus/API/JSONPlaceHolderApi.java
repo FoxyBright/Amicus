@@ -63,4 +63,7 @@ public interface JSONPlaceHolderApi {
 
     @GET("/delauto/{id}")
     Call<UpdateAuto> delAuto(@Path("id") String groupId);
+
+    @GET("/deluser/{id}")
+    Call<UpdateAuto> delUser(@Path("id") int groupId);
 }

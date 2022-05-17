@@ -33,6 +33,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.amicus.API.AuthorizationBody;
 import com.example.amicus.API.AuthorizationResponce;
 import com.example.amicus.API.RetrofitAPI;
+import com.example.amicus.API.UpdateAuto;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,7 +53,7 @@ public class ProfileSetting extends AppCompatActivity {
     CircleImageView profile_image;
     private static final int PIC_IMAGE =1;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-
+    Button delete_bt;
     String imagePath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class ProfileSetting extends AppCompatActivity {
         TextView profile_name =findViewById(R.id.profile_name);
         profile_image = findViewById(R.id.profile_image);
         mSwipeRefreshLayout = findViewById(R.id.swipe_container);
-
+        delete_bt = findViewById(R.id.delete_bt);
 
         number_textview.setText(truba);
         profile_name.setText(name1);
@@ -105,7 +106,21 @@ public class ProfileSetting extends AppCompatActivity {
         delete_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RetrofitAPI api = RetrofitAPI.getInstance();
+                Call<UpdateAuto> call = api.getJSONApi().delUser(id);
+                call.enqueue(new Callback<UpdateAuto>() {
+                    @Override
+                    public void onResponse(Call<UpdateAuto> call, Response<UpdateAuto> response) {
+                        Intent intent = new Intent(ProfileSetting.this,LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
 
+                    @Override
+                    public void onFailure(Call<UpdateAuto> call, Throwable t) {
+                        Toast.makeText(ProfileSetting.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

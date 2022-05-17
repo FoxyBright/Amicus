@@ -10,6 +10,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -125,9 +126,12 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelAdapter.TravelView
                             String jsonstr2 = jsonstr1.substring(18,jsonstr1.length()-1);
                             SerachTravel serachTravel = new Gson().fromJson(jsonstr2,SerachTravel.class);
                             author = serachTravel.getAutor();
-                            UsersData newsFragment = new UsersData();
-                            AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newsFragment).addToBackStack(null).commit();
+                            Intent intent = new Intent(context,UsersDataActivity.class);
+                            context.startActivity(intent);
+                            ((Activity)context).finish();
+
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
