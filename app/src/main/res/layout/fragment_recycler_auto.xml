@@ -5,15 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AutoChange">
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_bt"
+        android:layout_marginTop="5dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/shadow_back_bt"
+        android:textColor="@color/white"
+        android:layout_gravity="start"/>
 
     <LinearLayout
         android:id="@+id/login_ll_box"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/rectangle_for_automobile"
         android:orientation="vertical"
         >
 

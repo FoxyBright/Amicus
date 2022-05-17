@@ -33,6 +33,7 @@ public class RecyclerAutoFragment extends Fragment {
     RecyclerView recyclerView;
     List<AutoResponce> autoResponces;
     Button save_bt_add;
+    Button back_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,9 +44,20 @@ public class RecyclerAutoFragment extends Fragment {
         autoResponces = new ArrayList<>();
         recyclerView = view.findViewById(R.id.rec_view_add_auto);
         save_bt_add = view.findViewById(R.id.save_bt_add);
+        back_btn = view.findViewById(R.id.back_bt);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         autoAdapter = new AutoAdapterAdd(getActivity(),autoResponces);
         recyclerView.setAdapter(autoAdapter);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment_container, new ProfileFragment());
+                ft.commit();
+            }
+        });
 
         RetrofitAPI api = RetrofitAPI.getInstance();
         Call<List<AutoResponce>> call = api.getJSONApi().autoUser(id);

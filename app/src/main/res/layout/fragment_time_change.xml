@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_bt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/shadow_back_bt"
+        android:textColor="@color/white"
+        android:layout_gravity="start"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"

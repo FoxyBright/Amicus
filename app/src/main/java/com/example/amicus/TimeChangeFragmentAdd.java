@@ -23,11 +23,22 @@ public class TimeChangeFragmentAdd extends Fragment implements
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_time_change_add, container, false);
         timePicker = view.findViewById(R.id.timePicker);
+        Button back_bt = view.findViewById(R.id.back_bt);
         timePicker.setOnTimeChangedListener(this);
         timePicker1 =view.findViewById(R.id.timePicker1);
         timePicker1.setOnTimeChangedListener(this);
         timePicker.setIs24HourView(true);
         timePicker1.setIs24HourView(true);
+
+        back_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment_container, new ProfileFragment());
+                ft.commit();
+            }
+        });
 
 
         Button save_bt = view.findViewById(R.id.save_bt);
