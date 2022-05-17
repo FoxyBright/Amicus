@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.amicus.API.AddAuto;
 import com.example.amicus.API.AddBody;
@@ -20,6 +21,7 @@ import com.example.amicus.API.UpdateAuto;
 import com.example.amicus.API.UpdateBody;
 import com.google.gson.Gson;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -81,6 +83,9 @@ public class DeleteAuto extends AppCompatActivity {
                 call.enqueue(new Callback<UpdateAuto>() {
                     @Override
                     public void onResponse(Call<UpdateAuto> call, Response<UpdateAuto> response) {
+                        Toast.makeText(DeleteAuto.this, "Данные авто успешно изменены", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DeleteAuto.this,MainActivity.class);
+                        startActivity(intent);
 
                     }
 
@@ -96,7 +101,21 @@ public class DeleteAuto extends AppCompatActivity {
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RetrofitAPI api = RetrofitAPI.getInstance();
+                Call<UpdateAuto> call = api.getJSONApi().delAuto(idAuto1);
+                call.enqueue(new Callback<UpdateAuto>() {
+                    @Override
+                    public void onResponse(Call<UpdateAuto> call, Response<UpdateAuto> response) {
+                        Toast.makeText(DeleteAuto.this, "Автомобиль был успешно удален", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DeleteAuto.this,MainActivity.class);
+                        startActivity(intent);
+                    }
 
+                    @Override
+                    public void onFailure(Call<UpdateAuto> call, Throwable t) {
+
+                    }
+                });
             }
         });
 

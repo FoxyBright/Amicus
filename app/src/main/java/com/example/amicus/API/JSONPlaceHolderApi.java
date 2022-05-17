@@ -60,4 +60,7 @@ public interface JSONPlaceHolderApi {
 
     @POST("/updateautodata")
     Call<UpdateAuto> updateAuto(@Body UpdateBody addBody);
+
+    @GET("/delauto/{id}")
+    Call<UpdateAuto> delAuto(@Path("id") String groupId);
 }
