@@ -161,8 +161,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_regular"
                     android:hint="07:00"
-                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -177,8 +177,8 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/inter_regular"
                     android:hint="20:00"
-                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
             </LinearLayout>

@@ -16,6 +16,7 @@ import static com.example.amicus.TimeChangeFragmentAdd.time_to2;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,6 +43,7 @@ import com.example.amicus.API.SerachTravel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,6 +64,8 @@ public class AddFragment extends Fragment {
     EditText description;
     Button save_bt;
     String myStr;
+    int hourFrom,minuteFrom;
+    int hourTo,minuteTo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -111,10 +116,27 @@ public class AddFragment extends Fragment {
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm4 = getFragmentManager();
-                FragmentTransaction ft4 = fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, new TimeChangeFragmentAdd());
-                ft4.commit();
+                TimePickerDialog.OnTimeSetListener onTimeSetListener1 = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int selectedhour, int selectedminute) {
+                        hourTo = selectedhour;
+                        minuteTo= selectedminute;
+                        timeto.setText(String.format(Locale.getDefault(), "%02d:%02d", hourTo, minuteTo));
+                    }
+                };
+                TimePickerDialog timePickerDialog1 = new TimePickerDialog(getActivity(), onTimeSetListener1, hourTo, hourTo, true);
+                timePickerDialog1.show();
+
+                TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int selectedhour, int selectedminute) {
+                        hourFrom = selectedhour;
+                        minuteFrom = selectedminute;
+                        timeFrom.setText(String.format(Locale.getDefault(),"%02d:%02d",hourFrom,minuteFrom));
+                    }
+                };
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),onTimeSetListener,hourFrom,minuteFrom,true);
+                timePickerDialog.show();
             }
         });
 

@@ -10,6 +10,7 @@ import static com.example.amicus.TimeChangeFragment.time_to1;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 
@@ -40,6 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,6 +70,9 @@ public class SearchFragment extends Fragment {
     String str_go_to;
     static int idpoezdki;
 
+    int hourFrom,minuteFrom;
+    int hourTo,minuteTo;
+
 
 
     @Override
@@ -81,8 +87,6 @@ public class SearchFragment extends Fragment {
         week = view.findViewById(R.id.week);
         recyclerView = view.findViewById(R.id.rec_view_tr);
         error = view.findViewById(R.id.error);
-        timeFrom.setText(timeFrom1);
-        timeto.setText(time_to1);
         pass.setText(String.valueOf(number));
         week.setText(weekDays);
 
@@ -101,10 +105,34 @@ public class SearchFragment extends Fragment {
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                android.app.FragmentManager fm4 = getFragmentManager();
-                android.app.FragmentTransaction ft4 = fm4.beginTransaction();
-                ft4.replace(R.id.fragment_container, new TimeChangeFragment());
-                ft4.commit();
+
+                TimePickerDialog.OnTimeSetListener onTimeSetListener1 = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int selectedhour, int selectedminute) {
+                        hourTo = selectedhour;
+                        minuteTo= selectedminute;
+                        timeto.setText(String.format(Locale.getDefault(), "%02d:%02d", hourTo, minuteTo));
+                    }
+                };
+                TimePickerDialog timePickerDialog1 = new TimePickerDialog(getActivity(), onTimeSetListener1, hourTo, hourTo, true);
+                timePickerDialog1.show();
+
+                TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int selectedhour, int selectedminute) {
+                        hourFrom = selectedhour;
+                        minuteFrom = selectedminute;
+                        timeFrom.setText(String.format(Locale.getDefault(),"%02d:%02d",hourFrom,minuteFrom));
+                    }
+                };
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),onTimeSetListener,hourFrom,minuteFrom,true);
+                timePickerDialog.show();
+
+
+//                android.app.FragmentManager fm4 = getFragmentManager();
+//                android.app.FragmentTransaction ft4 = fm4.beginTransaction();
+//                ft4.replace(R.id.fragment_container, new TimeChangeFragment());
+//                ft4.commit();
             }
         });
 
@@ -128,8 +156,6 @@ public class SearchFragment extends Fragment {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 autoAdapter = new TravelAdapter(getActivity(),serachTravels);
                 recyclerView.setAdapter(autoAdapter);
-                departurePlace.setText("Обнинск");
-                arrivalPlace.setText("Москва");
                 str_departure = departurePlace.getText().toString();
                 str_go_to = arrivalPlace.getText().toString();
                 str_from = timeFrom.getText().toString();
