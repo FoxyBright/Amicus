@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.amicus.API.AuthorizationBody;
 import com.example.amicus.API.AuthorizationResponce;
 import com.example.amicus.API.RetrofitAPI;
+import com.example.amicus.messages.ChatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -37,14 +38,14 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
    BottomNavigationView bottomNavigationView;
-   static String phone;
-   static String parol1;
-   static String name1;
-   static String facebook;
-   static String pochta;
-   static String truba;
-   static String logo;
-   static int id;
+    public static String phone;
+    public static String parol1;
+   public static String name1;
+    public static String facebook;
+    public static String pochta;
+    public static String truba;
+    public static String logo;
+    public static int id;
 
     static final int NUM_ITEMS = 4;
     private List<Fragment> fragmentList = new ArrayList<Fragment>();
@@ -132,11 +133,12 @@ public class MainActivity extends AppCompatActivity {
 //                        ft2.commit();
                         break;
                     case R.id.navigation_chat:
-
-                        FragmentManager fm3 = getFragmentManager();
-                        FragmentTransaction ft3 = fm3.beginTransaction();
-                        ft3.replace(R.id.fragment_container, new ChatFragment());
-                        ft3.commit();
+                        Intent intent1 = new Intent(MainActivity.this, ChatActivity.class);
+                        startActivity(intent1);
+//                        FragmentManager fm3 = getFragmentManager();
+//                        FragmentTransaction ft3 = fm3.beginTransaction();
+//                        ft3.replace(R.id.fragment_container, new ChatFragment());
+//                        ft3.commit();
                         break;
                     case R.id.profileFragment:
                         FragmentManager fm4 = getFragmentManager();
