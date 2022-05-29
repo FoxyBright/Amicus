@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Amicus">
         <activity
-            android:name=".messages.ChatActivity"
+            android:name=".chat.Chat"
             android:exported="false" />
         <activity
-            android:name=".chat.Chat"
+            android:name=".messages.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".UsersDataActivity"

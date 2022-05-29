@@ -85,14 +85,14 @@
             android:backgroundTint="@android:color/transparent"
             android:hint="Введите сообщение"
             android:textSize="14sp" />
-        
-        <Button
+
+        <ImageView
             android:id="@+id/sendBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_arrow"/>
+            android:src="@drawable/ic_arrow" />
     </RelativeLayout>
 
 

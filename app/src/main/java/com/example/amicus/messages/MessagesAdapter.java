@@ -1,17 +1,23 @@
 package com.example.amicus.messages;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.amicus.R;
 import com.example.amicus.RecyclerAutoFragment;
+import com.example.amicus.chat.Chat;
 
 import org.w3c.dom.Text;
 
@@ -21,7 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyViewHolder> {
 
-    private final List<MessagesList> messagesLists;
+    private List<MessagesList> messagesLists;
     private final Context context;
 
     public MessagesAdapter(List<MessagesList> messagesLists, Context context) {
@@ -37,7 +43,42 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MessagesAdapter.MyViewHolder holder, int position) {
+        MessagesList list2 = messagesLists.get(position);
 
+        if (!list2.getProfilePic().isEmpty()) {
+            Glide.with(context).load(list2.getProfilePic()).diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.profilePic);
+        }else{
+            Glide.with(context).load("https://xn--80aaggtieo3biv.xn--p1ai/images/unload.jpg").diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.profilePic);
+        }
+
+        holder.name.setText(list2.getName());
+        holder.lastMessage.setText(list2.getLastMessage());
+
+        if (list2.getUnseenmessages() ==0 ) {
+            holder.unseenMessages.setVisibility(View.GONE);
+            holder.lastMessage.setTextColor(Color.parseColor("#959595"));
+        }else{
+            holder.unseenMessages.setVisibility(View.VISIBLE);
+            holder.unseenMessages.setText(list2.getUnseenmessages()+"");
+            holder.lastMessage.setTextColor(context.getResources().getColor(R.color.dark_blue));
+
+        }
+        holder.root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Chat.class);
+                intent.putExtra("name",list2.getName());
+                intent.putExtra("mobile",list2.getMobil());
+                intent.putExtra("profile_pic",list2.getProfilePic());
+                intent.putExtra("chat_key",list2.getChatKey());
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    public void updateData (List<MessagesList> messagesLists){
+        this.messagesLists = messagesLists;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -51,6 +92,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         private TextView name;
         private TextView lastMessage;
         private TextView unseenMessages;
+        private LinearLayout root;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +101,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             name =itemView.findViewById(R.id.name);
             lastMessage =itemView.findViewById(R.id.lastMessage);
             unseenMessages =itemView.findViewById(R.id.unseenmessages);
+            root =itemView.findViewById(R.id.rootlayout);
         }
     }
 }
