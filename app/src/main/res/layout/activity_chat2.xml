@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".chat.Chat">
 
     <RelativeLayout
+        android:id="@+id/topbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -14,13 +16,13 @@
             android:id="@+id/backBtn"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:paddingStart="12sp"
-            android:background="@color/gray"
-            android:paddingEnd="2dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
-            android:src="@drawable/back_arrow"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:background="@color/gray"
+            android:paddingStart="12sp"
+            android:paddingEnd="2dp"
+            android:src="@drawable/back_arrow" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/prodilePic"
@@ -36,38 +38,46 @@
             android:src="@drawable/empty_profile_photo" />
 
         <LinearLayout
-            android:layout_marginStart="10dp"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_toEndOf="@id/prodilePic">
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/prodilePic"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Name"
                 android:maxLines="1"
+                android:text="User Name"
                 android:textColor="#424242"
-                android:textStyle="bold"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="online"
-                android:maxLines="1"
-                android:textColor="#00cb53"
                 android:layout_marginTop="2dp"
-                android:textStyle="bold"
-                android:textSize="13sp"/>
+                android:maxLines="1"
+                android:text="online"
+                android:textColor="#00cb53"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chattingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topbar"
+        android:layout_above="@+id/bottomBar"/>
+
+
     <RelativeLayout
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

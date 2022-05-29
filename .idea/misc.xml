@@ -15,7 +15,9 @@
         <entry key="..\:/Amicus/app/src/main/res/drawable/ic_tachka_dark.xml" value="0.3045" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/key.xml" value="0.3295" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/mir.xml" value="0.329" />
+        <entry key="..\:/Amicus/app/src/main/res/drawable/my_msg_back.xml" value="0.1995" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/my_travel_selector.xml" value="0.3828125" />
+        <entry key="..\:/Amicus/app/src/main/res/drawable/opo_msg_back.xml" value="0.1995" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/red_corner_bt.xml" value="0.3665" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/round_back_theme.xml" value="0.2135" />
         <entry key="..\:/Amicus/app/src/main/res/drawable/search_selector.xml" value="0.3828125" />
@@ -36,6 +38,7 @@
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_time_change.xml" value="0.2930253623188406" />
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_user_auto.xml" value="0.5" />
         <entry key="..\:/Amicus/app/src/main/res/layout/activity_users_data.xml" value="0.35260416666666666" />
+        <entry key="..\:/Amicus/app/src/main/res/layout/chat_adapter_layout.xml" value="0.2826086956521739" />
         <entry key="..\:/Amicus/app/src/main/res/layout/fragment__two_chat.xml" value="0.2717391304347826" />
         <entry key="..\:/Amicus/app/src/main/res/layout/fragment_add.xml" value="0.5" />
         <entry key="..\:/Amicus/app/src/main/res/layout/fragment_app_settings.xml" value="0.2930253623188406" />
