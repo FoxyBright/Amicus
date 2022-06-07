@@ -94,6 +94,7 @@ public class Registration extends AppCompatActivity {
                             databaseReference.child("users").child(mobile).child("email").setValue(email1);
                             databaseReference.child("users").child(mobile).child("name").setValue(name);
                             databaseReference.child("users").child(mobile).child("profile_pic").setValue("");
+                            databaseReference.child("users").child(mobile).child("moblie").setValue(mobile);
 
                             MemoryData.saveName(name,Registration.this);
                             MemoryData.savePhone(mobile,Registration.this);

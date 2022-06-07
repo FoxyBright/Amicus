@@ -11,6 +11,8 @@ import android.os.Bundle;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.amicus.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,8 @@ public class ChatActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl(
             "https://amicus-f81c5-default-rtdb.firebaseio.com");
+
+    FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
     RecyclerView messageRecyclerView;
     MessagesAdapter messagesAdapter;
@@ -142,6 +146,30 @@ public class ChatActivity extends AppCompatActivity {
 
                     }
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
+    public void readUsers(){
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                messagesLists.clear();
+                for (DataSnapshot snapshot1 :snapshot.getChildren()) {
+                    MessagesList user =snapshot1.getValue(MessagesList.class);
+                    if (!user.getId().equals(firebaseUser.getUid())) {
+                        messagesLists.add(user);
+                    }
+                }
+                
             }
 
             @Override

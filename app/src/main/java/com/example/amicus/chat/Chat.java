@@ -1,10 +1,12 @@
 package com.example.amicus.chat;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +17,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.amicus.R;
 import com.example.amicus.messages.MemoryData;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +59,7 @@ public class Chat extends AppCompatActivity {
         EditText messageEditText = findViewById(R.id.messageEditText);
         TextView nameTV = findViewById(R.id.name);
         ImageView backbtn = findViewById(R.id.backBtn);
-        CircleImageView profilePic = findViewById(R.id.prodilePic);
+        CircleImageView profilePic = findViewById(R.id.prodilePic1);
 
         chattingRecyclerView = findViewById(R.id.chattingRecyclerView);
 
@@ -65,15 +71,15 @@ public class Chat extends AppCompatActivity {
         getUserMobile = MemoryData.getPhone(Chat.this);
 
         nameTV.setText(getName);
-        Glide.with(Chat.this).load(getProfilePic).diskCacheStrategy(DiskCacheStrategy.NONE).into(profilePic);
+        Glide.with(Chat.this).load("https://xn--80aaggtieo3biv.xn--p1ai/images/unload.jpg").diskCacheStrategy(DiskCacheStrategy.NONE).into(profilePic);
         chattingRecyclerView.setHasFixedSize(true);
         chattingRecyclerView.setLayoutManager(new LinearLayoutManager(Chat.this));
 
         chatAdapter = new ChatAdapter(chatLists,Chat.this);
         chattingRecyclerView.setAdapter(chatAdapter);
 
-
         databaseReference.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (chatKey.isEmpty()) {
@@ -94,19 +100,16 @@ public class Chat extends AppCompatActivity {
                                 String getMsg = messageSnapshot.child("msg").getValue(String.class);
 
 
-                                Timestamp timestamp = new Timestamp(Long.parseLong(messageTimestamps));
-                                Date date = new Date(timestamp.getTime());
-                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-                                SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
-                                ChatList chatList = new ChatList(getMobile,getName,getMsg,simpleDateFormat.format(date),simpleTimeFormat.format(date));
+                                LocalDateTime now = LocalDateTime.now();
+                                DateTimeFormatter simpleDateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                                DateTimeFormatter simpleTimeFormat = DateTimeFormatter.ofPattern("hh:mm:ss");
+                                ChatList chatList = new ChatList(getMobile,getName,getMsg,simpleDateFormat.format(now),simpleTimeFormat.format(now));
                                 chatLists.add(chatList);
 
                                 if (loadingFirstTime || Long.parseLong(messageTimestamps)>Long.parseLong(MemoryData.getLastMsgTS(Chat.this,chatKey))) {
                                     loadingFirstTime = false;
                                     MemoryData.saveLastMsgTS(messageTimestamps, chatKey, Chat.this);
-
                                     chatAdapter.updateChatList(chatLists);
-
                                     chattingRecyclerView.scrollToPosition(chatLists.size() - 1);
                                 }
 
@@ -149,4 +152,6 @@ public class Chat extends AppCompatActivity {
             }
         });
     }
+
+
 }

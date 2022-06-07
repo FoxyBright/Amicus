@@ -7,6 +7,7 @@ public class MessagesList {
     private String lastMessage;
     private String profilePic;
     private String chatKey;
+    private String id;
 
     private int unseenmessages;
 
@@ -17,6 +18,10 @@ public class MessagesList {
         this.unseenmessages = unseenmessages;
         this.profilePic = profilePic;
         this.chatKey = chatKey;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getChatKey() {
